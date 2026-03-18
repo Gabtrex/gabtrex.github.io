@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Page</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel's Portfolio</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -87,6 +90,10 @@ const projects = {
 // Populate content dynamically
 if (project && projects[project]) {
     const p = projects[project];
+
+    // Set the page title dynamically
+    document.title = p.title + " | Gabriel's Portfolio";
+
     document.getElementById('project-title').innerText = p.title;
     document.getElementById('project-subtitle').innerText = p.subtitle;
     document.getElementById('project-description').innerText = p.description;
