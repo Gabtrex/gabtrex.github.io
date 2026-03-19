@@ -13,7 +13,6 @@
 <body>
 
 <header>
-    <!-- Clickable Name Button -->
     <a href="index.html" class="name-button">
         <div class="name-container">
             <h1 class="main-name">Gabriel Fernandes Neves</h1>
@@ -21,7 +20,6 @@
         </div>
     </a>
 
-    <!-- Navigation -->
     <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -29,10 +27,31 @@
     </nav>
 </header>
 
+<!-- ===== MAIN HERO ===== -->
+<div class="main-hero">
+    <div class="main-hero-bg" id="mainHeroBg"></div>
+    <div class="main-hero-overlay"></div>
+
+    <div class="main-hero-content">
+        <p class="main-hero-eyebrow">Game Developer · Designer · Creator</p>
+        <h1 class="main-hero-title">Building Worlds from Scratch</h1>
+        <p class="main-hero-sub">Solo developer with 9+ years of experience crafting games across Unreal Engine, Unity, and beyond.</p>
+        <div class="main-hero-cta">
+            <a href="#projects" class="primary">View Projects</a>
+            <a href="#about" class="secondary">About Me</a>
+        </div>
+    </div>
+
+    <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-hint-line"></div>
+    </div>
+</div>
+
 <!-- ABOUT SECTION -->
 <section id="about">
     <h2 class="scroll-reveal">About Me</h2>
-    <p class="scroll-reveal">I'm Gabriel, an <strong>19 year old game developer</strong> who has been creating games since the age of <strong>10</strong>. I started with <strong>Scratch</strong> and progressively moved to engines such as <strong>Unreal Engine 5</strong> and <strong>Unity</strong>, building experience across multiple technologies and languages.</p>
+    <p class="scroll-reveal">I'm Gabriel, a <strong>19 year old game developer</strong> who has been creating games since the age of <strong>10</strong>. I started with <strong>Scratch</strong> and progressively moved to engines such as <strong>Unreal Engine 5</strong> and <strong>Unity</strong>, building experience across multiple technologies and languages.</p>
     <p class="scroll-reveal">In <strong>2025</strong>, I independently developed and released <strong>Bloodbound Knights on Steam</strong>, handling the <strong>full production pipeline</strong> and gaining strong experience with <strong>Unreal Engine 5</strong> and <strong>Blueprint</strong>. Prior to that, I published a <strong>mobile game on Google Play</strong> and worked on smaller projects using <strong>C#</strong>, <strong>Roblox Lua</strong>, and <strong>Godot</strong>.</p>
     <p class="scroll-reveal">I am currently studying at <strong>ANATEN</strong>, where I continue to strengthen my <strong>C#</strong> skills and expand my engine and systems knowledge.</p>
 </section>
@@ -43,7 +62,6 @@
 
     <div class="projects-grid">
 
-        <!-- Bloodbound Knights Project -->
         <a class="project-link scroll-reveal" href="project.html?project=bloodbound">
             <div class="project-card bloodbound">
                 <h3>Bloodbound Knights</h3>
@@ -51,7 +69,6 @@
             </div>
         </a>
 
-        <!-- Aim Buddy Project -->
         <a class="project-link scroll-reveal" href="project.html?project=aimbuddy">
             <div class="project-card aimtrainer">
                 <h3>Aim Buddy</h3>
@@ -59,7 +76,6 @@
             </div>
         </a>
 
-        <!-- Another Project -->
         <a class="project-link scroll-reveal" href="project.html?project=another">
             <div class="project-card another">
                 <h3>Another Project</h3>
@@ -76,12 +92,17 @@
     <p>Email: gabrielfneves07@gmail.com</p>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <p>© 2026 Gabriel Fernandes Neves</p>
 </footer>
 
 <script>
+    // Trigger background zoom-out on load
+    window.addEventListener('load', () => {
+        document.getElementById('mainHeroBg').classList.add('loaded');
+    });
+
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
