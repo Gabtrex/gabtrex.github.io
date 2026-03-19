@@ -173,7 +173,7 @@ h2 {
 .project-card:hover p,
 .project-card:hover .skill-tags {
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(-18px);
 }
 
 .project-card:hover {
@@ -270,17 +270,14 @@ h2 {
 
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.15),
-        inset 0 -1px 1px rgba(0, 0, 0, 0.3),
-        0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: none;
     backdrop-filter: blur(12px);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
 }
 
 .skill-icon img {
@@ -295,11 +292,8 @@ h2 {
 .skill-item:hover .skill-icon {
     transform: translateY(-5px) scale(1.06);
     background: rgba(255, 255, 255, 0.11);
-    box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.22),
-        inset 0 -1px 1px rgba(0, 0, 0, 0.3),
-        0 16px 36px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: none;
 }
 
 .skill-item:hover .skill-icon img {
@@ -521,7 +515,7 @@ footer {
 .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .scroll-reveal.visible {
@@ -718,6 +712,32 @@ footer {
     .scroll-hint {
         display: none;
     }
+}
+
+/* ===== SKILL FILTER STATES ===== */
+.project-link {
+    transition: opacity 0.15s ease, transform 0.4s ease;
+}
+
+.project-link.project-dimmed {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.project-link.project-highlighted .project-card {
+    box-shadow: none;
+    outline: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.skill-item.skill-active .skill-icon {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.75);
+    box-shadow: none;
+    transform: translateY(-5px) scale(1.06);
+}
+
+.skill-item.skill-active span {
+    color: rgba(255, 255, 255, 1);
 }
 
 /* ===== CONNECT LINKS ===== */
