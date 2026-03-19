@@ -1,9 +1,25 @@
 /* ===== GLOBAL STYLES ===== */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: #111111;
   color: #eaeaea;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* ===== HEADER ===== */
@@ -137,6 +153,7 @@ h2 {
 
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
 /* Dark tint overlay — always visible, lifts on hover */
@@ -738,6 +755,20 @@ footer {
 
 .skill-item.skill-active span {
     color: rgba(255, 255, 255, 1);
+}
+
+/* ===== ABOUT LINKS ===== */
+#about a {
+    color: #eaeaea;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+#about a:hover {
+    color: #fff;
+    border-bottom-color: #fff;
 }
 
 /* ===== CONNECT LINKS ===== */
