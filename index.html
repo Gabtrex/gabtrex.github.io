@@ -30,6 +30,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#connect">Connect</a>
     </nav>
 </header>
@@ -160,7 +161,7 @@
             <span>Blender</span>
         </div>
 
-         <div class="skill-item scroll-reveal" data-skill="gamejam">
+        <div class="skill-item scroll-reveal" data-skill="gamejam">
             <div class="skill-icon">
                 <img src="images/Skills/GJ.png" alt="Game Jam">
             </div>
@@ -172,6 +173,13 @@
                 <img src="images/Skills/CM.png" alt="Community Management">
             </div>
             <span>Community Management</span>
+        </div>
+
+        <div class="skill-item scroll-reveal" data-skill="eventorg">
+            <div class="skill-icon">
+                <img src="images/Skills/Event Organisator.png" alt="Event Organisation">
+            </div>
+            <span>Event Organisation</span>
         </div>
 
     </div>
@@ -225,7 +233,7 @@
             </div>
         </a>
 
-        <a class="project-link scroll-reveal" href="project.html?project=mam" data-skills="Godot photoshop git gamejam">
+        <a class="project-link scroll-reveal" href="project.html?project=mam" data-skills="godot photoshop git gamejam">
             <div class="project-card mam">
                 <h3>Meurtre à Monaco</h3>
                 <p>Participated in my first Global Game Jam with the theme on the track, working in a five-person team as the sole developer to create a game within 48 hours.</p>
@@ -234,6 +242,28 @@
                     <span class="skill-tag">Git</span>
                     <span class="skill-tag">Photoshop</span>
                     <span class="skill-tag">Game Jam</span>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience">
+    <h2 class="scroll-reveal">Professional Experience</h2>
+
+    <div class="projects-grid">
+
+        <a class="project-link scroll-reveal" href="experience.html?experience=playmanity" data-skills="community eventorg photoshop premiere">
+            <div class="project-card playmanity">
+                <h3>Community Manager</h3>
+                <p><u>Playmanity</u> · 2022 – Present</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Community Management</span>
+                    <span class="skill-tag">Event Organisation</span>
+                    <span class="skill-tag">Photoshop</span>
+                    <span class="skill-tag">Premiere Pro</span>
                 </div>
             </div>
         </a>
@@ -273,7 +303,7 @@
         observer.observe(el);
     });
 
-    // Skill filter
+    // Skill filter — covers both projects and experience cards
     document.querySelectorAll('.skill-item[data-skill]').forEach(item => {
         item.style.cursor = 'pointer';
         item.addEventListener('click', () => {

@@ -43,6 +43,7 @@
 
 <!-- Project Showcase -->
 <section class="project-showcase">
+
     <!-- Screenshots Gallery -->
     <div class="screenshots">
         <img id="screenshot1" src="" alt="Screenshot 1">
@@ -55,8 +56,16 @@
         <h1>About</h1>
         <p id="project-description">Detailed project description goes here.</p>
     </div>
+
+    <!-- Skills Used -->
+    <div id="project-skills-section" style="margin-top: 3rem;">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.5rem; color: #fff;">Skills Used</h2>
+        <div class="skills-grid" id="project-skills-grid"></div>
+    </div>
+
 </section>
 
+<script src="skills.js"></script>
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 const project = urlParams.get('project');
@@ -91,19 +100,21 @@ const projects = {
         playLink: "https://store.steampowered.com/app/3577770/BloodBound_Knights/",
         heroImg: "images/BBK/Hero/Library Hero.png",
         heroPosition: "center 20%",
-        screenshots: ["images/BBK/Screenshots/CharacterSelection.gif", "images/BBK/Screenshots/Abilities.gif", "images/BBK/Screenshots/Shop.gif"]
+        screenshots: ["images/BBK/Screenshots/CharacterSelection.gif", "images/BBK/Screenshots/Abilities.gif", "images/BBK/Screenshots/Shop.gif"],
+        skills: ["ue5", "blueprint", "git", "photoshop", "premiere"]
     },
     aimbuddy: {
         title: "Aim Buddy",
         subtitle: "A compact 2D aim-trainer mini game inspired by osu!, designed to be played while you're dead in an FPS.",
         description: `
             <p>Running in a small window on a second monitor, this game activates after you die in a shooter, turning downtime into meaningful practice. Click fast appearing circles as they vanish and respawn across the screen, sharpening your aim and reaction time. </p>
-            <p>Every successful hit grants XP, letting you level up and unlock cosmetic skins over time. It’s a lightweight way to stay engaged, improve your aim, and build long-term progression while waiting to jump back into the action.</p>
+            <p>Every successful hit grants XP, letting you level up and unlock cosmetic skins over time. It's a lightweight way to stay engaged, improve your aim, and build long-term progression while waiting to jump back into the action.</p>
         `,
         playLink: "https://gabtrex.itch.io/aim-buddy",
         heroImg: "images/AB/Hero/Library Hero.png",
         heroPosition: "center 0%",
-        screenshots: ["images/AB/Screenshots/1.png", "images/AB/Screenshots/2.png", "images/AB/Screenshots/3.png"]
+        screenshots: ["images/AB/Screenshots/1.png", "images/AB/Screenshots/2.png", "images/AB/Screenshots/3.png"],
+        skills: ["unity", "csharp", "git", "photoshop"]
     },
     veilshifter: {
         title: "Veil Shifter",
@@ -116,7 +127,8 @@ const projects = {
         playLink: "https://gabtrex.itch.io/veil-shifter",
         heroImg: "images/VeilShifter/Hero/Hero.png",
         heroPosition: "center 0%",
-        screenshots: ["images/VeilShifter/Screenshots/1.png", "images/VeilShifter/Screenshots/2.png", "images/VeilShifter/Screenshots/3.png"]
+        screenshots: ["images/VeilShifter/Screenshots/1.png", "images/VeilShifter/Screenshots/2.png", "images/VeilShifter/Screenshots/3.png"],
+        skills: ["unity", "csharp", "git", "blender", "photoshop", "gamejam"]
     },
     mam: {
         title: "Meurtre à Monaco",
@@ -128,7 +140,8 @@ const projects = {
         playLink: "https://gabtrex.itch.io/meurtre-monaco",
         heroImg: "images/MAM/Hero/MAM.png",
         heroPosition: "center 15%",
-        screenshots: ["images/MAM/Screenshots/1.gif", "images/MAM/Screenshots/2.gif", "images/MAM/Screenshots/3.png"]
+        screenshots: ["images/MAM/Screenshots/1.gif", "images/MAM/Screenshots/2.gif", "images/MAM/Screenshots/3.png"],
+        skills: ["godot", "git", "photoshop", "gamejam"]
     }
 };
 
@@ -153,6 +166,25 @@ if (project && projects[project]) {
     document.getElementById('screenshot1').src = p.screenshots[0];
     document.getElementById('screenshot2').src = p.screenshots[1];
     document.getElementById('screenshot3').src = p.screenshots[2];
+
+    // Render skills
+    const grid = document.getElementById('project-skills-grid');
+    if (p.skills && p.skills.length > 0) {
+        p.skills.forEach(key => {
+            const skill = allSkills[key];
+            if (!skill) return;
+            grid.innerHTML += `
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <img src="${skill.img}" alt="${skill.label}">
+                    </div>
+                    <span>${skill.label}</span>
+                </div>
+            `;
+        });
+    } else {
+        document.getElementById('project-skills-section').style.display = 'none';
+    }
 }
 </script>
 

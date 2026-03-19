@@ -1,0 +1,18 @@
+const allSkills = {
+    ue5:          { label: "Unreal Engine 5",      img: "images/Skills/UE.png" },
+    blueprint:    { label: "Blueprint",            img: "images/Skills/BP.png" },
+    unity:        { label: "Unity",                img: "images/Skills/Unity.png" },
+    csharp:       { label: "C#",                   img: "images/Skills/CSharp.png" },
+    godot:        { label: "Godot",                img: "images/Skills/Godot.png" },
+    robloxstudio: { label: "Roblox Studio",        img: "images/Skills/RobloxStudio.png" },
+    lua:          { label: "Roblox Lua",           img: "images/Skills/Lua.png" },
+    python:       { label: "Python",               img: "images/Skills/Python.png" },
+    git:          { label: "Git",                  img: "images/Skills/Git.png" },
+    photoshop:    { label: "Photoshop",            img: "images/Skills/PS.png" },
+    premiere:     { label: "Premiere Pro",         img: "images/Skills/PR.png" },
+    illustrator:  { label: "Illustrator",          img: "images/Skills/AI.png" },
+    blender:      { label: "Blender",              img: "images/Skills/Blender.png" },
+    gamejam:      { label: "Game Jam",             img: "images/Skills/GJ.png" },
+    community:    { label: "Community Management", img: "images/Skills/CM.png" },
+    eventorg:     { label: "Event Organisation",   img: "images/Skills/Event Organisator.png" }
+};
