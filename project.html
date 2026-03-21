@@ -6,12 +6,10 @@
     <title>Gabriel's Portfolio</title>
 
     <link rel="stylesheet" href="styles.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Glassy Top Bar -->
 <header>
     <a href="index.html" class="name-button">
         <div class="name-container">
@@ -28,13 +26,14 @@
     </nav>
 </header>
 
-<!-- Hero Image -->
+<!-- Hero -->
 <div class="hero">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-text">
             <h2 id="project-title">Project Title</h2>
+            <p id="project-date-hero" class="project-date-hero"></p>
             <p id="project-subtitle">Short tagline or description of the project</p>
         </div>
         <div class="hero-actions">
@@ -43,23 +42,20 @@
     </div>
 </div>
 
-<!-- Project Showcase -->
+<!-- Showcase -->
 <section class="project-showcase">
 
-    <!-- Screenshots Gallery -->
     <div class="screenshots">
         <img id="screenshot1" src="" alt="Screenshot 1">
         <img id="screenshot2" src="" alt="Screenshot 2">
         <img id="screenshot3" src="" alt="Screenshot 3">
     </div>
 
-    <!-- About / Description -->
     <div class="project-about">
         <h1>About</h1>
-        <p id="project-description">Detailed project description goes here.</p>
+        <p id="project-description"></p>
     </div>
 
-    <!-- Skills Used -->
     <div id="project-skills-section" style="margin-top: 3rem;">
         <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.5rem; color: #fff;">Skills Used</h2>
         <div class="skills-grid" id="project-skills-grid"></div>
@@ -68,127 +64,52 @@
 </section>
 
 <script src="skills.js"></script>
+<script src="data.js"></script>
 <script>
-const urlParams = new URLSearchParams(window.location.search);
-const project = urlParams.get('project');
+    const key = new URLSearchParams(window.location.search).get('project');
+    const p   = projects[key];
 
-const projects = {
-    bloodbound: {
-        title: "Bloodbound Knights",
-        subtitle: "BloodBound Knights is a fast-paced roguelike shoot 'em up where you battle through procedurally generated levels, unleash powerful spells, and upgrade your gear. Choose your class, master unique abilities, level up, customize your playstyle, and become unstoppable.",
-        description: `
-            <p>BloodBound Knights is an intense rogue-like shoot 'em up where you take on the role of a powerful soldier. Unlock unique spells and upgrade your abilities in the shop to save yourself.</p>
+    if (p) {
+        document.title = p.title + " | Gabriel's Portfolio";
 
-            <h3><u>Key Features</u></h3>
-            <ul>
-                <li><strong>Choose Your Character</strong> : Pick from a diverse cast of classes, each with their own unique magical or physical abilities. Whether you wield fire, ice, lightning, arcane energy or you just like to smash enemies, every character offers a different playstyle.</li>
-                <li><strong>Fast-Paced Combat</strong> : Engage in action-packed shoot 'em up combat. Dodge enemy attacks while unleashing powerful spells in dynamic, intense battles.</li>
-                <li><strong>Level Up & Progress</strong> : Gain experience, level up your character, and unlock stronger spells and abilities.</li>
-                <li><strong>Unique Spells & Abilities</strong> : Master spells and techniques that can be upgraded for devastating effects. Level up to unlock new powers and enhance your combat strategy.</li>
-                <li><strong>Rogue-like Gameplay</strong> : Experience procedurally generated levels with new challenges every time you play. No two runs are the same !</li>
-                <li><strong>Shop System</strong> : Gain gold by slaying enemies, defeating bosses and level upping, and buy powerful upgrades and buffs for your character.</li>
-            </ul>
+        document.getElementById('project-title').innerText    = p.title;
+        document.getElementById('project-subtitle').innerText = p.subtitle;
+        document.getElementById('project-description').innerHTML = p.description;
 
-            <h3><u>Gameplay Highlights</u></h3>
-            <ul>
-                <li>Unlock new spells as you progress</li>
-                <li>Cast active abilities and automatic spells</li>
-                <li>Face endless hordes and powerful bosses</li>
-                <li>Procedurally generated levels every run</li>
-                <li>Level up and grow stronger each adventure</li>
-                <li>Buy upgrades to enhance your character</li>
-            </ul>
-        `,
-        playLink: "https://store.steampowered.com/app/3577770/BloodBound_Knights/",
-        heroImg: "images/BBK/Hero/Library Hero.png",
-        heroPosition: "center 20%",
-        screenshots: ["images/BBK/Screenshots/CharacterSelection.gif", "images/BBK/Screenshots/Abilities.gif", "images/BBK/Screenshots/Shop.gif"],
-        skills: ["ue5", "blueprint", "git", "photoshop", "premiere"]
-    },
-    aimbuddy: {
-        title: "Aim Buddy",
-        subtitle: "A compact 2D aim-trainer mini game inspired by osu!, designed to be played while you're dead in an FPS.",
-        description: `
-            <p>Running in a small window on a second monitor, this game activates after you die in a shooter, turning downtime into meaningful practice. Click fast appearing circles as they vanish and respawn across the screen, sharpening your aim and reaction time. </p>
-            <p>Every successful hit grants XP, letting you level up and unlock cosmetic skins over time. It's a lightweight way to stay engaged, improve your aim, and build long-term progression while waiting to jump back into the action.</p>
-        `,
-        playLink: "https://gabtrex.itch.io/aim-buddy",
-        heroImg: "images/AB/Hero/Library Hero.png",
-        heroPosition: "center 0%",
-        screenshots: ["images/AB/Screenshots/1.png", "images/AB/Screenshots/2.png", "images/AB/Screenshots/3.png"],
-        skills: ["unity", "csharp", "git", "photoshop"]
-    },
-    veilshifter: {
-        title: "Veil Shifter",
-        subtitle: "Participated in my second Global Game Jam with the theme masks as part of a two-developer team, creating a game within 48 hours.",
-        description: `
-            <p>A fast paced first person game in which players switch and combine masks to create unique weapons and abilities combos, mastering dynamic traversal mechanics and combat to clear levels and defeat enemies in the shortest time possible.</p>
-            <p>Designed and built all map levels, focusing on layout, pacing, and player flow to support engaging gameplay. Implemented the full mask system, including selection, switching, and usability mechanics, ensuring each mask felt responsive, intuitive, and seamlessly integrated into both traversal and combat.
-            <p>Ai was used in this project, to generate the mask models, for the UI and the game Logo.</p>
-            <p>Global Game Jam 2026, 48h | Theme : Mask</p>
-        `,
-        playLink: "https://gabtrex.itch.io/veil-shifter",
-        heroImg: "images/VeilShifter/Hero/Hero.png",
-        heroPosition: "center 0%",
-        screenshots: ["images/VeilShifter/Screenshots/1.png", "images/VeilShifter/Screenshots/2.png", "images/VeilShifter/Screenshots/3.png"],
-        skills: ["unity", "csharp", "git", "blender", "photoshop", "gamejam"]
-    },
-    mam: {
-        title: "Meurtre à Monaco",
-        subtitle: "Participated in my first Global Game Jam with the theme on the track, working in a five-person team as the sole developer to create a game within 48 hours.",
-        description: `
-            <p>Between mystery and the smell of gasoline, welcome to Monaco. You are a driver and must stay focused on the road, but at the last minute, Yukio, one of the drivers, was found dead by the organizer... A tragedy blending high-speed thrills with intense puzzles, discover a Cluedo-style mystery set around the race! So get on the track and solve the Murder in Monaco!</p>
-            <p>Global Game Jam 2026, 48h | Theme : Mask</p>
-        `,
-        playLink: "https://gabtrex.itch.io/meurtre-monaco",
-        heroImg: "images/MAM/Hero/MAM.png",
-        heroPosition: "center 15%",
-        screenshots: ["images/MAM/Screenshots/1.gif", "images/MAM/Screenshots/2.gif", "images/MAM/Screenshots/3.png"],
-        skills: ["godot", "git", "photoshop", "gamejam"]
-    }
-};
+        const dateEl = document.getElementById('project-date-hero');
+        dateEl.innerText     = p.date || '';
+        dateEl.style.display = p.date ? 'block' : 'none';
 
-if (project && projects[project]) {
-    const p = projects[project];
+        const heroBg = document.getElementById('heroBg');
+        heroBg.style.backgroundImage    = `url('${p.heroImg}')`;
+        heroBg.style.backgroundPosition = p.heroPosition || 'center 20%';
+        setTimeout(() => heroBg.classList.add('loaded'), 50);
 
-    document.title = p.title + " | Gabriel's Portfolio";
+        const playLink   = document.getElementById('play-link');
+        playLink.href    = p.playLink;
+        playLink.target  = '_blank';
+        playLink.innerText = p.isGame === false ? 'Visit Website' : 'Play Game';
 
-    document.getElementById('project-title').innerText = p.title;
-    document.getElementById('project-subtitle').innerText = p.subtitle;
-    document.getElementById('project-description').innerHTML = p.description;
+        document.getElementById('screenshot1').src = p.screenshots[0];
+        document.getElementById('screenshot2').src = p.screenshots[1];
+        document.getElementById('screenshot3').src = p.screenshots[2];
 
-    const heroBg = document.getElementById('heroBg');
-    heroBg.style.backgroundImage = `url('${p.heroImg}')`;
-    heroBg.style.backgroundPosition = p.heroPosition || 'center 20%';
-    setTimeout(() => heroBg.classList.add('loaded'), 50);
-
-    const playLink = document.getElementById('play-link');
-    playLink.href = p.playLink;
-    playLink.target = "_blank";
-
-    document.getElementById('screenshot1').src = p.screenshots[0];
-    document.getElementById('screenshot2').src = p.screenshots[1];
-    document.getElementById('screenshot3').src = p.screenshots[2];
-
-    // Render skills
-    const grid = document.getElementById('project-skills-grid');
-    if (p.skills && p.skills.length > 0) {
-        p.skills.forEach(key => {
-            const skill = allSkills[key];
-            if (!skill) return;
-            grid.innerHTML += `
-                <div class="skill-item">
-                    <div class="skill-icon">
-                        <img src="${skill.img}" alt="${skill.label}">
+        const grid = document.getElementById('project-skills-grid');
+        if (p.skills && p.skills.length > 0) {
+            p.skills.forEach(k => {
+                const skill = allSkills[k];
+                if (!skill) return;
+                grid.innerHTML += `
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="${skill.img}" alt="${skill.label}"></div>
+                        <span>${skill.label}</span>
                     </div>
-                    <span>${skill.label}</span>
-                </div>
-            `;
-        });
-    } else {
-        document.getElementById('project-skills-section').style.display = 'none';
+                `;
+            });
+        } else {
+            document.getElementById('project-skills-section').style.display = 'none';
+        }
     }
-}
 </script>
 
 </body>

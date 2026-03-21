@@ -6,12 +6,10 @@
     <title>Gabriel's Portfolio</title>
 
     <link rel="stylesheet" href="styles.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Glassy Top Bar -->
 <header>
     <a href="index.html" class="name-button">
         <div class="name-container">
@@ -28,13 +26,14 @@
     </nav>
 </header>
 
-<!-- Hero Image -->
+<!-- Hero -->
 <div class="hero">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-text">
             <h2 id="experience-title">Experience Title</h2>
+            <p id="experience-date-hero" class="project-date-hero"></p>
             <p id="experience-subtitle">Short description of the experience</p>
         </div>
         <div class="hero-actions">
@@ -43,16 +42,14 @@
     </div>
 </div>
 
-<!-- Experience Showcase -->
+<!-- Showcase -->
 <section class="project-showcase">
 
-    <!-- About / Description -->
     <div class="project-about">
         <h1>About</h1>
-        <p id="experience-description">Detailed experience description goes here.</p>
+        <p id="experience-description"></p>
     </div>
 
-    <!-- Skills Used -->
     <div id="experience-skills-section" style="margin-top: 3rem;">
         <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.5rem; color: #fff;">Skills Used</h2>
         <div class="skills-grid" id="experience-skills-grid"></div>
@@ -61,60 +58,46 @@
 </section>
 
 <script src="skills.js"></script>
+<script src="data.js"></script>
 <script>
-const urlParams = new URLSearchParams(window.location.search);
-const experience = urlParams.get('experience');
+    const key = new URLSearchParams(window.location.search).get('experience');
+    const e   = experiences[key];
 
-const experiences = {
-    playmanity: {
-        title: "Community Manager",
-        subtitle: "Playmanity · 2022 – Present",
-        description: `
-            <p>Community Manager at Playmanity, serving as the primary point of contact and public-facing presence for the community. Responsible for organizing events and giveaways, actively engaging with users, and maintaining a dynamic and interactive environment to foster long-term community retention and growth.</p>
-        `,
-        heroImg: "images/Playmanity/Hero/Pm.png",
-        heroPosition: "center 0%",
-        websiteLink: "https://playmanity.net",
-        skills: ["community", "eventorg", "photoshop", "premiere"]
-    }
-};
+    if (e) {
+        document.title = e.title + " | Gabriel's Portfolio";
 
-if (experience && experiences[experience]) {
-    const e = experiences[experience];
+        document.getElementById('experience-title').innerText    = e.title;
+        document.getElementById('experience-subtitle').innerText = e.subtitle;
+        document.getElementById('experience-description').innerHTML = e.description;
 
-    document.title = e.title + " | Gabriel's Portfolio";
+        const dateEl = document.getElementById('experience-date-hero');
+        dateEl.innerText     = e.date || '';
+        dateEl.style.display = e.date ? 'block' : 'none';
 
-    document.getElementById('experience-title').innerText = e.title;
-    document.getElementById('experience-subtitle').innerText = e.subtitle;
-    document.getElementById('experience-description').innerHTML = e.description;
+        const heroBg = document.getElementById('heroBg');
+        heroBg.style.backgroundImage    = `url('${e.heroImg}')`;
+        heroBg.style.backgroundPosition = e.heroPosition || 'center 20%';
+        setTimeout(() => heroBg.classList.add('loaded'), 50);
 
-    const heroBg = document.getElementById('heroBg');
-    heroBg.style.backgroundImage = `url('${e.heroImg}')`;
-    heroBg.style.backgroundPosition = e.heroPosition || 'center 20%';
-    setTimeout(() => heroBg.classList.add('loaded'), 50);
+        const websiteLink  = document.getElementById('website-link');
+        websiteLink.href   = e.websiteLink || '#';
 
-    const websiteLink = document.getElementById('website-link');
-    websiteLink.href = e.websiteLink || '#';
-
-    // Render skills
-    const grid = document.getElementById('experience-skills-grid');
-    if (e.skills && e.skills.length > 0) {
-        e.skills.forEach(key => {
-            const skill = allSkills[key];
-            if (!skill) return;
-            grid.innerHTML += `
-                <div class="skill-item">
-                    <div class="skill-icon">
-                        <img src="${skill.img}" alt="${skill.label}">
+        const grid = document.getElementById('experience-skills-grid');
+        if (e.skills && e.skills.length > 0) {
+            e.skills.forEach(k => {
+                const skill = allSkills[k];
+                if (!skill) return;
+                grid.innerHTML += `
+                    <div class="skill-item">
+                        <div class="skill-icon"><img src="${skill.img}" alt="${skill.label}"></div>
+                        <span>${skill.label}</span>
                     </div>
-                    <span>${skill.label}</span>
-                </div>
-            `;
-        });
-    } else {
-        document.getElementById('experience-skills-section').style.display = 'none';
+                `;
+            });
+        } else {
+            document.getElementById('experience-skills-section').style.display = 'none';
+        }
     }
-}
 </script>
 
 </body>
