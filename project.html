@@ -3,30 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel's Portfolio — Project</title>
-
-    <!-- SEO -->
-    <meta name="description" content="A project by Gabriel Fernandes Neves (Gabtrex), solo game developer.">
-    <meta name="author" content="Gabriel Fernandes Neves">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Gabtrex Portfolio">
-    <meta property="og:title" content="Gabriel's Portfolio — Project">
-    <meta property="og:description" content="A project by Gabriel Fernandes Neves (Gabtrex), solo game developer.">
-    <meta property="og:url" content="https://gabtrex.github.io/project.html">
-    <meta property="og:image" content="https://gabtrex.github.io/images/FavIcon/Gabtrex.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gabriel's Portfolio — Project">
-    <meta name="twitter:description" content="A project by Gabriel Fernandes Neves (Gabtrex), solo game developer.">
-    <meta name="twitter:image" content="https://gabtrex.github.io/images/FavIcon/Gabtrex.png">
+    <title>Gabriel's Portfolio</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/FavIcon/Gabtrex.png"/>
+
+    <!-- SEO — reads data.js and injects meta tags before page renders -->
+    <script src="data.js"></script>
+    <script>
+        (function() {
+            var key = new URLSearchParams(window.location.search).get('project');
+            var p   = key && projects[key];
+            if (!p) return;
+
+            var BASE  = 'https://gabtrex.github.io';
+            var title = p.title + ' \u2014 Gabtrex Portfolio';
+            var desc  = p.cardSubtitle || p.subtitle || '';
+            var url   = BASE + '/project.html?project=' + key;
+            var img   = BASE + '/' + p.heroImg;
+
+            document.title = title;
+
+            function meta(attrs) {
+                var el = document.createElement('meta');
+                for (var k in attrs) el.setAttribute(k, attrs[k]);
+                document.head.appendChild(el);
+            }
+
+            meta({ name: 'description',        content: desc   });
+            meta({ name: 'author',             content: 'Gabriel Fernandes Neves' });
+            meta({ property: 'og:type',        content: 'website' });
+            meta({ property: 'og:site_name',   content: 'Gabtrex Portfolio' });
+            meta({ property: 'og:title',       content: title  });
+            meta({ property: 'og:description', content: desc   });
+            meta({ property: 'og:url',         content: url    });
+            meta({ property: 'og:image',       content: img    });
+            meta({ property: 'og:image:width', content: '1200' });
+            meta({ property: 'og:image:height',content: '630'  });
+            meta({ name: 'twitter:card',       content: 'summary_large_image' });
+            meta({ name: 'twitter:title',      content: title  });
+            meta({ name: 'twitter:description',content: desc   });
+            meta({ name: 'twitter:image',      content: img    });
+        })();
+    </script>
 
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -73,7 +92,6 @@
 </section>
 
 <script src="skills.js"></script>
-<script src="data.js"></script>
 <script src="header.js"></script>
 <script src="cursor.js"></script>
 <script>
@@ -82,21 +100,6 @@
 
     if (p) {
         document.title = p.title + " | Gabriel's Portfolio";
-
-        // ── SEO meta update ──────────────────────────────────
-        var base    = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
-        var imgUrl  = base + p.heroImg;
-        var pageUrl = window.location.href;
-        var desc    = p.cardSubtitle || p.subtitle || '';
-        var ogTitle = p.title + ' — Gabtrex Portfolio';
-        document.querySelector('meta[name="description"]')          .setAttribute('content', desc);
-        document.querySelector('meta[property="og:title"]')         .setAttribute('content', ogTitle);
-        document.querySelector('meta[property="og:description"]')   .setAttribute('content', desc);
-        document.querySelector('meta[property="og:url"]')           .setAttribute('content', pageUrl);
-        document.querySelector('meta[property="og:image"]')         .setAttribute('content', imgUrl);
-        document.querySelector('meta[name="twitter:title"]')        .setAttribute('content', ogTitle);
-        document.querySelector('meta[name="twitter:description"]')  .setAttribute('content', desc);
-        document.querySelector('meta[name="twitter:image"]')        .setAttribute('content', imgUrl);
 
         document.getElementById('project-title').innerText    = p.title;
         document.getElementById('project-subtitle').innerText = p.subtitle;
