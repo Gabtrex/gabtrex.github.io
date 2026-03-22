@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel's Portfolio — Project</title>
 
-    <!-- SEO (overridden dynamically by JS below for each project) -->
+    <!-- SEO -->
     <meta name="description" content="A project by Gabriel Fernandes Neves (Gabtrex), solo game developer.">
     <meta name="author" content="Gabriel Fernandes Neves">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gabtrex.github.io/project.html">
+    <meta property="og:site_name" content="Gabtrex Portfolio">
     <meta property="og:title" content="Gabriel's Portfolio — Project">
     <meta property="og:description" content="A project by Gabriel Fernandes Neves (Gabtrex), solo game developer.">
+    <meta property="og:url" content="https://gabtrex.github.io/project.html">
     <meta property="og:image" content="https://gabtrex.github.io/images/FavIcon/Gabtrex.png">
-    <meta property="og:site_name" content="Gabtrex Portfolio">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -81,18 +83,20 @@
     if (p) {
         document.title = p.title + " | Gabriel's Portfolio";
 
-        // Update meta tags dynamically
-        const pageUrl   = 'https://gabtrex.github.io/project.html?project=' + key;
-        const heroImg   = 'https://gabtrex.github.io/' + p.heroImg;
-        const desc      = p.cardSubtitle || p.subtitle || '';
-        document.querySelector('meta[name="description"]').setAttribute('content', desc);
-        document.querySelector('meta[property="og:title"]').setAttribute('content', p.title + ' | Gabtrex Portfolio');
-        document.querySelector('meta[property="og:description"]').setAttribute('content', desc);
-        document.querySelector('meta[property="og:url"]').setAttribute('content', pageUrl);
-        document.querySelector('meta[property="og:image"]').setAttribute('content', heroImg);
-        document.querySelector('meta[name="twitter:title"]').setAttribute('content', p.title + ' | Gabtrex Portfolio');
-        document.querySelector('meta[name="twitter:description"]').setAttribute('content', desc);
-        document.querySelector('meta[name="twitter:image"]').setAttribute('content', heroImg);
+        // ── SEO meta update ──────────────────────────────────
+        var base    = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+        var imgUrl  = base + p.heroImg;
+        var pageUrl = window.location.href;
+        var desc    = p.cardSubtitle || p.subtitle || '';
+        var ogTitle = p.title + ' — Gabtrex Portfolio';
+        document.querySelector('meta[name="description"]')          .setAttribute('content', desc);
+        document.querySelector('meta[property="og:title"]')         .setAttribute('content', ogTitle);
+        document.querySelector('meta[property="og:description"]')   .setAttribute('content', desc);
+        document.querySelector('meta[property="og:url"]')           .setAttribute('content', pageUrl);
+        document.querySelector('meta[property="og:image"]')         .setAttribute('content', imgUrl);
+        document.querySelector('meta[name="twitter:title"]')        .setAttribute('content', ogTitle);
+        document.querySelector('meta[name="twitter:description"]')  .setAttribute('content', desc);
+        document.querySelector('meta[name="twitter:image"]')        .setAttribute('content', imgUrl);
 
         document.getElementById('project-title').innerText    = p.title;
         document.getElementById('project-subtitle').innerText = p.subtitle;
