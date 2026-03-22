@@ -99,4 +99,45 @@
         link.addEventListener('click', closeDrawer);
     });
 
+    // ── Active nav highlight (index only) ────────────────────
+    if (isIndex) {
+        var navLinks = header.querySelectorAll('nav a');
+
+        function setActive(id) {
+            navLinks.forEach(function(link) {
+                var href = link.getAttribute('href');
+                if (href === '#' + id) {
+                    link.classList.add('nav-active');
+                } else {
+                    link.classList.remove('nav-active');
+                }
+            });
+        }
+
+        var sectionObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    setActive(entry.target.id);
+                }
+            });
+        }, {
+            rootMargin: '-30% 0px -65% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) sectionObserver.observe(el);
+        });
+
+        // Clear highlight when scrolled back to the very top (hero)
+        window.addEventListener('scroll', function() {
+            if (window.scrollY < 100) {
+                navLinks.forEach(function(link) {
+                    link.classList.remove('nav-active');
+                });
+            }
+        }, { passive: true });
+    }
+
 })();

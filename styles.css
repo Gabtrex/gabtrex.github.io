@@ -96,6 +96,10 @@ nav a::after {
 
 nav a:hover::after { width: 100%; }
 
+nav a.nav-active { color: #fff; }
+
+nav a.nav-active::after { width: 100%; }
+
 /* ===== SECTIONS ===== */
 section {
   padding: 6rem 4rem 2rem 4rem;
