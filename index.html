@@ -72,10 +72,15 @@
     <h2>Connect</h2>
     <div class="socials-grid">
 
-        <a class="social-btn" href="mailto:gabrielfneves07@gmail.com" target="_blank">
+        <div class="social-btn social-email" id="emailBtn">
             <div class="social-icon-wrap"><img src="images/Connect/Email.png" alt="Email"></div>
             <span>Email</span>
-        </a>
+            <div class="email-menu" id="emailMenu">
+                <a href="mailto:gabrielfneves07@gmail.com" target="_blank" id="emailOpen">Open Mail</a>
+                <button id="emailCopy">Copy Address</button>
+                <span class="email-copy-confirm" id="emailConfirm">Copied!</span>
+            </div>
+        </div>
 
         <a class="social-btn" href="https://www.linkedin.com/in/gabriel-fernandes-neves-444017276/" target="_blank">
             <div class="social-icon-wrap"><img src="images/Connect/linkedin.png" alt="LinkedIn"></div>
@@ -224,7 +229,6 @@
     function applyFilter() {
         var hasActive = activeSkills.size > 0;
 
-        // Show/hide clear button
         var cb = document.getElementById('skill-clear-btn');
         if (cb) cb.classList.toggle('skill-clear-visible', hasActive);
 
@@ -234,7 +238,6 @@
                 project.classList.remove('project-dimmed', 'project-highlighted');
             } else {
                 var projectSkills = project.dataset.skills.split(' ');
-                // AND logic: project must include every active skill
                 var matches = Array.from(activeSkills).every(function(s) {
                     return projectSkills.includes(s);
                 });
@@ -295,6 +298,38 @@
         clearBtnEl.style.cursor = 'none';
         clearBtnEl.addEventListener('click', clearFilter);
     }
+
+    // ── Email menu ────────────────────────────────────────────
+    var emailBtn     = document.getElementById('emailBtn');
+    var emailMenu    = document.getElementById('emailMenu');
+    var emailOpen    = document.getElementById('emailOpen');
+    var emailCopy    = document.getElementById('emailCopy');
+    var emailConfirm = document.getElementById('emailConfirm');
+
+    emailBtn.addEventListener('click', function() {
+        emailMenu.classList.toggle('show');
+    });
+
+    emailOpen.addEventListener('click', function(e) {
+        e.stopPropagation();
+        emailMenu.classList.remove('show');
+    });
+
+    emailCopy.addEventListener('click', function(e) {
+        e.stopPropagation();
+        emailMenu.classList.remove('show');
+        navigator.clipboard.writeText('gabrielfneves07@gmail.com').then(function() {
+            emailConfirm.classList.add('show');
+            setTimeout(function() { emailConfirm.classList.remove('show'); }, 2000);
+        });
+    });
+
+    // ── Close email menu on outside click ────────────────────
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.social-email')) {
+            emailMenu.classList.remove('show');
+        }
+    });
 
     // ── Smooth scroll ────────────────────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
