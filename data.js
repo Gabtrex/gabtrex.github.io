@@ -83,7 +83,7 @@ const projects = {
             "images/Project Files/AB/Screenshots/2.png",
             "images/Project Files/AB/Screenshots/3.png"
         ],
-        skills: ["unity", "csharp", "git", "photoshop"]
+        skills: ["unity", "csharp", "git", "photoshop", "webgl"]
     },
 
     portfolio: {
@@ -132,7 +132,7 @@ const projects = {
             "images/Project Files/VeilShifter/Screenshots/2.png",
             "images/Project Files/VeilShifter/Screenshots/3.png"
         ],
-        skills: ["unity", "csharp", "git", "blender", "photoshop", "gamejam"]
+        skills: ["unity", "csharp", "git", "blender", "photoshop", "gamejam", "webgl"]
     },
 
     mam: {
@@ -156,7 +156,7 @@ const projects = {
             "images/Project Files/MAM/Screenshots/2.gif",
             "images/Project Files/MAM/Screenshots/3.png"
         ],
-        skills: ["godot", "git", "photoshop", "gamejam"]
+        skills: ["godot", "git", "photoshop", "gamejam", "webgl"]
     },
 
     // ── ADD NEW PROJECTS BELOW ──────────────────────────────

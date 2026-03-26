@@ -10,6 +10,7 @@ const allSkills = {
     html:         { label: "HTML",                 img: "images/Skills/html.png" },
     css:          { label: "CSS",                  img: "images/Skills/css.png" },
     javascript:   { label: "JavaScript",           img: "images/Skills/js.png" },
+    webgl:        { label: "WebGL",                img: "images/Skills/webgl.png" },
     git:          { label: "Git",                  img: "images/Skills/Git.png" },
     photoshop:    { label: "Photoshop",            img: "images/Skills/PS.png" },
     premiere:     { label: "Premiere Pro",         img: "images/Skills/PR.png" },
