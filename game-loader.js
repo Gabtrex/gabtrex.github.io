@@ -153,8 +153,6 @@
                                 iframe.style.width  = width + 'px';
                                 iframe.style.height = height + 'px';
 
-                                wrapper.style.aspectRatio = width + ' / ' + height;
-
                                 applyGameScale();
 
                                 clearInterval(interval);
