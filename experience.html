@@ -100,10 +100,12 @@
         const heroBg = document.getElementById('heroBg');
         heroBg.style.backgroundImage    = `url('${e.heroImg}')`;
         heroBg.style.backgroundPosition = e.heroPosition || 'center 20%';
+        heroBg.style.backgroundSize     = e.heroSize || 'cover';
         setTimeout(() => heroBg.classList.add('loaded'), 50);
 
         const websiteLink  = document.getElementById('website-link');
         websiteLink.href   = e.websiteLink || '#';
+        websiteLink.innerText = e.isGame ? 'Play Game' : 'Visit Website';
 
         const grid = document.getElementById('experience-skills-grid');
         if (e.skills && e.skills.length > 0) {

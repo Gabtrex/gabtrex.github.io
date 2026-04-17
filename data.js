@@ -201,19 +201,63 @@ const experiences = {
         skills: ["community", "eventorg", "photoshop", "premiere"]
     },
 
+    idlevalleygames: {
+        title: "Junior Programmer",
+        isGame: true,
+        date: "Mar 2026 - Present",
+        cardSubtitle: "Improved game feel, core mechanics, and controller usability.",
+        subtitle: "Idle Valley Games",
+        description: `
+            <p>Focused on improving core gameplay feel, interaction clarity, and system stability across multiple gameplay features. Worked on both player experience and underlying systems to enhance usability, particularly on controller, while also strengthening onboarding flow and overall game reliability.</p>
+
+            <p><strong>Game Feel Improvements :</strong></p>
+            <ul>
+                <li>Implemented vignette effect to enhance player feedback during crouching</li>
+                <li>Improved stamina feedback system to provide clearer player state awareness</li>
+            </ul>
+
+            <p><strong>Gameplay Systems & Logic :</strong></p>
+            <ul>
+                <li>Reworked interaction and biting systems to improve usability, particularly on controller, by increasing detection zones and prioritizing key interactable objects</li>
+                <li>Refined animation logic, including implementation of contextual actions such as throwing animations</li>
+                <li>Contributed to the development of a dynamic tutorial system with adaptive text based on input device (controller vs keyboard)</li>
+                <li>Designed and implemented inventory and item display systems</li>
+                <li>Adjusted tutorial gameplay rules to prevent lethal damage during onboarding sequences</li>
+            </ul>
+
+            <p><strong>Bug Fixing & Stability :</strong></p>
+            <ul>
+                <li>Fixed crouch state preventing proper jump execution</li>
+                <li>Resolved autorun issue causing unintended stamina drain after sprinting</li>
+                <li>Fixed ladder interaction bug causing unintended airborne climbing and teleportation after enemy capture events</li>
+                <li>Corrected stamina system issue preventing values from reaching zero</li>
+                <li>Fixed interaction and biting exploits allowing actions through walls</li>
+            </ul>
+        `,
+        websiteLink: "https://store.steampowered.com/app/4002300/Goblin_Mode/",
+        heroImg: "images/Experience Files/idlevalleygames/Hero/Hero.png",
+        heroPosition: "center 100%",
+        cardImg: "images/Experience Files/idlevalleygames/Card/Card.jpeg",
+        cardImgPosition: "center",
+        skills: ["community", "eventorg", "photoshop", "premiere"]
+    },
+
     // ── ADD NEW EXPERIENCES BELOW ───────────────────────────
     //
     // example: {
     //     title: "Job Title",
     //     date: "Jan 2024 – Present",
+    //     isGame: false,                         // true = "Play Game", false/omit = "Visit Website"
     //     cardSubtitle: "One-line pitch for the index card.",
     //     subtitle: "Company Name (shown in hero on detail page).",
     //     description: `<p>What you did there.</p>`,
     //     websiteLink: "https://...",
     //     heroImg: "images/Experience Files/Company/Hero/hero.png",
     //     heroPosition: "center 20%",
+    //     heroSize: "cover",                      // e.g. "150%" to zoom in, omit for default (cover)
     //     cardImg: "images/Experience Files/Company/Experience Image/card.png",
-    //     cardImgPosition: "center",
+    //     cardImgPosition: "center",              // e.g. "left center", "center", "right center"
+    //     cardImgSize: "100%",                    // e.g. "135%" to zoom in, omit for default (cover)
     //     skills: ["photoshop"]
     // },
 
