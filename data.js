@@ -181,6 +181,38 @@ const projects = {
         skills: ["godot", "git", "photoshop", "gamejam", "webgl"]
     },
 
+    server: {
+        title: "Family Server",
+        date: "Jun 2025 - Present",
+        isGame: false,
+        cardSubtitle: "A personal server hosting our files.",
+        subtitle: "A personal server hosting our files, photos, and media, built using NextCloud.",
+        description: `
+            <p>I created a personal <strong>Nextcloud</strong> server to build a private cloud storage system that is still actively used today by my family and me.</p>
+
+            <p>The goal of the project was to centralize files, make them accessible remotely, and simplify sharing and organization between multiple users and devices. I deployed and configured the server myself using <strong>Docker</strong>, which allowed me to learn more about hosting, server management, and maintaining a real service over time.</p>
+
+            <p>Through this project, I gained practical experience with problem solving, system setup, remote access, storage management, and creating tools designed for everyday use.</p>
+
+            <p>The downloadable resumes available on this portfolio are also hosted directly on this server : <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Download Resume</a></p>
+        `,
+        playLink: "https://gabtrex.ddns.net/login?redirect_url=/apps/dashboard/",
+        heroImg: "images/Project Files/Server/Hero/1.png",
+        heroPosition: "center 50%",
+        cardImg: "images/Project Files/Server/Project Image/image.jpg",
+        cardImgPosition: "center",
+        screenshots: [
+            "images/Project Files/Server/Screenshots/1.png",
+            "images/Project Files/Server/Screenshots/2.png",
+            "images/Project Files/Server/Screenshots/3.png"
+        ],
+        devScreenshots: [
+            "images/Project Files/Server/Dev/1.png",
+            "images/Project Files/Server/Dev/2.png",
+        ],
+        skills: ["windows", "docker"]
+    },
+
     // ── ADD NEW PROJECTS BELOW ──────────────────────────────
     //
     // example: {
@@ -247,7 +279,7 @@ const experiences = {
                 <li>Reworked interaction and biting systems to improve usability, particularly on controller, by increasing detection zones and prioritizing key interactable objects</li>
                 <li>Refined animation logic, including implementation of contextual actions such as throwing animations</li>
                 <li>Contributed to the development of a dynamic tutorial system with adaptive text based on input device (controller vs keyboard)</li>
-                <li>Designed and implemented inventory and item display systems</li>
+                <li>Designed and implemented inventory and item systems, as well as pickup mechanics</li>
                 <li>Adjusted tutorial gameplay rules to prevent lethal damage during onboarding sequences</li>
             </ul>
 

@@ -17,6 +17,8 @@ const allSkills = {
     premiere:     { label: "Premiere Pro",         img: "images/Skills/PR.png" },
     illustrator:  { label: "Illustrator",          img: "images/Skills/AI.png" },
     blender:      { label: "Blender",              img: "images/Skills/Blender.png" },
+    windows:      { label: "Windows",              img: "images/Skills/windows.png" },
+    docker:       { label: "Docker",               img: "images/Skills/Docker.png" },
     gamejam:      { label: "Game Jam",             img: "images/Skills/GJ.png" },
     community:    { label: "Community Management", img: "images/Skills/CM.png" },
     eventorg:     { label: "Event Organisation",   img: "images/Skills/Event Organisator.png" }
