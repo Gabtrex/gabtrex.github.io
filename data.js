@@ -30,27 +30,11 @@ const projects = {
         cardSubtitle: "A full solo-developed game released on Steam.",
         subtitle: "BloodBound Knights is a fast-paced roguelike shoot 'em up where you battle through procedurally generated levels, unleash powerful spells, and upgrade your gear. Choose your class, master unique abilities, level up, customize your playstyle, and become unstoppable.",
         description: `
-            <p>BloodBound Knights is an intense rogue-like shoot 'em up where you take on the role of a powerful soldier. Unlock unique spells and upgrade your abilities in the shop to save yourself.</p>
+            <p>Inspired by <strong>Vampire Survivors</strong>, I wanted to create my own take on the survivor genre after spending countless hours playing and analyzing what made its gameplay loop so addictive. This led to the creation of <strong>BloodBound Knights</strong>, a fast-paced rogue-like action game developed entirely <strong>solo</strong> in <strong>Unreal Engine 5</strong>.</p>
 
-            <h3><u>Key Features</u></h3>
-            <ul>
-                <li><strong>Choose Your Character</strong> : Pick from a diverse cast of classes, each with their own unique magical or physical abilities. Whether you wield fire, ice, lightning, arcane energy or you just like to smash enemies, every character offers a different playstyle.</li>
-                <li><strong>Fast-Paced Combat</strong> : Engage in action-packed shoot 'em up combat. Dodge enemy attacks while unleashing powerful spells in dynamic, intense battles.</li>
-                <li><strong>Level Up & Progress</strong> : Gain experience, level up your character, and unlock stronger spells and abilities.</li>
-                <li><strong>Unique Spells & Abilities</strong> : Master spells and techniques that can be upgraded for devastating effects. Level up to unlock new powers and enhance your combat strategy.</li>
-                <li><strong>Rogue-like Gameplay</strong> : Experience procedurally generated levels with new challenges every time you play. No two runs are the same !</li>
-                <li><strong>Shop System</strong> : Gain gold by slaying enemies, defeating bosses and level upping, and buy powerful upgrades and buffs for your character.</li>
-            </ul>
+            <p>Rather than simply recreating the formula, I focused on adding a stronger emphasis on <strong>active gameplay</strong> and <strong>character identity</strong>. Instead of relying only on passive progression systems, the game introduces <strong>usable abilities</strong> and <strong>unique character kits</strong>, giving each playable character their own independent abilities and playstyle.</p>
 
-            <h3><u>Gameplay Highlights</u></h3>
-            <ul>
-                <li>Unlock new spells as you progress</li>
-                <li>Cast active abilities and automatic spells</li>
-                <li>Face endless hordes and powerful bosses</li>
-                <li>Procedurally generated levels every run</li>
-                <li>Level up and grow stronger each adventure</li>
-                <li>Buy upgrades to enhance your character</li>
-            </ul>
+            <p>Throughout development, I handled every aspect of the project myself, including <strong>gameplay programming</strong>, <strong>combat systems</strong>, <strong>enemy AI</strong>, <strong>UI</strong>, <strong>progression systems</strong>, <strong>optimization</strong>, balancing, polishing, and the full release pipeline to Steam. The only external assets used in the project were the character models and ability icons, which were purchased.</p>
         `,
         playLink: "https://store.steampowered.com/app/3577770/BloodBound_Knights/",
         heroImg: "images/Project Files/BBK/Hero/Library Hero.png",
@@ -78,8 +62,11 @@ const projects = {
         cardSubtitle: "A compact 2D aim trainer designed for second-screen play.",
         subtitle: "A compact 2D aim-trainer mini game inspired by osu!, designed to be played while you're dead in an FPS.",
         description: `
-            <p>Running in a small window on a second monitor, this game activates after you die in a shooter, turning downtime into meaningful practice. Click fast appearing circles as they vanish and respawn across the screen, sharpening your aim and reaction time.</p>
-            <p>Every successful hit grants XP, letting you level up and unlock cosmetic skins over time. It's a lightweight way to stay engaged, improve your aim, and build long-term progression while waiting to jump back into the action.</p>
+            <p>This project was created as a small personal experiment to further expand my <strong>Unity</strong> and <strong>C#</strong> knowledge while developing a simple but polished gameplay loop inspired by competitive shooter downtime.</p>
+
+            <p>Designed to run in a small window on a second monitor, the game activates while waiting to respawn or requeue in FPS games, turning downtime into meaningful aim practice. Players must quickly click appearing circles as they vanish and respawn across the screen, improving reaction time, precision, and consistency.</p>
+
+            <p>To make the experience more engaging over time, I implemented systems such as <strong>XP progression</strong>, <strong>leveling</strong>, statistics tracking, and unlockable cosmetic skins. Despite being a smaller project, it allowed me to experiment with gameplay systems, UI programming, progression design, and responsive player feedback inside Unity.</p>
         `,
         playLink: "https://gabtrex.itch.io/aim-buddy",
         gamePath: "games/Aim Buddy",
@@ -108,7 +95,11 @@ const projects = {
         cardSubtitle: "The website you're currently on.",
         subtitle: "The website you're currently on.",
         description: `
-            <p>Made in about 24 hours and improved over time.</p>
+            <p>I developed this <strong>portfolio website</strong> from scratch using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong> in order to showcase my projects, technical skills, and professional experiences in a clean and interactive way.</p>
+
+            <p>The website was designed with a strong focus on <strong>presentation</strong>, <strong>smooth navigation</strong>, and <strong>dynamic content management</strong>. Instead of hardcoding every page manually, I created reusable systems using JavaScript to dynamically generate project and experience pages from centralized data files.</p>
+
+            <p>I also implemented features such as <strong>interactive project filtering</strong>, custom project pages, responsive layouts, Open Graph integration, custom UI effects, and integrated <strong>WebGL game embedding</strong> directly inside the website. The portfolio continues to evolve alongside my projects and serves as both a showcase and a personal web development project.</p>
         `,
         playLink: "https://gabtrex.github.io/",
         heroImg: "images/Project Files/Portfolio/Hero/Hero.png",
