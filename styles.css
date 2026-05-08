@@ -1156,3 +1156,101 @@ footer {
     color: #fff;
     transform: scale(1.08);
 }
+
+.project-hours-hero {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.lightbox-overlay.open {
+  background: rgba(0, 0, 0, 0.88);
+  pointer-events: all;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.lightbox-img {
+  width: 90vw;
+  height: 88vh;
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-overlay.open .lightbox-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.4rem;
+  right: 1.6rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: none !important;
+  z-index: 99991;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-overlay.open .lightbox-close {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* ===== DEV SCREENSHOTS SECTION ===== */
+.dev-screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dev-screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  cursor: none !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  display: block;
+}
+
+.dev-screenshots-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+  opacity: 0.88;
+}

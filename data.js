@@ -2,14 +2,17 @@
 //  data.js — Single source of truth for projects & experiences
 //
 //  Fields:
-//    cardSubtitle — short line shown on the index page card
-//    subtitle     — longer text shown in the hero on the detail page
-//    isGame       — true  → button says "Play Game"
-//                   false → button says "Visit Website"
-//    date         — used for display AND for sorting (most recent first)
-//                   format: "Mon YYYY" or "Mon YYYY - Mon YYYY" or "Mon YYYY · Label"
-//                   sorting uses the START date; "Present" end means it sorts
-//                   above finished projects, with the most recent start winning.
+//    cardSubtitle    — short line shown on the index page card
+//    subtitle        — longer text shown in the hero on the detail page
+//    isGame          — true  → button says "Play Game"
+//                      false → button says "Visit Website"
+//    date            — used for display AND for sorting (most recent first)
+//                      format: "Mon YYYY" or "Mon YYYY - Mon YYYY" or "Mon YYYY · Label"
+//                      sorting uses the START date; "Present" end means it sorts
+//                      above finished projects, with the most recent start winning.
+//    devScreenshots  — optional array of image paths shown in the
+//                      "Development Screenshots" section on the detail page.
+//                      Each image is clickable and opens in a full-screen lightbox.
 //
 //  To add a new PROJECT or EXPERIENCE, copy the template block
 //  at the bottom of each section and fill it in. Nothing else
@@ -59,6 +62,12 @@ const projects = {
             "images/Project Files/BBK/Screenshots/Abilities.gif",
             "images/Project Files/BBK/Screenshots/Shop.gif"
         ],
+        devScreenshots: [
+            "images/Project Files/BBK/Dev/1.png",
+            "images/Project Files/BBK/Dev/2.png",
+            "images/Project Files/BBK/Dev/3.png",
+            "images/Project Files/BBK/Dev/4.png",
+        ],
         skills: ["ue5", "blueprint", "git", "photoshop", "premiere"]
     },
 
@@ -83,6 +92,9 @@ const projects = {
             "images/Project Files/AB/Screenshots/2.png",
             "images/Project Files/AB/Screenshots/3.png"
         ],
+        // devScreenshots: [
+        //     "images/Project Files/AB/Dev/1.png",
+        // ],
         skills: ["unity", "csharp", "git", "photoshop", "webgl"]
     },
 
@@ -90,8 +102,8 @@ const projects = {
         title: "Portfolio",
         date: "Mar 2026 - Present",
         isGame: false,
-        cardSubtitle: "The website you’re currently on.",
-        subtitle: "The website you’re currently on.",
+        cardSubtitle: "The website you're currently on.",
+        subtitle: "The website you're currently on.",
         description: `
             <p>Made in about 24 hours and improved over time.</p>
         `,
@@ -105,6 +117,9 @@ const projects = {
             "images/Project Files/Portfolio/Screenshots/2.gif",
             "images/Project Files/Portfolio/Screenshots/3.gif"
         ],
+        // devScreenshots: [
+        //     "images/Project Files/Portfolio/Dev/1.png",
+        // ],
         skills: ["html", "css", "javascript", "git", "photoshop"],
     },
 
@@ -132,6 +147,9 @@ const projects = {
             "images/Project Files/VeilShifter/Screenshots/2.png",
             "images/Project Files/VeilShifter/Screenshots/3.png"
         ],
+        // devScreenshots: [
+        //     "images/Project Files/VeilShifter/Dev/1.png",
+        // ],
         skills: ["unity", "csharp", "git", "blender", "photoshop", "gamejam", "webgl"]
     },
 
@@ -156,6 +174,9 @@ const projects = {
             "images/Project Files/MAM/Screenshots/2.gif",
             "images/Project Files/MAM/Screenshots/3.png"
         ],
+        // devScreenshots: [
+        //     "images/Project Files/MAM/Dev/1.png",
+        // ],
         skills: ["godot", "git", "photoshop", "gamejam", "webgl"]
     },
 
@@ -169,13 +190,17 @@ const projects = {
     //     subtitle: "Longer description shown in the hero on the detail page.",
     //     description: `<p>Full description here.</p>`,
     //     playLink: "https://...",
-    //     gamePath: "games/my-game",                     // unzipped WebGL build folder: games/my-game/index.html
-    //     allowFullscreen: true,                         // allows full screen to the playable embed, can omit if fullscreen's not wanted
+    //     gamePath: "games/my-game",             // unzipped WebGL build folder: games/my-game/index.html
+    //     allowFullscreen: true,                 // allows full screen to the playable embed, can omit if not wanted
     //     heroImg: "images/Project Files/Example/Hero/hero.png",
     //     heroPosition: "center 20%",
     //     cardImg: "images/Project Files/Example/Project Image/card.png",
     //     cardImgPosition: "center",
     //     screenshots: ["images/Project Files/Example/1.png", "images/Project Files/Example/2.png", "images/Project Files/Example/3.png"],
+    //     devScreenshots: [                      // optional — omit to hide the section entirely
+    //         "images/Project Files/Example/Dev/1.png",
+    //         "images/Project Files/Example/Dev/2.png",
+    //     ],
     //     skills: ["unity", "csharp", "git"]
     // },
 
@@ -254,10 +279,10 @@ const experiences = {
     //     websiteLink: "https://...",
     //     heroImg: "images/Experience Files/Company/Hero/hero.png",
     //     heroPosition: "center 20%",
-    //     heroSize: "cover",                      // e.g. "150%" to zoom in, omit for default (cover)
+    //     heroSize: "cover",                     // e.g. "150%" to zoom in, omit for default (cover)
     //     cardImg: "images/Experience Files/Company/Experience Image/card.png",
-    //     cardImgPosition: "center",              // e.g. "left center", "center", "right center"
-    //     cardImgSize: "100%",                    // e.g. "135%" to zoom in, omit for default (cover)
+    //     cardImgPosition: "center",             // e.g. "left center", "center", "right center"
+    //     cardImgSize: "100%",                   // e.g. "135%" to zoom in, omit for default (cover)
     //     skills: ["photoshop"]
     // },
 
@@ -279,14 +304,12 @@ const MONTHS = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, 
 
 function parseStartDate(dateStr) {
     if (!dateStr) return 0;
-    // Find the first "Mon YYYY" in the string
     var m = dateStr.match(/([a-z]{3})\s+(\d{4})/i);
     if (m) {
         var month = MONTHS[m[1].toLowerCase()];
         if (month === undefined) month = 0;
         return new Date(parseInt(m[2]), month).getTime();
     }
-    // Fallback: bare year
     var y = dateStr.match(/(\d{4})/);
     if (y) return new Date(parseInt(y[1]), 0).getTime();
     return 0;
@@ -300,10 +323,8 @@ function sortedEntries(obj) {
     return Object.entries(obj).sort(function(a, b) {
         var aOngoing = isOngoing(a[1].date);
         var bOngoing = isOngoing(b[1].date);
-        // Ongoing always beats finished
         if (aOngoing && !bOngoing) return -1;
         if (!aOngoing && bOngoing) return 1;
-        // Both same status → sort by start date descending
         return parseStartDate(b[1].date) - parseStartDate(a[1].date);
     });
 }
