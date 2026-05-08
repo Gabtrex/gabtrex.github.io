@@ -92,9 +92,12 @@ const projects = {
             "images/Project Files/AB/Screenshots/2.png",
             "images/Project Files/AB/Screenshots/3.png"
         ],
-        // devScreenshots: [
-        //     "images/Project Files/AB/Dev/1.png",
-        // ],
+        devScreenshots: [
+            "images/Project Files/AB/Dev/1.png",
+            "images/Project Files/AB/Dev/2.png",
+            "images/Project Files/AB/Dev/3.png",
+            "images/Project Files/AB/Dev/4.png",
+        ],
         skills: ["unity", "csharp", "git", "photoshop", "webgl"]
     },
 
@@ -117,9 +120,10 @@ const projects = {
             "images/Project Files/Portfolio/Screenshots/2.gif",
             "images/Project Files/Portfolio/Screenshots/3.gif"
         ],
-        // devScreenshots: [
-        //     "images/Project Files/Portfolio/Dev/1.png",
-        // ],
+        devScreenshots: [
+            "images/Project Files/Portfolio/Dev/1.png",
+            "images/Project Files/Portfolio/Dev/2.png",
+        ],
         skills: ["html", "css", "javascript", "git", "photoshop"],
     },
 
@@ -147,9 +151,12 @@ const projects = {
             "images/Project Files/VeilShifter/Screenshots/2.png",
             "images/Project Files/VeilShifter/Screenshots/3.png"
         ],
-        // devScreenshots: [
-        //     "images/Project Files/VeilShifter/Dev/1.png",
-        // ],
+        devScreenshots: [
+            "images/Project Files/VeilShifter/Dev/1.png",
+            "images/Project Files/VeilShifter/Dev/2.png",
+            "images/Project Files/VeilShifter/Dev/3.png",
+            "images/Project Files/VeilShifter/Dev/4.png",
+        ],
         skills: ["unity", "csharp", "git", "blender", "photoshop", "gamejam", "webgl"]
     },
 
@@ -174,9 +181,12 @@ const projects = {
             "images/Project Files/MAM/Screenshots/2.gif",
             "images/Project Files/MAM/Screenshots/3.png"
         ],
-        // devScreenshots: [
-        //     "images/Project Files/MAM/Dev/1.png",
-        // ],
+        devScreenshots: [
+            "images/Project Files/MAM/Dev/1.png",
+            "images/Project Files/MAM/Dev/2.png",
+            "images/Project Files/MAM/Dev/3.png",
+            "images/Project Files/MAM/Dev/4.png",
+        ],
         skills: ["godot", "git", "photoshop", "gamejam", "webgl"]
     },
 
