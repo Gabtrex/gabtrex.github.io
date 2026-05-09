@@ -279,7 +279,7 @@ const experiences = {
                 <li>Reworked interaction and biting systems to improve usability, particularly on controller, by increasing detection zones and prioritizing key interactable objects</li>
                 <li>Refined animation logic, including implementation of contextual actions such as throwing animations</li>
                 <li>Contributed to the development of a dynamic tutorial system with adaptive text based on input device (controller vs keyboard)</li>
-                <li>Designed and implemented inventory and item systems, as well as pickup mechanics</li>
+                <li>Designed and implemented inventory and item display systems</li>
                 <li>Adjusted tutorial gameplay rules to prevent lethal damage during onboarding sequences</li>
             </ul>
 
@@ -297,6 +297,12 @@ const experiences = {
         heroPosition: "center 100%",
         cardImg: "images/Experience Files/idlevalleygames/Card/Card.png",
         cardImgPosition: "center",
+         devScreenshots: [
+             "images/Experience Files/idlevalleygames/Screenshots/1.png",
+             "images/Experience Files/idlevalleygames/Screenshots/2.png",
+             "images/Experience Files/idlevalleygames/Screenshots/3.png",
+             "images/Experience Files/idlevalleygames/Screenshots/4.png",
+         ],
         skills: ["community", "eventorg", "photoshop", "premiere"]
     },
 
@@ -316,6 +322,10 @@ const experiences = {
     //     cardImg: "images/Experience Files/Company/Experience Image/card.png",
     //     cardImgPosition: "center",             // e.g. "left center", "center", "right center"
     //     cardImgSize: "100%",                   // e.g. "135%" to zoom in, omit for default (cover)
+    //     devScreenshots: [                      // optional — omit to hide the section entirely
+    //         "images/Experience Files/Company/Screenshots/1.png",
+    //         "images/Experience Files/Company/Screenshots/2.png",
+    //     ],
     //     skills: ["photoshop"]
     // },
 

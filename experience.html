@@ -63,7 +63,26 @@
         <div class="skills-grid" id="experience-skills-grid"></div>
     </div>
 
+    <!-- Dev Screenshots (only shown if devScreenshots is set in data.js) -->
+    <div id="dev-screenshots-section" style="display:none; margin-top: 3rem;">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.5rem; color: #fff;">Screenshots</h2>
+        <div class="dev-screenshots-grid" id="dev-screenshots-grid"></div>
+    </div>
+
 </section>
+
+<!-- ── Lightbox ────────────────────────────────────────────── -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+    </button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
 
 <script src="skills.js"></script>
 <script src="data.js"></script>
@@ -107,6 +126,7 @@
         websiteLink.href   = e.websiteLink || '#';
         websiteLink.innerText = e.isGame ? 'Play Game' : 'Visit Website';
 
+        // ── Skills grid ──────────────────────────────────────────
         const grid = document.getElementById('experience-skills-grid');
         if (e.skills && e.skills.length > 0) {
             e.skills.forEach(k => {
@@ -122,7 +142,48 @@
         } else {
             document.getElementById('experience-skills-section').style.display = 'none';
         }
+
+        // ── Dev Screenshots ──────────────────────────────────────
+        const devGrid    = document.getElementById('dev-screenshots-grid');
+        const devSection = document.getElementById('dev-screenshots-section');
+        if (e.devScreenshots && e.devScreenshots.length > 0) {
+            devSection.style.display = 'block';
+            e.devScreenshots.forEach(function(src) {
+                var img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Screenshot';
+                devGrid.appendChild(img);
+            });
+        }
     }
+
+    // ── Lightbox ─────────────────────────────────────────────────
+    (function () {
+        var overlay  = document.getElementById('lightbox');
+        var closeBtn = document.getElementById('lightboxClose');
+        var img      = document.getElementById('lightboxImg');
+
+        function open(src, alt) {
+            img.src = src;
+            img.alt = alt || '';
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function close() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+            setTimeout(function () { if (!overlay.classList.contains('open')) img.src = ''; }, 300);
+        }
+
+        document.querySelectorAll('.dev-screenshots-grid img').forEach(function (el) {
+            el.addEventListener('click', function () { open(el.src, el.alt); });
+        });
+
+        closeBtn.addEventListener('click', close);
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
 </script>
 
 </body>
