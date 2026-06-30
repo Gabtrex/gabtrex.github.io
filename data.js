@@ -213,6 +213,40 @@ const projects = {
         skills: ["windows", "docker"]
     },
 
+    AM: {
+        title: "Childcare Assistant",
+        date: "Jun 2026",
+        isGame: false,
+        cardSubtitle: "Website developed for a professional childcare business.",
+        subtitle: "A responsive website developed for my mother's childcare business to present her services, qualifications, daily activities, and provide an easy way for parents to get in touch.",
+        description: `
+            <p>This project was developed as a complete promotional website for a professional childcare business. The goal was to create a clean, modern, and accessible platform where parents can quickly learn about the services offered, discover the childcare environment through photos, and easily make contact.</p>
+
+            <p>The website was built with HTML, CSS, and JavaScript, featuring a fully responsive layout, smooth navigation, and a strong focus on readability. Particular attention was given to creating a warm visual identity while keeping the interface simple and intuitive.</p>
+
+            <p>Beyond showcasing the business, the project also served as an opportunity to strengthen front-end development skills by designing and implementing a complete website from scratch.</p>
+        `,
+        playLink: "https://edisabel.github.io/assistante_maternelle/",
+        heroImg: "images/Project Files/Childcare Assistant/Hero/hero.png",
+        heroPosition: "center center",
+        cardImg: "images/Project Files/Childcare Assistant/Project Image/card.png",
+        cardImgPosition: "center",
+        screenshots: [
+            "images/Project Files/Childcare Assistant/1.png",
+            "images/Project Files/Childcare Assistant/2.png",
+            "images/Project Files/Childcare Assistant/3.png"
+        ],
+        devScreenshots: [
+            "images/Project Files/Childcare Assistant/Dev/1.png",
+            "images/Project Files/Childcare Assistant/Dev/2.png"
+        ],
+        skills: [
+            "html",
+            "css",
+            "javascript",
+        ]
+    },
+
     // ── ADD NEW PROJECTS BELOW ──────────────────────────────
     //
     // example: {
