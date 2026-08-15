@@ -279,7 +279,7 @@ const experiences = {
 
     playmanity: {
         title: "Community Manager",
-        date: "Jun 2022 – Present",
+        date: "Jun 2022 – Aug 2026",
         cardSubtitle: "Community management, events & content.",
         subtitle: "Playmanity",
         description: `
@@ -297,33 +297,47 @@ const experiences = {
         title: "Junior Programmer",
         isGame: true,
         date: "Mar 2026 - Present",
-        cardSubtitle: "Improved game feel, core mechanics, and controller usability.",
+        cardSubtitle: "Improved game feel, gameplay systems, and controller usability.",
         subtitle: "Idle Valley Games",
         description: `
-            <p>Focused on improving core gameplay feel, interaction clarity, and system stability across multiple gameplay features. Worked on both player experience and underlying systems to enhance usability, particularly on controller, while also strengthening onboarding flow and overall game reliability.</p>
+            <p>Worked on <strong>Goblin Mode</strong> as a Junior Programmer, focusing on gameplay systems, game feel, controller usability, and bug fixing. Contributed to both player-facing features and underlying gameplay logic to improve responsiveness, feedback, onboarding, and overall stability.</p>
 
-            <p><strong>Game Feel Improvements :</strong></p>
+            <p><strong>Game Feel & Player Feedback :</strong></p>
             <ul>
-                <li>Implemented vignette effect to enhance player feedback during crouching</li>
-                <li>Improved stamina feedback system to provide clearer player state awareness</li>
+                <li>Implemented a vignette effect to provide additional visual feedback while crouching</li>
+                <li>Improved stamina feedback to make the player's current stamina state clearer</li>
+                <li>Implemented contextual highlight colors for different interaction types</li>
+                <li>Added conditional highlighting so unavailable objects are no longer highlighted, such as objects that are too heavy to pick up with the slingshot</li>
             </ul>
 
             <p><strong>Gameplay Systems & Logic :</strong></p>
             <ul>
-                <li>Reworked interaction and biting systems to improve usability, particularly on controller, by increasing detection zones and prioritizing key interactable objects</li>
-                <li>Refined animation logic, including implementation of contextual actions such as throwing animations</li>
-                <li>Contributed to the development of a dynamic tutorial system with adaptive text based on input device (controller vs keyboard)</li>
+                <li>Reworked interaction and biting systems to improve responsiveness and usability, particularly on controller</li>
+                <li>Expanded detection zones and implemented prioritization logic to favor important interactable objects</li>
+                <li>Refined animation logic, including contextual actions such as throwing animations</li>
+                <li>Contributed to the development of a dynamic tutorial text system that adapts its instructions depending on whether the player uses a controller or keyboard</li>
                 <li>Designed and implemented inventory and item display systems</li>
-                <li>Adjusted tutorial gameplay rules to prevent lethal damage during onboarding sequences</li>
+                <li>Implemented item stacking functionality within the player's inventory</li>
+                <li>Added tutorial-specific gameplay logic preventing the player from taking lethal damage during onboarding</li>
+            </ul>
+
+            <p><strong>Slingshot & Projectile System :</strong></p>
+            <ul>
+                <li>Developed a pickable and equipable slingshot allowing players to pick up and launch objects from the environment</li>
+                <li>Implemented visual feedback showing the currently selected object directly on the slingshot</li>
+                <li>Made projectile positioning fully customizable to support different item types</li>
+                <li>Implemented configurable pickup validation through the <code>Slingshot_Bullet</code> system</li>
+                <li>Added limb-based ragdoll reactions when enemies are hit by slingshot projectiles</li>
+                <li>Implemented special projectile behaviors for items such as bombs and dynamites, triggering their respective effects when launched</li>
             </ul>
 
             <p><strong>Bug Fixing & Stability :</strong></p>
             <ul>
-                <li>Fixed crouch state preventing proper jump execution</li>
-                <li>Resolved autorun issue causing unintended stamina drain after sprinting</li>
-                <li>Fixed ladder interaction bug causing unintended airborne climbing and teleportation after enemy capture events</li>
-                <li>Corrected stamina system issue preventing values from reaching zero</li>
-                <li>Fixed interaction and biting exploits allowing actions through walls</li>
+                <li>Fixed crouch state preventing proper jumping</li>
+                <li>Resolved an autorun issue causing unintended stamina consumption after running out of stamina</li>
+                <li>Fixed stamina logic preventing the value from reaching zero</li>
+                <li>Fixed ladder bugs causing characters to continue climbing in mid-air and teleport back to ladders after being captured by an enemy</li>
+                <li>Fixed interaction and biting exploits allowing players to interact with or bite through walls</li>
             </ul>
         `,
         websiteLink: "https://store.steampowered.com/app/4002300/Goblin_Mode/",
@@ -331,14 +345,15 @@ const experiences = {
         heroPosition: "center 100%",
         cardImg: "images/Experience Files/idlevalleygames/Card/Card.png",
         cardImgPosition: "center",
-         devScreenshots: [
-             "images/Experience Files/idlevalleygames/Screenshots/1.png",
-             "images/Experience Files/idlevalleygames/Screenshots/2.png",
-             "images/Experience Files/idlevalleygames/Screenshots/3.png",
-             "images/Experience Files/idlevalleygames/Screenshots/4.png",
-         ],
-        skills: ["community", "eventorg", "photoshop", "premiere"]
+        devScreenshots: [
+            "images/Experience Files/idlevalleygames/Screenshots/1.png",
+            "images/Experience Files/idlevalleygames/Screenshots/2.png",
+            "images/Experience Files/idlevalleygames/Screenshots/3.png",
+            "images/Experience Files/idlevalleygames/Screenshots/4.png",
+        ],
+        skills: ["unity", "csharp", "git"]
     },
+
 
     // ── ADD NEW EXPERIENCES BELOW ───────────────────────────
     //
