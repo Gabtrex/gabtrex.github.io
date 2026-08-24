@@ -315,29 +315,33 @@ const experiences = {
                 <li>Reworked interaction and biting systems to improve responsiveness and usability, particularly on controller</li>
                 <li>Expanded detection zones and implemented prioritization logic to favor important interactable objects</li>
                 <li>Refined animation logic, including contextual actions such as throwing animations</li>
-                <li>Contributed to the development of a dynamic tutorial text system that adapts its instructions depending on whether the player uses a controller or keyboard</li>
-                <li>Designed and implemented inventory and item display systems</li>
-                <li>Implemented item stacking functionality within the player's inventory</li>
-                <li>Added tutorial-specific gameplay logic preventing the player from taking lethal damage during onboarding</li>
+                <li>Contributed to a dynamic tutorial text system adapting instructions to controller or keyboard input</li>
+                <li>Implemented inventory and item display systems, including item stacking</li>
+                <li>Added tutorial-specific logic preventing the player from taking lethal damage during onboarding</li>
             </ul>
 
-            <p><strong>Slingshot & Projectile System :</strong></p>
+            <p><strong>Slingshot & Item System :</strong></p>
             <ul>
                 <li>Developed a pickable and equipable slingshot allowing players to pick up and launch objects from the environment</li>
-                <li>Implemented visual feedback showing the currently selected object directly on the slingshot</li>
-                <li>Made projectile positioning fully customizable to support different item types</li>
+                <li>Implemented visual feedback displaying the selected object directly on the slingshot</li>
+                <li>Made projectile positioning fully customizable for different item types</li>
                 <li>Implemented configurable pickup validation through the <code>Slingshot_Bullet</code> system</li>
-                <li>Added limb-based ragdoll reactions when enemies are hit by slingshot projectiles</li>
-                <li>Implemented special projectile behaviors for items such as bombs and dynamites, triggering their respective effects when launched</li>
+                <li>Added special behaviors for items such as bombs and dynamites when launched</li>
+                <li>Implemented limb-based ragdoll reactions when enemies are hit by slingshot projectiles</li>
+                <li>Added dissolve animations when equipping and unequipping the slingshot</li>
             </ul>
 
             <p><strong>Bug Fixing & Stability :</strong></p>
             <ul>
-                <li>Fixed crouch state preventing proper jumping</li>
-                <li>Resolved an autorun issue causing unintended stamina consumption after running out of stamina</li>
-                <li>Fixed stamina logic preventing the value from reaching zero</li>
-                <li>Fixed ladder bugs causing characters to continue climbing in mid-air and teleport back to ladders after being captured by an enemy</li>
+                <li>Fixed crouch jumping and stamina depletion issues, including stamina not properly reaching zero</li>
+                <li>Fixed an autorun bug causing unintended stamina consumption while attempting to walk and recover stamina</li>
+                <li>Fixed ladder bugs causing the player to climb in mid-air and teleport back to the ladder after being captured</li>
                 <li>Fixed interaction and biting exploits allowing players to interact with or bite through walls</li>
+            </ul>
+
+            <p><strong>Research & Game Design :</strong></p>
+            <ul>
+                <li>Conducted research across multiple sources to evaluate potential game modes and their expected player appeal and success</li>
             </ul>
         `,
         websiteLink: "https://store.steampowered.com/app/4002300/Goblin_Mode/",
