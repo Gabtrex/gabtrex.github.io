@@ -296,7 +296,7 @@ const experiences = {
     idlevalleygames: {
         title: "Junior Programmer",
         isGame: true,
-        date: "Mar 2026 - Present",
+        date: "Mar 2026 - Sep 2026",
         cardSubtitle: "Improved game feel, gameplay systems, and controller usability.",
         subtitle: "Idle Valley Games",
         description: `
