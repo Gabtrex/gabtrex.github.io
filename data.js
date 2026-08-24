@@ -351,7 +351,7 @@ const experiences = {
             "images/Experience Files/idlevalleygames/Screenshots/3.png",
             "images/Experience Files/idlevalleygames/Screenshots/4.png",
         ],
-        skills: ["unity", "csharp", "git"]
+        skills: ["unity", "csharp", "plasticscm"]
     },
 
 
