@@ -355,9 +355,35 @@ const experiences = {
             "images/Experience Files/idlevalleygames/Screenshots/3.png",
             "images/Experience Files/idlevalleygames/Screenshots/4.png",
         ],
-        skills: ["unity", "csharp", "plasticscm"]
+        skills: ["unity", "csharp", "plasticscm", "photoshop"]
     },
 
+    hochland: {
+        title: "Software Engineer",
+        date: "Sep 2026 – Present",
+        isGame: false,
+        cardSubtitle: "Developed and maintained internal software solutions to improve operational efficiency and data management.",
+        subtitle: "Hochland",
+        description: `<p>Developed and maintained an internal software solution used to manage and monitor the factory's day-to-day operations. The application covers the production workflow from <strong>milk reception</strong> and <strong>cheese production</strong> to <strong>storage</strong>, <strong>packaging</strong>, and the <strong>tracking of materials</strong> entering and leaving the factory.</p>
+        <p>The software brings these different processes together into a centralized system, making it possible to manage production data, follow the movement of materials, and support the different operational needs of the factory.</p>
+        <p><strong>Technical Development :</strong></p>
+        <ul>
+            <li>Developed the user interface using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong></li>
+            <li>Implemented <strong>C#</strong> components for API communication and data exchange with backend services</li>
+            <li>Maintained and improved existing features according to the factory's operational requirements</li>
+            <li>Worked on a software solution used as part of real-world production and material management processes</li>
+        </ul>
+        <p>This was possible thanks to the many workers in the factory who told me what tools would facilitate their lives, and make production more efficient. I was able to implement these tools in the software, and see them used in real life, which was a very rewarding experience !</p>
+        `,
+        websiteLink: "https://www.hochland-group.com/en",
+        heroImg: "images/Experience Files/hochland/Hero/hero.jpg",
+        heroPosition: "center 10%",
+        heroSize: "cover",
+        cardImg: "images/Experience Files/hochland/Card/card.jpg",
+        cardImgPosition: "center",
+        cardImgSize: "103%",
+        skills: ["csharp","git","docker", "html", "css", "javascript"]
+    },
 
     // ── ADD NEW EXPERIENCES BELOW ───────────────────────────
     //
