@@ -376,10 +376,10 @@ const experiences = {
         <p>This was possible thanks to the many workers in the factory who told me what tools would facilitate their lives, and make production more efficient. I was able to implement these tools in the software, and see them used in real life, which was a very rewarding experience !</p>
         `,
         websiteLink: "https://www.hochland-group.com/en",
-        heroImg: "images/Experience Files/hochland/Hero/hero.jpg",
+        heroImg: "images/Experience Files/hochland/Hero/Hero.jpg",
         heroPosition: "center 10%",
         heroSize: "cover",
-        cardImg: "images/Experience Files/hochland/Card/card.jpg",
+        cardImg: "images/Experience Files/hochland/Card/Card.jpg",
         cardImgPosition: "center",
         cardImgSize: "103%",
         skills: ["csharp","git","docker", "html", "css", "javascript"]
