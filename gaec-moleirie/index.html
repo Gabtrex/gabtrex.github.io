@@ -71,10 +71,9 @@
   .produits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .carte{background:var(--blanc);border:1px solid #e6dcc8;border-radius:var(--rayon);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
   .carte:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(59,53,48,.45)}
-  .carte .photo{height:170px;background:var(--sable);position:relative}
-  .carte .photo img{width:100%;height:100%;object-fit:cover}
-  .carte .photo.dessin{display:grid;place-items:center}
-  .carte .corps{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .carte .pastille{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;margin:24px 22px 0}
+  .carte .pastille svg{width:32px;height:32px}
+  .carte .corps{padding:16px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
   .carte h3{font-size:21px}
   .carte p{font-size:15px;color:var(--doux)}
   .carte .meta{margin-top:auto;padding-top:6px;font-size:13px;font-weight:600;color:var(--herbe)}
@@ -111,7 +110,8 @@
   .info{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:14px 16px}
   .info svg{flex:none;width:22px;height:22px;stroke:var(--or)}
 
-  form{background:var(--blanc);color:var(--texte);border-radius:var(--rayon);padding:26px;display:grid;gap:16px}
+  form{position:relative;background:var(--blanc);color:var(--texte);border-radius:var(--rayon);padding:26px}
+  .champs{display:grid;gap:16px}
   .champ{display:grid;gap:6px}
   .champ > span{font-size:13px;font-weight:600;color:var(--doux)}
   input,textarea{font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid #ddd2bd;border-radius:12px;background:var(--creme);color:var(--texte);width:100%}
@@ -119,8 +119,20 @@
   input:focus,textarea:focus{outline:none;border-color:var(--herbe);box-shadow:0 0 0 3px rgba(63,90,43,.15)}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   form .btn{justify-content:center;width:100%;padding:15px}
-  .merci{display:none;text-align:center;font-size:14px;color:var(--herbe);font-weight:600}
-  form.envoye .merci{display:block}
+  form .btn:disabled{opacity:.7;cursor:wait;transform:none}
+  input.faux,textarea.faux{border-color:#c0583a;box-shadow:0 0 0 3px rgba(192,88,58,.12)}
+  .etat{font-size:14px;line-height:1.5;color:#a8452a;min-height:0}
+  .etat:empty{display:none}
+  .etat a{font-weight:600}
+  .note{font-size:13px;color:var(--doux);line-height:1.5;text-align:center}
+  .piege{position:absolute;left:-10000px;width:1px;height:1px;opacity:0}
+  .merci{display:none;text-align:center;padding:28px 8px;justify-items:center;gap:10px}
+  .merci svg{width:56px;height:56px}
+  .merci b{font-family:Fraunces,serif;font-size:24px;color:var(--pierre)}
+  .merci p{color:var(--doux);font-size:15px}
+  .merci button{font:inherit;font-size:14px;font-weight:600;color:var(--herbe);background:none;border:none;cursor:pointer;text-decoration:underline;margin-top:6px}
+  form.envoye .champs{display:none}
+  form.envoye .merci{display:grid}
 
   /* Liste déroulante sur mesure */
   .choix{position:relative}
@@ -201,7 +213,7 @@
         <a class="btn clair" href="#contact">Passer commande</a>
       </div>
     </div>
-    <div class="media"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cantal_buron_puy-mary.jpg?width=1200" alt="Pâturages du Cantal près du Puy Mary" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    <div class="media"><img class="vraie" src="https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=1200" srcset="https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=700 700w, https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=1200 1200w, https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=1800 1800w" sizes="(max-width:860px) 100vw, 540px" alt="Vaches dans les prés du Cantal" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
     <svg class="hero-art" viewBox="0 0 560 420" role="img" aria-label="Paysage du Cantal avec des vaches dans les prés">
       <defs>
         <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe0e8"/><stop offset="1" stop-color="#eef0dc"/></linearGradient>
@@ -266,7 +278,7 @@
     </div>
     <div class="produits">
       <article class="carte">
-        <div class="photo dessin media" style="background:#f3e1d6"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vache_salers.jpg?width=700" alt="Vache Salers" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.2" stroke-linecap="round"><path d="M4 13c0-4 3-7 8-7s8 3 8 7-4 6-8 6-8-2-8-6z"/><circle cx="12" cy="13" r="2.4"/></svg></div>
+        <div class="pastille" style="background:#f3e1d6" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12.5" cy="8.5" r="2.5"/><path d="M12.5 2a6.5 6.5 0 0 0-6.22 4.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3A6.5 6.5 0 0 0 12.5 2Z"/><path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1 .31 2 6.49 6.49 0 0 1-2.6 5.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5"/></svg></div>
         <div class="corps">
           <h3>Bœuf</h3>
           <p>Viande fraîche et égrené de bœuf (viande hachée). La viande fraîche se garde 15 jours.</p>
@@ -274,7 +286,7 @@
         </div>
       </article>
       <article class="carte">
-        <div class="photo dessin" style="background:#efe3d4"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#b5562b" stroke-width="1.2" stroke-linecap="round"><path d="M6 10c0-3 3-5 6-5s6 2 6 5v4c0 3-3 5-6 5s-6-2-6-5z"/><path d="M9 4 7 2M15 4l2-2"/><circle cx="10" cy="11" r=".6" fill="#b5562b"/><circle cx="14" cy="11" r=".6" fill="#b5562b"/><path d="M10.5 15h3"/></svg></div>
+        <div class="pastille" style="background:#efe3d4" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 9H5.5c1 2.4 3 3.6 5.4 3.4M21.5 9h5c-1 2.4-3 3.6-5.4 3.4"/><path d="M10.5 8h11l1 9c0 5-3 9-6.5 9s-6.5-4-6.5-9z"/><ellipse cx="16" cy="21.5" rx="3.6" ry="2.6"/><circle cx="13" cy="14.5" r=".9" fill="#b5562b"/><circle cx="19" cy="14.5" r=".9" fill="#b5562b"/></svg></div>
         <div class="corps">
           <h3>Veau</h3>
           <p>Viande de veau de la ferme, découpée selon votre commande.</p>
@@ -282,7 +294,7 @@
         </div>
       </article>
       <article class="carte">
-        <div class="photo dessin" style="background:#ebe4d6"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#3b3530" stroke-width="1.2" stroke-linecap="round"><rect x="6" y="8" width="12" height="12" rx="3"/><path d="M7 5h10v3H7z"/><path d="M9 14h6M9 17h4"/></svg></div>
+        <div class="pastille" style="background:#ebe4d6" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="#3b3530" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="16" height="16" rx="4"/><rect x="10" y="5" width="12" height="6" rx="1.5"/><path d="M12 17.5h8M12 21h5"/></svg></div>
         <div class="corps">
           <h3>Tripes en bocaux</h3>
           <p>Les tripes de la ferme, en bocaux.</p>
@@ -290,7 +302,7 @@
         </div>
       </article>
       <article class="carte">
-        <div class="photo dessin media" style="background:#f4e8d2"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Graines_de_sarrasin.jpg?width=700" alt="Graines de sarrasin" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.2" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg></div>
+        <div class="pastille" style="background:#f4e8d2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.4" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg></div>
         <div class="corps">
           <h3>Sarrasin et petit épeautre</h3>
           <p>En grain, cuits et surgelés : il n'y a plus qu'à réchauffer. Se gardent un an.</p>
@@ -303,7 +315,7 @@
 
 <section class="ferme" id="ferme">
   <div class="wrap">
-    <div class="media"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Puy_Violent,_Cantal,_France.jpg?width=1100" alt="Paysage du Cantal" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    <div class="media"><img class="vraie" src="https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=1200" srcset="https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=700 700w, https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=1200 1200w, https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=1800 1800w" sizes="(max-width:860px) 100vw, 530px" alt="Prés et volcans du Cantal" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     <svg viewBox="0 0 520 380" role="img" aria-label="Illustration de la ferme" style="width:100%;height:auto">
       <rect width="520" height="380" rx="26" fill="#dfe8cf"/>
       <path d="M0 250 C120 220 260 245 520 225 V380 H0Z" fill="#5f7a40"/>
@@ -387,26 +399,37 @@
       </div>
     </div>
     <form id="formulaire" novalidate>
-      <div class="row2">
-        <label class="champ"><span>Nom</span><input type="text" name="nom" placeholder="Votre nom" autocomplete="name"></label>
-        <label class="champ"><span>Téléphone</span><input type="tel" name="telephone" placeholder="06 ..." autocomplete="tel"></label>
-      </div>
-      <div class="champ">
-        <span id="choix-label">Vous êtes</span>
-        <div class="choix" id="choix">
-          <button type="button" class="choix-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="choix-label choix-valeur"><span id="choix-valeur">Un particulier</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="choix-liste" role="listbox" aria-labelledby="choix-label" tabindex="-1">
-            <li role="option" aria-selected="true" data-valeur="Un particulier"><div>Un particulier</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-            <li role="option" aria-selected="false" data-valeur="Une cantine ou un EHPAD"><div>Une cantine ou un EHPAD</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-            <li role="option" aria-selected="false" data-valeur="Un restaurant"><div>Un restaurant</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-            <li role="option" aria-selected="false" data-valeur="Autre"><div>Autre</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-          </ul>
-          <input type="hidden" name="type" value="Un particulier">
+      <div class="champs">
+        <div class="row2">
+          <label class="champ"><span>Nom</span><input type="text" name="nom" placeholder="Votre nom" autocomplete="name"></label>
+          <label class="champ"><span>Téléphone</span><input type="tel" name="telephone" placeholder="06 ..." autocomplete="tel"></label>
         </div>
+        <label class="champ"><span>Mail</span><input type="email" name="email" placeholder="vous@exemple.fr" autocomplete="email"></label>
+        <div class="champ">
+          <span id="choix-label">Vous êtes</span>
+          <div class="choix" id="choix">
+            <button type="button" class="choix-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="choix-label choix-valeur"><span id="choix-valeur">Un particulier</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <ul class="choix-liste" role="listbox" aria-labelledby="choix-label" tabindex="-1">
+              <li role="option" aria-selected="true" data-valeur="Un particulier"><div>Un particulier</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+              <li role="option" aria-selected="false" data-valeur="Une cantine ou un EHPAD"><div>Une cantine ou un EHPAD</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+              <li role="option" aria-selected="false" data-valeur="Un restaurant"><div>Un restaurant</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+              <li role="option" aria-selected="false" data-valeur="Autre"><div>Autre</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+            </ul>
+            <input type="hidden" name="type" value="Un particulier">
+          </div>
+        </div>
+        <label class="champ"><span>Votre message</span><textarea name="message" rows="4" placeholder="Par exemple : 5 kg de bœuf et deux bocaux de tripes"></textarea></label>
+        <input class="piege" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Envoyer</button>
+        <p class="etat" role="status" aria-live="polite"></p>
+        <p class="note">Votre message part directement par mail. Pour cette maquette, il arrive chez Gabriel.</p>
       </div>
-      <label class="champ"><span>Votre message</span><textarea name="message" rows="4" placeholder="Par exemple : 5 kg de bœuf et deux bocaux de tripes"></textarea></label>
-      <button class="btn" type="submit">Envoyer</button>
-      <p class="merci">Merci ! Sur le vrai site, ce message arrive directement dans votre boîte mail.</p>
+      <div class="merci" role="status">
+        <svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="27" fill="#e4ecd8"/><path d="m18 29 7 7 13-15" stroke="#3f5a2b" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <b>Message envoyé, merci !</b>
+        <p>On vous répond au plus vite, par téléphone ou par mail.</p>
+        <button type="button" id="encore">Envoyer un autre message</button>
+      </div>
     </form>
   </div>
 </section>
@@ -414,7 +437,7 @@
 <footer>
   <div class="wrap">
     <span>GAEC de la Moleirie · Lamoleirie, Cantal</span>
-    <span>Photos d'exemple : Wikimedia Commons (<a href="https://commons.wikimedia.org/wiki/File:Cantal_buron_puy-mary.jpg">1</a>, <a href="https://commons.wikimedia.org/wiki/File:Puy_Violent,_Cantal,_France.jpg">2</a>, <a href="https://commons.wikimedia.org/wiki/File:Vache_salers.jpg">3</a>, <a href="https://commons.wikimedia.org/wiki/File:Graines_de_sarrasin.jpg">4</a>)</span>
+    <span>Photos d'exemple prises dans le Cantal : <a href="https://unsplash.com/photos/lHy3EyiRnOw">Gaëtan Spinhayer</a> et <a href="https://unsplash.com/photos/zudcf8qtGYc">Mathieu Daix</a> sur Unsplash</span>
     <span>Maquette : Gabriel Fernandes Neves</span>
   </div>
 </footer>
@@ -460,10 +483,61 @@
     document.addEventListener("click",e=>{if(!choix.contains(e.target))fermer(false)});
   })();
 
-  // Formulaire (maquette : rien n'est envoyé)
-  document.getElementById("formulaire").addEventListener("submit",e=>{
-    e.preventDefault();e.target.classList.add("envoye");
-  });
+  // Formulaire : le message part par mail grâce à FormSubmit (gratuit, rien à installer sur le site)
+  (function(){
+    const DEST="gabrielsiteweb@gmail.com"; // sur le vrai site : l'adresse de la ferme
+    const f=document.getElementById("formulaire");
+    const ch=f.elements, etat=f.querySelector(".etat"), bouton=f.querySelector("button[type=submit]");
+
+    function parMail(d){
+      const corps="Nom : "+d.nom+"\nTéléphone : "+(d.telephone||"-")+"\nMail : "+(d.email||"-")+"\nVous êtes : "+d.type+"\n\n"+d.message;
+      return "mailto:"+DEST+"?subject="+encodeURIComponent("Message depuis le site")+"&body="+encodeURIComponent(corps);
+    }
+    function erreur(texte,champs){
+      champs.forEach(c=>c.classList.add("faux"));
+      etat.innerHTML=texte;
+    }
+    f.addEventListener("input",e=>e.target.classList.remove("faux"));
+
+    f.addEventListener("submit",async e=>{
+      e.preventDefault();
+      if(ch._honey.value)return;
+      const d={nom:ch.nom.value.trim(),telephone:ch.telephone.value.trim(),email:ch.email.value.trim(),type:ch.type.value,message:ch.message.value.trim()};
+      etat.innerHTML="";
+      const manque=[];
+      if(!d.nom)manque.push(ch.nom);
+      if(!d.message)manque.push(ch.message);
+      if(!d.telephone&&!d.email)manque.push(ch.telephone,ch.email);
+      if(manque.length)return erreur("Il manque votre nom, votre message, ou un moyen de vous répondre (téléphone ou mail).",manque);
+      if(d.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email))return erreur("L'adresse mail ne semble pas complète.",[ch.email]);
+
+      bouton.disabled=true;bouton.textContent="Envoi en cours...";
+      try{
+        const r=await fetch("https://formsubmit.co/ajax/"+DEST,{
+          method:"POST",
+          headers:{"Content-Type":"application/json","Accept":"application/json"},
+          body:JSON.stringify(Object.assign({
+            _subject:"Site GAEC de la Moleirie : message de "+d.nom,
+            _template:"table",
+            "Nom":d.nom,"Téléphone":d.telephone||"-","Mail":d.email||"-","Vous êtes":d.type,"Message":d.message
+          },d.email?{_replyto:d.email}:{}))
+        });
+        const j=await r.json().catch(()=>({}));
+        if(!r.ok||String(j.success)!=="true")throw new Error(j.message||r.status);
+        f.classList.add("envoye");
+      }catch(err){
+        etat.innerHTML='Le message n\'est pas parti. <a href="'+parMail(d)+'">Envoyez-le avec votre messagerie</a> ou appelez-nous.';
+      }finally{
+        bouton.disabled=false;bouton.textContent="Envoyer";
+      }
+    });
+    document.getElementById("encore").addEventListener("click",()=>{
+      f.reset();ch.type.value="Un particulier";
+      document.getElementById("choix-valeur").textContent="Un particulier";
+      f.querySelectorAll("[role=option]").forEach((o,i)=>o.setAttribute("aria-selected",i===0?"true":"false"));
+      f.classList.remove("envoye");
+    });
+  })();
 </script>
 </body>
 </html>
