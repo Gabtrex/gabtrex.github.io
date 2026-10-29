@@ -71,9 +71,10 @@
   .produits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .carte{background:var(--blanc);border:1px solid #e6dcc8;border-radius:var(--rayon);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
   .carte:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(59,53,48,.45)}
-  .carte .pastille{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;margin:24px 22px 0}
-  .carte .pastille svg{width:32px;height:32px}
-  .carte .corps{padding:16px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .carte .photo{position:relative;aspect-ratio:3/2;display:grid;place-items:center;overflow:hidden}
+  .carte .photo > svg{width:44px;height:44px}
+  .carte .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .carte .corps{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
   .carte h3{font-size:21px}
   .carte p{font-size:15px;color:var(--doux)}
   .carte .meta{margin-top:auto;padding-top:6px;font-size:13px;font-weight:600;color:var(--herbe)}
@@ -103,52 +104,16 @@
   .etape p{font-size:15px;color:var(--doux)}
 
   .contact{background:var(--herbe-fonce);color:#eef2e4}
-  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .contact .wrap{max-width:760px;text-align:center}
   .contact h2{color:#fff;font-size:clamp(30px,3.6vw,42px);margin-bottom:14px}
   .contact p{opacity:.85}
-  .infos{display:grid;gap:14px;margin-top:26px}
+  .btn.mail{margin-top:28px;background:var(--or);color:var(--pierre);font-size:17px;padding:16px 28px;max-width:100%}
+  .btn.mail:hover{background:#e7b65a}
+  .btn.mail svg{flex:none;width:22px;height:22px;stroke:currentColor}
+  .btn.mail span{overflow-wrap:anywhere}
+  .infos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;text-align:left}
   .info{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:14px 16px}
   .info svg{flex:none;width:22px;height:22px;stroke:var(--or)}
-
-  form{position:relative;background:var(--blanc);color:var(--texte);border-radius:var(--rayon);padding:26px}
-  .champs{display:grid;gap:16px}
-  .champ{display:grid;gap:6px}
-  .champ > span{font-size:13px;font-weight:600;color:var(--doux)}
-  input,textarea{font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid #ddd2bd;border-radius:12px;background:var(--creme);color:var(--texte);width:100%}
-  textarea{resize:vertical;min-height:110px}
-  input:focus,textarea:focus{outline:none;border-color:var(--herbe);box-shadow:0 0 0 3px rgba(63,90,43,.15)}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  form .btn{justify-content:center;width:100%;padding:15px}
-  form .btn:disabled{opacity:.7;cursor:wait;transform:none}
-  input.faux,textarea.faux{border-color:#c0583a;box-shadow:0 0 0 3px rgba(192,88,58,.12)}
-  .etat{font-size:14px;line-height:1.5;color:#a8452a;min-height:0}
-  .etat:empty{display:none}
-  .etat a{font-weight:600}
-  .note{font-size:13px;color:var(--doux);line-height:1.5;text-align:center}
-  .piege{position:absolute;left:-10000px;width:1px;height:1px;opacity:0}
-  .merci{display:none;text-align:center;padding:28px 8px;justify-items:center;gap:10px}
-  .merci svg{width:56px;height:56px}
-  .merci b{font-family:Fraunces,serif;font-size:24px;color:var(--pierre)}
-  .merci p{color:var(--doux);font-size:15px}
-  .merci button{font:inherit;font-size:14px;font-weight:600;color:var(--herbe);background:none;border:none;cursor:pointer;text-decoration:underline;margin-top:6px}
-  form.envoye .champs{display:none}
-  form.envoye .merci{display:grid}
-
-  /* Liste déroulante sur mesure */
-  .choix{position:relative}
-  .choix-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;font:inherit;font-size:15px;font-weight:500;text-align:left;padding:12px 14px;border:1.5px solid #ddd2bd;border-radius:12px;background:var(--creme);color:var(--texte);cursor:pointer;transition:border-color .15s,box-shadow .15s}
-  .choix-btn:hover{border-color:#cbbd9f}
-  .choix-btn:focus-visible,.choix.ouvert .choix-btn{outline:none;border-color:var(--herbe);box-shadow:0 0 0 3px rgba(63,90,43,.15)}
-  .choix-btn svg{width:18px;height:18px;flex:none;stroke:var(--doux);transition:transform .2s}
-  .choix.ouvert .choix-btn svg{transform:rotate(180deg)}
-  .choix-liste{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;list-style:none;background:var(--blanc);border:1px solid var(--trait);border-radius:14px;padding:6px;box-shadow:0 18px 40px -16px rgba(42,61,28,.45);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .15s,transform .15s}
-  .choix.ouvert .choix-liste{opacity:1;transform:none;pointer-events:auto}
-  .choix-liste li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px;font-size:15px;cursor:pointer;color:var(--texte)}
-  .choix-liste li small{display:block;font-size:12.5px;color:var(--doux)}
-  .choix-liste li:hover,.choix-liste li.actif{background:var(--sable)}
-  .choix-liste li[aria-selected="true"]{color:var(--herbe-fonce);font-weight:600}
-  .choix-liste li .coche{width:18px;height:18px;flex:none;stroke:var(--herbe);opacity:0}
-  .choix-liste li[aria-selected="true"] .coche{opacity:1}
 
   footer{background:#1f2d15;color:#b9c3a8;font-size:13.5px;padding:26px 0}
   footer .wrap{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap}
@@ -162,7 +127,7 @@
   }
   @media (max-width:860px){
     .nav ul{display:none}
-    .ferme .wrap,.contact .wrap,.clients{grid-template-columns:1fr}
+    .ferme .wrap,.clients,.infos{grid-template-columns:1fr}
     .etapes{grid-template-columns:1fr}
     section{padding:60px 0}
     .hero .wrap{grid-template-columns:1fr;padding-top:40px;gap:24px}
@@ -177,7 +142,6 @@
     .produits{grid-template-columns:1fr}
     .gages .wrap{grid-template-columns:1fr}
     .gage+.gage{border-left:none;border-top:1px solid var(--trait)}
-    .row2{grid-template-columns:1fr}
     .client{padding:24px}
   }
 </style>
@@ -278,7 +242,7 @@
     </div>
     <div class="produits">
       <article class="carte">
-        <div class="pastille" style="background:#f3e1d6" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12.5" cy="8.5" r="2.5"/><path d="M12.5 2a6.5 6.5 0 0 0-6.22 4.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3A6.5 6.5 0 0 0 12.5 2Z"/><path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1 .31 2 6.49 6.49 0 0 1-2.6 5.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5"/></svg></div>
+        <div class="photo" style="background:#f3e1d6"><svg viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12.5" cy="8.5" r="2.5"/><path d="M12.5 2a6.5 6.5 0 0 0-6.22 4.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3A6.5 6.5 0 0 0 12.5 2Z"/><path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1 .31 2 6.49 6.49 0 0 1-2.6 5.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5"/></svg><img src="https://images.unsplash.com/photo-1666013942642-b7b54ecafd7d?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1666013942642-b7b54ecafd7d?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1666013942642-b7b54ecafd7d?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Pièce de bœuf crue sur une planche" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
         <div class="corps">
           <h3>Bœuf</h3>
           <p>Viande fraîche et égrené de bœuf (viande hachée). La viande fraîche se garde 15 jours.</p>
@@ -286,7 +250,7 @@
         </div>
       </article>
       <article class="carte">
-        <div class="pastille" style="background:#efe3d4" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 9H5.5c1 2.4 3 3.6 5.4 3.4M21.5 9h5c-1 2.4-3 3.6-5.4 3.4"/><path d="M10.5 8h11l1 9c0 5-3 9-6.5 9s-6.5-4-6.5-9z"/><ellipse cx="16" cy="21.5" rx="3.6" ry="2.6"/><circle cx="13" cy="14.5" r=".9" fill="#b5562b"/><circle cx="19" cy="14.5" r=".9" fill="#b5562b"/></svg></div>
+        <div class="photo" style="background:#efe3d4"><svg viewBox="0 0 32 32" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 9H5.5c1 2.4 3 3.6 5.4 3.4M21.5 9h5c-1 2.4-3 3.6-5.4 3.4"/><path d="M10.5 8h11l1 9c0 5-3 9-6.5 9s-6.5-4-6.5-9z"/><ellipse cx="16" cy="21.5" rx="3.6" ry="2.6"/><circle cx="13" cy="14.5" r=".9" fill="#b5562b"/><circle cx="19" cy="14.5" r=".9" fill="#b5562b"/></svg><img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Vache brune dans un pré" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
         <div class="corps">
           <h3>Veau</h3>
           <p>Viande de veau de la ferme, découpée selon votre commande.</p>
@@ -294,7 +258,7 @@
         </div>
       </article>
       <article class="carte">
-        <div class="pastille" style="background:#ebe4d6" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="#3b3530" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="16" height="16" rx="4"/><rect x="10" y="5" width="12" height="6" rx="1.5"/><path d="M12 17.5h8M12 21h5"/></svg></div>
+        <div class="photo" style="background:#ebe4d6"><svg viewBox="0 0 32 32" fill="none" stroke="#3b3530" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="16" height="16" rx="4"/><rect x="10" y="5" width="12" height="6" rx="1.5"/><path d="M12 17.5h8M12 21h5"/></svg><img src="https://images.unsplash.com/photo-1640348784724-93f7b14d8047?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1640348784724-93f7b14d8047?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1640348784724-93f7b14d8047?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Bocaux de conserves sur une étagère en bois" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
         <div class="corps">
           <h3>Tripes en bocaux</h3>
           <p>Les tripes de la ferme, en bocaux.</p>
@@ -302,7 +266,7 @@
         </div>
       </article>
       <article class="carte">
-        <div class="pastille" style="background:#f4e8d2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.4" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg></div>
+        <div class="photo" style="background:#f4e8d2"><svg viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.4" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg><img src="https://images.unsplash.com/photo-1761654887771-ef948944643e?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1761654887771-ef948944643e?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1761654887771-ef948944643e?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Champ de sarrasin en fleurs" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
         <div class="corps">
           <h3>Sarrasin et petit épeautre</h3>
           <p>En grain, cuits et surgelés : il n'y a plus qu'à réchauffer. Se gardent un an.</p>
@@ -351,7 +315,7 @@
     <div class="clients">
       <div class="client part">
         <h3>Vous êtes un particulier</h3>
-        <p>Appelez-nous ou laissez un message : on vous dit ce qui est disponible et on prépare votre commande.</p>
+        <p>Appelez-nous ou écrivez-nous : on vous dit ce qui est disponible et on prépare votre commande.</p>
         <ul>
           <li>Bœuf, veau et tripes de la ferme</li>
           <li>Sarrasin et petit épeautre déjà cuits</li>
@@ -380,7 +344,7 @@
       <h2>Comment commander</h2>
     </div>
     <div class="etapes">
-      <div class="etape"><h3>Vous nous contactez</h3><p>Par téléphone ou avec le formulaire en bas de la page. Dites-nous quels produits et quelle quantité.</p></div>
+      <div class="etape"><h3>Vous nous contactez</h3><p>Par téléphone ou par mail. Dites-nous quels produits et quelle quantité.</p></div>
       <div class="etape"><h3>On vous répond</h3><p>On confirme ce qui est disponible, le prix et le conditionnement.</p></div>
       <div class="etape"><h3>On convient de la livraison</h3><p>La date et le lieu de livraison se fixent ensemble.</p></div>
     </div>
@@ -389,155 +353,23 @@
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div>
-      <h2>Une question, une commande ?</h2>
-      <p>Appelez-nous ou laissez un message, on vous rappelle.</p>
-      <div class="infos">
-        <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Votre numéro de téléphone</span></div>
-        <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Votre adresse mail</span></div>
-        <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Lamoleirie, Cantal</span></div>
-      </div>
+    <h2>Une question, une commande ?</h2>
+    <p>Écrivez-nous ou appelez-nous, on vous répond vite.</p>
+    <a class="btn mail" href="mailto:domerguejc181@gmail.com?subject=Commande%20GAEC%20de%20la%20Moleirie"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>domerguejc181@gmail.com</span></a>
+    <div class="infos">
+      <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Votre numéro de téléphone</span></div>
+      <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Lamoleirie, Cantal</span></div>
     </div>
-    <form id="formulaire" novalidate>
-      <div class="champs">
-        <div class="row2">
-          <label class="champ"><span>Nom</span><input type="text" name="nom" placeholder="Votre nom" autocomplete="name"></label>
-          <label class="champ"><span>Téléphone</span><input type="tel" name="telephone" placeholder="06 ..." autocomplete="tel"></label>
-        </div>
-        <label class="champ"><span>Mail</span><input type="email" name="email" placeholder="vous@exemple.fr" autocomplete="email"></label>
-        <div class="champ">
-          <span id="choix-label">Vous êtes</span>
-          <div class="choix" id="choix">
-            <button type="button" class="choix-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="choix-label choix-valeur"><span id="choix-valeur">Un particulier</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
-            <ul class="choix-liste" role="listbox" aria-labelledby="choix-label" tabindex="-1">
-              <li role="option" aria-selected="true" data-valeur="Un particulier"><div>Un particulier</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-              <li role="option" aria-selected="false" data-valeur="Une cantine ou un EHPAD"><div>Une cantine ou un EHPAD</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-              <li role="option" aria-selected="false" data-valeur="Un restaurant"><div>Un restaurant</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-              <li role="option" aria-selected="false" data-valeur="Autre"><div>Autre</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
-            </ul>
-            <input type="hidden" name="type" value="Un particulier">
-          </div>
-        </div>
-        <label class="champ"><span>Votre message</span><textarea name="message" rows="4" placeholder="Par exemple : 5 kg de bœuf et deux bocaux de tripes"></textarea></label>
-        <input class="piege" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn" type="submit">Envoyer</button>
-        <p class="etat" role="status" aria-live="polite"></p>
-        <p class="note">Votre message part directement par mail. Pour cette maquette, il arrive chez Gabriel.</p>
-      </div>
-      <div class="merci" role="status">
-        <svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="27" fill="#e4ecd8"/><path d="m18 29 7 7 13-15" stroke="#3f5a2b" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <b>Message envoyé, merci !</b>
-        <p>On vous répond au plus vite, par téléphone ou par mail.</p>
-        <button type="button" id="encore">Envoyer un autre message</button>
-      </div>
-    </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <span>GAEC de la Moleirie · Lamoleirie, Cantal</span>
-    <span>Photos d'exemple prises dans le Cantal : <a href="https://unsplash.com/photos/lHy3EyiRnOw">Gaëtan Spinhayer</a> et <a href="https://unsplash.com/photos/zudcf8qtGYc">Mathieu Daix</a> sur Unsplash</span>
+    <span>Photos d'exemple libres de droits, Unsplash : <a href="https://unsplash.com/photos/lHy3EyiRnOw">1</a>, <a href="https://unsplash.com/photos/zudcf8qtGYc">2</a>, <a href="https://unsplash.com/photos/ZKv9WGWMOLk">3</a>, <a href="https://unsplash.com/photos/RxHhxWnXmNs">4</a>, <a href="https://unsplash.com/photos/bhni1zsPiio">5</a>, <a href="https://unsplash.com/photos/x8QJbtgoO-M">6</a></span>
     <span>Maquette : Gabriel Fernandes Neves</span>
   </div>
 </footer>
 
-<script>
-  // Liste déroulante
-  (function(){
-    const choix=document.getElementById("choix");
-    const btn=choix.querySelector(".choix-btn");
-    const liste=choix.querySelector(".choix-liste");
-    const options=[...liste.querySelectorAll("li")];
-    const valeur=document.getElementById("choix-valeur");
-    const cache=choix.querySelector("input[type=hidden]");
-    let actif=0;
-
-    function ouvrir(){
-      choix.classList.add("ouvert");btn.setAttribute("aria-expanded","true");
-      actif=options.findIndex(o=>o.getAttribute("aria-selected")==="true");
-      marquer();liste.focus();
-    }
-    function fermer(rendreFocus){
-      choix.classList.remove("ouvert");btn.setAttribute("aria-expanded","false");
-      if(rendreFocus)btn.focus();
-    }
-    function marquer(){options.forEach((o,i)=>o.classList.toggle("actif",i===actif))}
-    function choisir(i){
-      options.forEach((o,j)=>o.setAttribute("aria-selected",j===i?"true":"false"));
-      valeur.textContent=options[i].dataset.valeur;cache.value=options[i].dataset.valeur;
-      fermer(true);
-    }
-    btn.addEventListener("click",()=>choix.classList.contains("ouvert")?fermer(false):ouvrir());
-    btn.addEventListener("keydown",e=>{if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();ouvrir()}});
-    options.forEach((o,i)=>{
-      o.addEventListener("click",()=>choisir(i));
-      o.addEventListener("mousemove",()=>{actif=i;marquer()});
-    });
-    liste.addEventListener("keydown",e=>{
-      if(e.key==="ArrowDown"){e.preventDefault();actif=Math.min(actif+1,options.length-1);marquer()}
-      else if(e.key==="ArrowUp"){e.preventDefault();actif=Math.max(actif-1,0);marquer()}
-      else if(e.key==="Enter"||e.key===" "){e.preventDefault();choisir(actif)}
-      else if(e.key==="Escape"||e.key==="Tab"){fermer(e.key==="Escape")}
-    });
-    document.addEventListener("click",e=>{if(!choix.contains(e.target))fermer(false)});
-  })();
-
-  // Formulaire : le message part par mail grâce à FormSubmit (gratuit, rien à installer sur le site)
-  (function(){
-    const DEST="gabrielsiteweb@gmail.com"; // sur le vrai site : l'adresse de la ferme
-    const f=document.getElementById("formulaire");
-    const ch=f.elements, etat=f.querySelector(".etat"), bouton=f.querySelector("button[type=submit]");
-
-    function parMail(d){
-      const corps="Nom : "+d.nom+"\nTéléphone : "+(d.telephone||"-")+"\nMail : "+(d.email||"-")+"\nVous êtes : "+d.type+"\n\n"+d.message;
-      return "mailto:"+DEST+"?subject="+encodeURIComponent("Message depuis le site")+"&body="+encodeURIComponent(corps);
-    }
-    function erreur(texte,champs){
-      champs.forEach(c=>c.classList.add("faux"));
-      etat.innerHTML=texte;
-    }
-    f.addEventListener("input",e=>e.target.classList.remove("faux"));
-
-    f.addEventListener("submit",async e=>{
-      e.preventDefault();
-      if(ch._honey.value)return;
-      const d={nom:ch.nom.value.trim(),telephone:ch.telephone.value.trim(),email:ch.email.value.trim(),type:ch.type.value,message:ch.message.value.trim()};
-      etat.innerHTML="";
-      const manque=[];
-      if(!d.nom)manque.push(ch.nom);
-      if(!d.message)manque.push(ch.message);
-      if(!d.telephone&&!d.email)manque.push(ch.telephone,ch.email);
-      if(manque.length)return erreur("Il manque votre nom, votre message, ou un moyen de vous répondre (téléphone ou mail).",manque);
-      if(d.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email))return erreur("L'adresse mail ne semble pas complète.",[ch.email]);
-
-      bouton.disabled=true;bouton.textContent="Envoi en cours...";
-      try{
-        const r=await fetch("https://formsubmit.co/ajax/"+DEST,{
-          method:"POST",
-          headers:{"Content-Type":"application/json","Accept":"application/json"},
-          body:JSON.stringify(Object.assign({
-            _subject:"Site GAEC de la Moleirie : message de "+d.nom,
-            _template:"table",
-            "Nom":d.nom,"Téléphone":d.telephone||"-","Mail":d.email||"-","Vous êtes":d.type,"Message":d.message
-          },d.email?{_replyto:d.email}:{}))
-        });
-        const j=await r.json().catch(()=>({}));
-        if(!r.ok||String(j.success)!=="true")throw new Error(j.message||r.status);
-        f.classList.add("envoye");
-      }catch(err){
-        etat.innerHTML='Le message n\'est pas parti. <a href="'+parMail(d)+'">Envoyez-le avec votre messagerie</a> ou appelez-nous.';
-      }finally{
-        bouton.disabled=false;bouton.textContent="Envoyer";
-      }
-    });
-    document.getElementById("encore").addEventListener("click",()=>{
-      f.reset();ch.type.value="Un particulier";
-      document.getElementById("choix-valeur").textContent="Un particulier";
-      f.querySelectorAll("[role=option]").forEach((o,i)=>o.setAttribute("aria-selected",i===0?"true":"false"));
-      f.classList.remove("envoye");
-    });
-  })();
-</script>
 </body>
 </html>
