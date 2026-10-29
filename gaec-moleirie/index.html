@@ -48,6 +48,12 @@
   .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
   .hero-art{width:100%;height:auto;display:block;border-radius:28px;overflow:hidden}
 
+  .media{position:relative;overflow:hidden}
+  .media > img.vraie{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .hero .media{border-radius:28px;aspect-ratio:4/3}
+  .hero .media svg{width:100%;height:100%;display:block}
+  .ferme .media{border-radius:26px;aspect-ratio:520/380}
+  .ferme .media svg{width:100%;height:100%;display:block}
   .gages{background:var(--blanc);border-bottom:1px solid var(--trait)}
   .gages .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
   .gage{display:flex;gap:12px;align-items:center;padding:22px 16px}
@@ -65,7 +71,7 @@
   .produits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .carte{background:var(--blanc);border:1px solid #e6dcc8;border-radius:var(--rayon);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
   .carte:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(59,53,48,.45)}
-  .carte .photo{height:130px;background:var(--sable);position:relative}
+  .carte .photo{height:170px;background:var(--sable);position:relative}
   .carte .photo img{width:100%;height:100%;object-fit:cover}
   .carte .photo.dessin{display:grid;place-items:center}
   .carte .corps{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -166,7 +172,7 @@
 </head>
 <body>
 
-<div class="bandeau"><b>Maquette</b> proposée par Gabriel. Les dessins sont provisoires : on les remplace par les photos de votre ferme.</div>
+<div class="bandeau"><b>Maquette</b> proposée par Gabriel. Les photos sont des exemples libres de droits : on les remplace par celles de votre ferme.</div>
 
 <header class="nav">
   <div class="wrap">
@@ -195,6 +201,7 @@
         <a class="btn clair" href="#contact">Passer commande</a>
       </div>
     </div>
+    <div class="media"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cantal_buron_puy-mary.jpg?width=1200" alt="Pâturages du Cantal près du Puy Mary" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     <svg class="hero-art" viewBox="0 0 560 420" role="img" aria-label="Paysage du Cantal avec des vaches dans les prés">
       <defs>
         <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe0e8"/><stop offset="1" stop-color="#eef0dc"/></linearGradient>
@@ -225,6 +232,7 @@
       </g>
       <g fill="#d9a441"><ellipse cx="70" cy="342" rx="4" ry="8"/><ellipse cx="60" cy="344" rx="4" ry="7"/><ellipse cx="492" cy="348" rx="4" ry="8"/><ellipse cx="480" cy="352" rx="4" ry="7"/></g>
     </svg>
+    </div>
   </div>
 </section>
 
@@ -258,7 +266,7 @@
     </div>
     <div class="produits">
       <article class="carte">
-        <div class="photo dessin" style="background:#f3e1d6"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.2" stroke-linecap="round"><path d="M4 13c0-4 3-7 8-7s8 3 8 7-4 6-8 6-8-2-8-6z"/><circle cx="12" cy="13" r="2.4"/></svg></div>
+        <div class="photo dessin media" style="background:#f3e1d6"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vache_salers.jpg?width=700" alt="Vache Salers" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.2" stroke-linecap="round"><path d="M4 13c0-4 3-7 8-7s8 3 8 7-4 6-8 6-8-2-8-6z"/><circle cx="12" cy="13" r="2.4"/></svg></div>
         <div class="corps">
           <h3>Bœuf</h3>
           <p>Viande fraîche et égrené de bœuf (viande hachée). La viande fraîche se garde 15 jours.</p>
@@ -282,7 +290,7 @@
         </div>
       </article>
       <article class="carte">
-        <div class="photo dessin" style="background:#f4e8d2"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.2" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg></div>
+        <div class="photo dessin media" style="background:#f4e8d2"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Graines_de_sarrasin.jpg?width=700" alt="Graines de sarrasin" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.2" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg></div>
         <div class="corps">
           <h3>Sarrasin et petit épeautre</h3>
           <p>En grain, cuits et surgelés : il n'y a plus qu'à réchauffer. Se gardent un an.</p>
@@ -295,6 +303,7 @@
 
 <section class="ferme" id="ferme">
   <div class="wrap">
+    <div class="media"><img class="vraie" src="https://commons.wikimedia.org/wiki/Special:FilePath/Puy_Violent,_Cantal,_France.jpg?width=1100" alt="Paysage du Cantal" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     <svg viewBox="0 0 520 380" role="img" aria-label="Illustration de la ferme" style="width:100%;height:auto">
       <rect width="520" height="380" rx="26" fill="#dfe8cf"/>
       <path d="M0 250 C120 220 260 245 520 225 V380 H0Z" fill="#5f7a40"/>
@@ -309,6 +318,7 @@
       <g fill="#4a6531"><circle cx="70" cy="200" r="34"/><circle cx="96" cy="176" r="28"/><rect x="74" y="200" width="10" height="44" fill="#5a4330"/></g>
       <g fill="#4a6531"><circle cx="440" cy="196" r="30"/><rect x="436" y="200" width="9" height="40" fill="#5a4330"/></g>
     </svg>
+    </div>
     <div>
       <div class="titre-sec" style="margin-bottom:16px">
         <div class="sur">La ferme</div>
@@ -404,6 +414,7 @@
 <footer>
   <div class="wrap">
     <span>GAEC de la Moleirie · Lamoleirie, Cantal</span>
+    <span>Photos d'exemple : Wikimedia Commons (<a href="https://commons.wikimedia.org/wiki/File:Cantal_buron_puy-mary.jpg">1</a>, <a href="https://commons.wikimedia.org/wiki/File:Puy_Violent,_Cantal,_France.jpg">2</a>, <a href="https://commons.wikimedia.org/wiki/File:Vache_salers.jpg">3</a>, <a href="https://commons.wikimedia.org/wiki/File:Graines_de_sarrasin.jpg">4</a>)</span>
     <span>Maquette : Gabriel Fernandes Neves</span>
   </div>
 </footer>
