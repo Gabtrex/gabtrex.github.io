@@ -114,6 +114,8 @@
   .infos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;text-align:left}
   .info{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:14px 16px}
   .info svg{flex:none;width:22px;height:22px;stroke:var(--or)}
+  a.info{text-decoration:none;color:inherit;transition:background .2s}
+  a.info:hover{background:rgba(255,255,255,.13)}
 
   footer{background:#1f2d15;color:#b9c3a8;font-size:13.5px;padding:26px 0}
   footer .wrap{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap}
@@ -355,9 +357,9 @@
   <div class="wrap">
     <h2>Une question, une commande ?</h2>
     <p>Écrivez-nous ou appelez-nous, on vous répond vite.</p>
-    <a class="btn mail" href="mailto:domerguejc181@gmail.com?subject=Commande%20GAEC%20de%20la%20Moleirie"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>domerguejc181@gmail.com</span></a>
+    <a class="btn mail" href="mailto:domerguejc181@gmail.com?subject=Commande%20GAEC%20de%20la%20Moleirie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>domerguejc181@gmail.com</span></a>
     <div class="infos">
-      <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Votre numéro de téléphone</span></div>
+      <a class="info" href="tel:+33670293463"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>06 70 29 34 63</span></a>
       <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Lamoleirie, Cantal</span></div>
     </div>
   </div>
@@ -366,7 +368,6 @@
 <footer>
   <div class="wrap">
     <span>GAEC de la Moleirie · Lamoleirie, Cantal</span>
-    <span>Photos d'exemple libres de droits, Unsplash : <a href="https://unsplash.com/photos/lHy3EyiRnOw">1</a>, <a href="https://unsplash.com/photos/zudcf8qtGYc">2</a>, <a href="https://unsplash.com/photos/ZKv9WGWMOLk">3</a>, <a href="https://unsplash.com/photos/RxHhxWnXmNs">4</a>, <a href="https://unsplash.com/photos/bhni1zsPiio">5</a>, <a href="https://unsplash.com/photos/x8QJbtgoO-M">6</a></span>
     <span>Maquette : Gabriel Fernandes Neves</span>
   </div>
 </footer>
