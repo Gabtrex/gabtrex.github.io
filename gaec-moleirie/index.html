@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GAEC de la Moleirie — Viande et céréales du Cantal</title>
-<meta name="description" content="GAEC de la Moleirie, ferme du Cantal : viande bovine, veau, tripes en bocaux, sarrasin et petit épeautre. Vente aux particuliers, cantines et restaurants.">
+<title>GAEC de la Moleirie | Viande et céréales du Cantal</title>
+<meta name="description" content="GAEC de la Moleirie, Lamoleirie (Cantal) : viande de bœuf, veau, tripes en bocaux, sarrasin et petit épeautre. Toute l'année, conditionnement à la demande.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 <style>
   :root{
     --herbe:#3f5a2b; --herbe-fonce:#2a3d1c; --pierre:#3b3530; --creme:#f7f2e8; --sable:#ece3d0;
-    --sarrasin:#b5562b; --or:#d9a441; --texte:#2b2723; --doux:#6b6258; --blanc:#fffdf8;
+    --sarrasin:#b5562b; --or:#d9a441; --texte:#2b2723; --doux:#6b6258; --blanc:#fffdf8; --trait:#e3d8c3;
     --rayon:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -20,80 +20,79 @@
   body{font-family:Inter,system-ui,sans-serif;color:var(--texte);background:var(--creme);line-height:1.6;font-size:17px}
   h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;color:var(--pierre)}
   a{color:inherit}
+  img{display:block;max-width:100%}
   .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
   .bandeau{background:var(--pierre);color:#f3e9d6;font-size:13px;text-align:center;padding:8px 16px}
   .bandeau b{color:var(--or)}
 
-  header.nav{position:sticky;top:0;z-index:20;background:rgba(247,242,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e3d8c3}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(247,242,232,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--trait)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
   .logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:19px;text-decoration:none;color:var(--herbe-fonce)}
-  .logo svg{width:34px;height:34px}
+  .logo svg{width:34px;height:34px;flex:none}
   .nav ul{display:flex;gap:26px;list-style:none;font-size:15px;font-weight:500}
   .nav ul a{text-decoration:none;color:var(--doux)}
   .nav ul a:hover{color:var(--herbe)}
-  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--herbe);color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:999px;font-size:15px;transition:background .2s,transform .2s}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--herbe);color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:999px;font-size:15px;transition:background .2s,transform .2s;border:none;cursor:pointer;font-family:inherit}
   .btn:hover{background:var(--herbe-fonce);transform:translateY(-1px)}
   .btn.clair{background:transparent;color:var(--herbe-fonce);border:1.5px solid var(--herbe)}
   .btn.clair:hover{background:var(--herbe);color:#fff}
-  .nav .btn{padding:9px 18px}
+  .nav .btn{padding:9px 18px;white-space:nowrap}
 
   .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#dfe8cf 0%,#eef0dc 55%,var(--creme) 100%)}
-  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:40px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:48px}
   .tag{display:inline-block;background:var(--blanc);border:1px solid #d9cfb8;color:var(--herbe);font-weight:600;font-size:13px;padding:6px 12px;border-radius:999px;margin-bottom:18px}
-  .hero h1{font-size:clamp(38px,5.4vw,62px);margin-bottom:18px}
+  .hero h1{font-size:clamp(36px,5.2vw,60px);margin-bottom:16px}
   .hero h1 em{font-style:normal;color:var(--herbe)}
   .hero p.lead{font-size:19px;color:var(--doux);max-width:520px;margin-bottom:28px}
   .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
   .hero-art{width:100%;height:auto;display:block;border-radius:28px;overflow:hidden}
-  .ferme svg{border-radius:26px;overflow:hidden}
-  @media (max-width:420px){.nav .btn{padding:8px 14px;font-size:14px;white-space:nowrap}.logo{font-size:17px}}
+
+  .gages{background:var(--blanc);border-bottom:1px solid var(--trait)}
+  .gages .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .gage{display:flex;gap:12px;align-items:center;padding:22px 16px}
+  .gage+.gage{border-left:1px solid var(--trait)}
+  .gage svg{flex:none;width:34px;height:34px}
+  .gage b{display:block;font-size:15px;color:var(--pierre)}
+  .gage span{font-size:13px;color:var(--doux);line-height:1.4;display:block}
 
   section{padding:80px 0}
-  .titre-sec{max-width:640px;margin-bottom:40px}
+  .titre-sec{max-width:640px;margin-bottom:36px}
   .titre-sec .sur{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sarrasin);margin-bottom:10px}
   .titre-sec h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:12px}
   .titre-sec p{color:var(--doux)}
 
-  .produits{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-  .carte{background:var(--blanc);border:1px solid #e6dcc8;border-radius:var(--rayon);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s}
+  .produits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .carte{background:var(--blanc);border:1px solid #e6dcc8;border-radius:var(--rayon);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
   .carte:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(59,53,48,.45)}
-  .carte .ico{width:58px;height:58px;border-radius:16px;display:grid;place-items:center}
+  .carte .photo{height:130px;background:var(--sable);position:relative}
+  .carte .photo img{width:100%;height:100%;object-fit:cover}
+  .carte .photo.dessin{display:grid;place-items:center}
+  .carte .corps{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
   .carte h3{font-size:21px}
   .carte p{font-size:15px;color:var(--doux)}
-  .carte .meta{margin-top:auto;font-size:13px;font-weight:600;color:var(--herbe)}
+  .carte .meta{margin-top:auto;padding-top:6px;font-size:13px;font-weight:600;color:var(--herbe)}
 
   .ferme{background:var(--sable)}
   .ferme .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .ferme svg{border-radius:26px;overflow:hidden}
   .ferme p{color:var(--doux);margin-bottom:14px}
-  .chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-  .chiffres div{background:var(--blanc);border-radius:14px;padding:16px;text-align:center}
-  .chiffres b{display:block;font-family:Fraunces,serif;font-size:26px;color:var(--herbe-fonce)}
-  .chiffres span{font-size:13px;color:var(--doux)}
+  .a-ecrire{border-left:3px solid var(--or);padding:8px 14px;background:rgba(255,255,255,.55);border-radius:0 10px 10px 0;font-size:15px;font-style:italic}
 
   .clients{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .client{border-radius:var(--rayon);padding:32px;color:#fff;position:relative;overflow:hidden}
+  .client{border-radius:var(--rayon);padding:32px;color:#fff}
   .client.part{background:var(--herbe)}
   .client.pro{background:var(--pierre)}
   .client h3{color:#fff;font-size:26px;margin-bottom:12px}
+  .client p{opacity:.92}
   .client ul{list-style:none;display:grid;gap:10px;margin:18px 0 24px}
   .client li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;opacity:.95}
   .client li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--or) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' stroke='%233b3530' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/12px no-repeat}
   .client .btn{background:#fff;color:var(--pierre)}
   .client .btn:hover{background:var(--or)}
 
-  .calendrier{background:var(--blanc);border:1px solid #e6dcc8;border-radius:var(--rayon);padding:24px;overflow-x:auto}
-  .cal{display:grid;grid-template-columns:150px repeat(12,minmax(38px,1fr));gap:4px;min-width:640px;font-size:13px}
-  .cal .m{text-align:center;font-weight:600;color:var(--doux);padding-bottom:6px}
-  .cal .p{font-weight:600;padding:6px 0;color:var(--pierre)}
-  .cal .c{border-radius:6px;background:#efe8da}
-  .cal .c.on{background:var(--herbe)}
-  .cal .c.on.s{background:var(--sarrasin)}
-  .cal .c.on.o{background:var(--or)}
-  .note{font-size:13px;color:var(--doux);margin-top:14px}
-
   .etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:e}
-  .etape{background:var(--blanc);border-radius:var(--rayon);padding:26px;border:1px solid #e6dcc8;position:relative}
+  .etape{background:var(--blanc);border-radius:var(--rayon);padding:26px;border:1px solid #e6dcc8}
   .etape::before{counter-increment:e;content:counter(e);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--sable);color:var(--sarrasin);font-family:Fraunces,serif;font-weight:700;font-size:20px;margin-bottom:14px}
   .etape h3{font-size:19px;margin-bottom:6px}
   .etape p{font-size:15px;color:var(--doux)}
@@ -105,31 +104,61 @@
   .infos{display:grid;gap:14px;margin-top:26px}
   .info{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:14px 16px}
   .info svg{flex:none;width:22px;height:22px;stroke:var(--or)}
-  form{background:var(--blanc);color:var(--texte);border-radius:var(--rayon);padding:26px;display:grid;gap:14px}
-  label{font-size:13px;font-weight:600;color:var(--doux);display:grid;gap:6px}
-  input,select,textarea{font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid #ddd2bd;border-radius:12px;background:var(--creme);color:var(--texte);appearance:none}
-  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' stroke='%236b6258' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
-  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--herbe)}
+
+  form{background:var(--blanc);color:var(--texte);border-radius:var(--rayon);padding:26px;display:grid;gap:16px}
+  .champ{display:grid;gap:6px}
+  .champ > span{font-size:13px;font-weight:600;color:var(--doux)}
+  input,textarea{font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid #ddd2bd;border-radius:12px;background:var(--creme);color:var(--texte);width:100%}
+  textarea{resize:vertical;min-height:110px}
+  input:focus,textarea:focus{outline:none;border-color:var(--herbe);box-shadow:0 0 0 3px rgba(63,90,43,.15)}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  form .btn{justify-content:center;border:none;cursor:pointer}
+  form .btn{justify-content:center;width:100%;padding:15px}
+  .merci{display:none;text-align:center;font-size:14px;color:var(--herbe);font-weight:600}
+  form.envoye .merci{display:block}
 
-  footer{background:#1f2d15;color:#b9c3a8;font-size:14px;padding:26px 0}
-  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  /* Liste déroulante sur mesure */
+  .choix{position:relative}
+  .choix-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;font:inherit;font-size:15px;font-weight:500;text-align:left;padding:12px 14px;border:1.5px solid #ddd2bd;border-radius:12px;background:var(--creme);color:var(--texte);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+  .choix-btn:hover{border-color:#cbbd9f}
+  .choix-btn:focus-visible,.choix.ouvert .choix-btn{outline:none;border-color:var(--herbe);box-shadow:0 0 0 3px rgba(63,90,43,.15)}
+  .choix-btn svg{width:18px;height:18px;flex:none;stroke:var(--doux);transition:transform .2s}
+  .choix.ouvert .choix-btn svg{transform:rotate(180deg)}
+  .choix-liste{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;list-style:none;background:var(--blanc);border:1px solid var(--trait);border-radius:14px;padding:6px;box-shadow:0 18px 40px -16px rgba(42,61,28,.45);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .15s,transform .15s}
+  .choix.ouvert .choix-liste{opacity:1;transform:none;pointer-events:auto}
+  .choix-liste li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px;font-size:15px;cursor:pointer;color:var(--texte)}
+  .choix-liste li small{display:block;font-size:12.5px;color:var(--doux)}
+  .choix-liste li:hover,.choix-liste li.actif{background:var(--sable)}
+  .choix-liste li[aria-selected="true"]{color:var(--herbe-fonce);font-weight:600}
+  .choix-liste li .coche{width:18px;height:18px;flex:none;stroke:var(--herbe);opacity:0}
+  .choix-liste li[aria-selected="true"] .coche{opacity:1}
 
+  footer{background:#1f2d15;color:#b9c3a8;font-size:13.5px;padding:26px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap}
+  footer a{color:#d6dcc8}
+
+  @media (max-width:960px){
+    .produits{grid-template-columns:1fr 1fr}
+    .gages .wrap{grid-template-columns:1fr 1fr}
+    .gage:nth-child(3){border-left:none}
+    .gage:nth-child(n+3){border-top:1px solid var(--trait)}
+  }
   @media (max-width:860px){
     .nav ul{display:none}
-    .hero .wrap,.ferme .wrap,.contact .wrap,.clients{grid-template-columns:1fr}
-    .hero .wrap{padding-top:40px;gap:20px}
+    .ferme .wrap,.contact .wrap,.clients{grid-template-columns:1fr}
     .etapes{grid-template-columns:1fr}
     section{padding:60px 0}
+    .hero .wrap{grid-template-columns:1fr;padding-top:40px;gap:24px}
   }
-  @media (max-width:420px){
+  @media (max-width:480px){
     body{font-size:16px}
     .wrap{padding:0 16px}
+    .logo{font-size:17px}
+    .nav .btn{padding:8px 14px;font-size:14px}
     .hero p.lead{font-size:17px}
-    .hero .actions .btn{flex:1;justify-content:center}
-    .chiffres{grid-template-columns:1fr 1fr 1fr;gap:8px}
-    .chiffres b{font-size:21px}
+    .hero .actions .btn{flex:1;justify-content:center;white-space:nowrap;padding:13px 14px}
+    .produits{grid-template-columns:1fr}
+    .gages .wrap{grid-template-columns:1fr}
+    .gage+.gage{border-left:none;border-top:1px solid var(--trait)}
     .row2{grid-template-columns:1fr}
     .client{padding:24px}
   }
@@ -137,7 +166,7 @@
 </head>
 <body>
 
-<div class="bandeau"><b>Maquette</b> proposée par Gabriel — textes et horaires à compléter avec vous, rien n'est en ligne officiellement.</div>
+<div class="bandeau"><b>Maquette</b> proposée par Gabriel. Les dessins sont provisoires : on les remplace par les photos de votre ferme.</div>
 
 <header class="nav">
   <div class="wrap">
@@ -148,7 +177,7 @@
     <ul>
       <li><a href="#produits">Nos produits</a></li>
       <li><a href="#ferme">La ferme</a></li>
-      <li><a href="#saisons">Disponibilités</a></li>
+      <li><a href="#pros">Cantines et restaurants</a></li>
       <li><a href="#commander">Commander</a></li>
     </ul>
     <a class="btn" href="#contact">Nous contacter</a>
@@ -158,12 +187,12 @@
 <section class="hero" style="padding:0">
   <div class="wrap">
     <div>
-      <span class="tag">Ferme familiale · Cantal</span>
-      <h1>La viande et les céréales <em>de nos prés</em>, de la ferme à votre table.</h1>
-      <p class="lead">Viande bovine, veau, tripes en bocaux, sarrasin et petit épeautre, élevés et cultivés chez nous. En direct pour les familles, les cantines et les restaurants.</p>
+      <span class="tag">Lamoleirie · Cantal</span>
+      <h1>Viande et céréales de <em>notre ferme</em> du Cantal</h1>
+      <p class="lead">Bœuf, veau, tripes en bocaux, sarrasin et petit épeautre. Disponibles toute l'année, conditionnés selon vos besoins.</p>
       <div class="actions">
         <a class="btn" href="#produits">Voir nos produits</a>
-        <a class="btn clair" href="#commander">Comment commander</a>
+        <a class="btn clair" href="#contact">Passer commande</a>
       </div>
     </div>
     <svg class="hero-art" viewBox="0 0 560 420" role="img" aria-label="Paysage du Cantal avec des vaches dans les prés">
@@ -199,43 +228,66 @@
   </div>
 </section>
 
+<div class="gages">
+  <div class="wrap">
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><path d="M17 4c6 4 9 9 9 14a9 9 0 0 1-18 0c0-5 3-10 9-14z"/><path d="M17 12v17M17 19l-4-3M17 23l4-3"/></svg>
+      <div><b>Certifiée HVE</b><span>Haute Valeur Environnementale</span></div>
+    </div>
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><rect x="5" y="7" width="24" height="20" rx="4"/><path d="M11 17l4 4 8-8"/></svg>
+      <div><b>Agrément sanitaire CE</b><span>Pour fournir cantines et commerces</span></div>
+    </div>
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><rect x="5" y="7" width="24" height="21" rx="4"/><path d="M5 13h24M11 4v6M23 4v6"/></svg>
+      <div><b>Toute l'année</b><span>Pas besoin d'attendre une saison</span></div>
+    </div>
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><path d="M6 12l11-6 11 6v11l-11 6-11-6z"/><path d="M6 12l11 6 11-6M17 18v11"/></svg>
+      <div><b>À la demande</b><span>Quantités et conditionnement</span></div>
+    </div>
+  </div>
+</div>
+
 <section id="produits">
   <div class="wrap">
     <div class="titre-sec">
       <div class="sur">Nos produits</div>
-      <h2>Tout vient de la ferme</h2>
-      <p>Nos bêtes pâturent dans les prés du Cantal, et nous cultivons nous-mêmes le sarrasin et le petit épeautre.</p>
+      <h2>Ce que nous vendons</h2>
+      <p>Tout est disponible toute l'année. Dites-nous ce qu'il vous faut, on prépare la commande à la quantité voulue.</p>
     </div>
     <div class="produits">
       <article class="carte">
-        <div class="ico" style="background:#f3e1d6"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.8" stroke-linecap="round"><path d="M4 13c0-4 3-7 8-7s8 3 8 7-4 6-8 6-8-2-8-6z"/><circle cx="12" cy="13" r="2.4"/></svg></div>
-        <h3>Viande bovine</h3>
-        <p>En colis de 5 ou 10 kg, découpés et emballés sous vide : steaks, rôtis, bourguignon, pot-au-feu.</p>
-        <span class="meta">Colis sur réservation</span>
+        <div class="photo dessin" style="background:#f3e1d6"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.2" stroke-linecap="round"><path d="M4 13c0-4 3-7 8-7s8 3 8 7-4 6-8 6-8-2-8-6z"/><circle cx="12" cy="13" r="2.4"/></svg></div>
+        <div class="corps">
+          <h3>Bœuf</h3>
+          <p>Viande fraîche et égrené de bœuf (viande hachée). La viande fraîche se garde 15 jours.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
       </article>
       <article class="carte">
-        <div class="ico" style="background:#f6ead9"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-linecap="round"><path d="M6 10c0-3 3-5 6-5s6 2 6 5v4c0 3-3 5-6 5s-6-2-6-5z"/><path d="M9 4 7 2M15 4l2-2"/></svg></div>
-        <h3>Veau</h3>
-        <p>Veau élevé sous la mère, viande tendre et rosée. Escalopes, côtes, blanquette.</p>
-        <span class="meta">Quelques fois par an</span>
+        <div class="photo dessin" style="background:#efe3d4"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#b5562b" stroke-width="1.2" stroke-linecap="round"><path d="M6 10c0-3 3-5 6-5s6 2 6 5v4c0 3-3 5-6 5s-6-2-6-5z"/><path d="M9 4 7 2M15 4l2-2"/><circle cx="10" cy="11" r=".6" fill="#b5562b"/><circle cx="14" cy="11" r=".6" fill="#b5562b"/><path d="M10.5 15h3"/></svg></div>
+        <div class="corps">
+          <h3>Veau</h3>
+          <p>Viande de veau de la ferme, découpée selon votre commande.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
       </article>
       <article class="carte">
-        <div class="ico" style="background:#efe6d3"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3b3530" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="7" width="12" height="13" rx="3"/><path d="M7 4h10v3H7z"/><path d="M9 13h6"/></svg></div>
-        <h3>Tripes en bocaux</h3>
-        <p>Cuisinées à l'ancienne, prêtes à réchauffer. Se conservent longtemps dans le placard.</p>
-        <span class="meta">Toute l'année</span>
+        <div class="photo dessin" style="background:#ebe4d6"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#3b3530" stroke-width="1.2" stroke-linecap="round"><rect x="6" y="8" width="12" height="12" rx="3"/><path d="M7 5h10v3H7z"/><path d="M9 14h6M9 17h4"/></svg></div>
+        <div class="corps">
+          <h3>Tripes en bocaux</h3>
+          <p>Les tripes de la ferme, en bocaux.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
       </article>
       <article class="carte">
-        <div class="ico" style="background:#f4e5dc"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l6 9-6 9-6-9z"/><path d="M12 3v18"/></svg></div>
-        <h3>Sarrasin</h3>
-        <p>En grains ou en farine, pour vos galettes, pains et pâtisseries. Naturellement sans gluten.</p>
-        <span class="meta">Après la récolte</span>
-      </article>
-      <article class="carte">
-        <div class="ico" style="background:#f7eed6"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.8" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg></div>
-        <h3>Petit épeautre</h3>
-        <p>Une céréale ancienne et rustique, savoureuse en salade, en risotto ou en farine.</p>
-        <span class="meta">Après la récolte</span>
+        <div class="photo dessin" style="background:#f4e8d2"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.2" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg></div>
+        <div class="corps">
+          <h3>Sarrasin et petit épeautre</h3>
+          <p>En grain, cuits et surgelés : il n'y a plus qu'à réchauffer. Se gardent un an.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
       </article>
     </div>
   </div>
@@ -260,60 +312,41 @@
     <div>
       <div class="titre-sec" style="margin-bottom:16px">
         <div class="sur">La ferme</div>
-        <h2>Une ferme de famille, dans le Cantal</h2>
+        <h2>Une ferme du Cantal</h2>
       </div>
-      <p>Au GAEC de la Moleirie, nous élevons nos bêtes à l'herbe et cultivons nos céréales sur nos propres terres. Nous faisons tout nous-mêmes, du pré jusqu'au colis.</p>
-      <p>Ici, vous pourrez raconter votre histoire : depuis quand la ferme existe, qui y travaille, comment vous élevez vos animaux. C'est ce qui donne envie d'acheter chez vous.</p>
-      <div class="chiffres">
-        <div><b>100 %</b><span>de la ferme</span></div>
-        <div><b>À l'herbe</b><span>dans nos prés</span></div>
-        <div><b>Direct</b><span>sans intermédiaire</span></div>
-      </div>
+      <p>Le GAEC de la Moleirie vend en direct sa viande de bœuf et de veau, ses tripes, son sarrasin et son petit épeautre. L'exploitation est certifiée Haute Valeur Environnementale.</p>
+      <p class="a-ecrire">À écrire avec vous : l'histoire de la ferme, qui y travaille, vos bêtes, vos terres. Avec deux ou trois photos de chez vous, c'est la partie que les clients lisent le plus.</p>
     </div>
   </div>
 </section>
 
-<section>
+<section id="pros">
   <div class="wrap">
     <div class="titre-sec">
       <div class="sur">Pour qui</div>
-      <h2>Familles, cantines et restaurants</h2>
+      <h2>Particuliers et professionnels</h2>
     </div>
     <div class="clients">
       <div class="client part">
         <h3>Vous êtes un particulier</h3>
-        <p>Remplissez votre congélateur avec une viande dont vous connaissez l'origine.</p>
+        <p>Appelez-nous ou laissez un message : on vous dit ce qui est disponible et on prépare votre commande.</p>
         <ul>
-          <li>Colis de viande de 5 ou 10 kg, prêts à congeler</li>
-          <li>Tripes, sarrasin et épeautre toute l'année</li>
-          <li>Retrait à la ferme ou sur un point de rendez-vous</li>
+          <li>Bœuf, veau et tripes de la ferme</li>
+          <li>Sarrasin et petit épeautre déjà cuits</li>
+          <li>Quantités à la demande</li>
         </ul>
-        <a class="btn" href="#contact">Réserver un colis</a>
+        <a class="btn" href="#contact">Nous écrire</a>
       </div>
       <div class="client pro">
-        <h3>Cantines et restaurants</h3>
-        <p>Des produits locaux pour vos menus, avec des volumes et des dates prévus à l'avance.</p>
+        <h3>Cantines, EHPAD et restaurants</h3>
+        <p>Nous figurons dans l'annuaire ConsoCantal des fournisseurs de produits locaux de la Chambre d'agriculture.</p>
         <ul>
-          <li>Quantités et conditionnements adaptés</li>
-          <li>Calendrier de disponibilité pour planifier vos menus</li>
-          <li>Facture et contact direct avec les producteurs</li>
+          <li>Agrément CE et certification HVE</li>
+          <li>Conditionnement selon vos besoins</li>
+          <li>Livraison : le minimum de commande dépend du lieu</li>
         </ul>
-        <a class="btn" href="#contact">Demander un tarif pro</a>
+        <a class="btn" href="#contact">Demander un tarif</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="saisons" style="padding-top:0">
-  <div class="wrap">
-    <div class="titre-sec">
-      <div class="sur">Disponibilités</div>
-      <h2>Quand commander quoi</h2>
-      <p>Pour savoir à quel moment de l'année chaque produit est disponible.</p>
-    </div>
-    <div class="calendrier">
-      <div class="cal" id="cal"></div>
-      <p class="note">Exemple à remplacer par vos vraies périodes.</p>
     </div>
   </div>
 </section>
@@ -322,12 +355,12 @@
   <div class="wrap">
     <div class="titre-sec">
       <div class="sur">Commander</div>
-      <h2>Simple, en trois étapes</h2>
+      <h2>Comment commander</h2>
     </div>
     <div class="etapes">
-      <div class="etape"><h3>Vous réservez</h3><p>Par téléphone, par mail ou avec le formulaire ci-dessous. Vous dites ce que vous voulez et en quelle quantité.</p></div>
-      <div class="etape"><h3>Nous préparons</h3><p>Nous vous confirmons la date et le prix. La viande est découpée et emballée sous vide.</p></div>
-      <div class="etape"><h3>Vous récupérez</h3><p>À la ferme ou au point de rendez-vous convenu. Vous payez sur place.</p></div>
+      <div class="etape"><h3>Vous nous contactez</h3><p>Par téléphone ou avec le formulaire en bas de la page. Dites-nous quels produits et quelle quantité.</p></div>
+      <div class="etape"><h3>On vous répond</h3><p>On confirme ce qui est disponible, le prix et le conditionnement.</p></div>
+      <div class="etape"><h3>On convient de la livraison</h3><p>La date et le lieu de livraison se fixent ensemble.</p></div>
     </div>
   </div>
 </section>
@@ -335,50 +368,91 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <div>
-      <h2>Une question, une réservation ?</h2>
-      <p>Appelez-nous ou laissez un message, nous vous répondons rapidement.</p>
+      <h2>Une question, une commande ?</h2>
+      <p>Appelez-nous ou laissez un message, on vous rappelle.</p>
       <div class="infos">
         <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Votre numéro de téléphone</span></div>
         <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Votre adresse mail</span></div>
-        <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Adresse de la ferme, Cantal</span></div>
+        <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Lamoleirie, Cantal</span></div>
       </div>
     </div>
-    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Merci ! (maquette : rien n\'est envoyé)';">
+    <form id="formulaire" novalidate>
       <div class="row2">
-        <label>Nom<input type="text" placeholder="Votre nom"></label>
-        <label>Téléphone<input type="tel" placeholder="06 ..."></label>
+        <label class="champ"><span>Nom</span><input type="text" name="nom" placeholder="Votre nom" autocomplete="name"></label>
+        <label class="champ"><span>Téléphone</span><input type="tel" name="telephone" placeholder="06 ..." autocomplete="tel"></label>
       </div>
-      <label>Vous êtes
-        <select><option>Particulier</option><option>Cantine</option><option>Restaurant</option><option>Autre</option></select>
-      </label>
-      <label>Votre demande<textarea rows="4" placeholder="Ex. : un colis de 10 kg de bœuf pour fin novembre"></textarea></label>
-      <button class="btn" type="submit">Envoyer ma demande</button>
+      <div class="champ">
+        <span id="choix-label">Vous êtes</span>
+        <div class="choix" id="choix">
+          <button type="button" class="choix-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="choix-label choix-valeur"><span id="choix-valeur">Un particulier</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="choix-liste" role="listbox" aria-labelledby="choix-label" tabindex="-1">
+            <li role="option" aria-selected="true" data-valeur="Un particulier"><div>Un particulier</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+            <li role="option" aria-selected="false" data-valeur="Une cantine ou un EHPAD"><div>Une cantine ou un EHPAD</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+            <li role="option" aria-selected="false" data-valeur="Un restaurant"><div>Un restaurant</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+            <li role="option" aria-selected="false" data-valeur="Autre"><div>Autre</div><svg class="coche" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></li>
+          </ul>
+          <input type="hidden" name="type" value="Un particulier">
+        </div>
+      </div>
+      <label class="champ"><span>Votre message</span><textarea name="message" rows="4" placeholder="Par exemple : 5 kg de bœuf et deux bocaux de tripes"></textarea></label>
+      <button class="btn" type="submit">Envoyer</button>
+      <p class="merci">Merci ! Sur le vrai site, ce message arrive directement dans votre boîte mail.</p>
     </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>© GAEC de la Moleirie · Cantal</span>
-    <span>Maquette réalisée par Gabriel Fernandes Neves</span>
+    <span>GAEC de la Moleirie · Lamoleirie, Cantal</span>
+    <span>Maquette : Gabriel Fernandes Neves</span>
   </div>
 </footer>
 
 <script>
-  const mois=["J","F","M","A","M","J","J","A","S","O","N","D"];
-  const lignes=[
-    ["Viande bovine",[1,1,1,0,0,0,0,0,1,1,1,1],""],
-    ["Veau",[0,0,1,1,0,0,0,0,0,1,1,0],"s"],
-    ["Tripes en bocaux",[1,1,1,1,1,1,1,1,1,1,1,1],""],
-    ["Sarrasin",[1,1,1,1,0,0,0,0,0,1,1,1],"o"],
-    ["Petit épeautre",[1,1,1,1,1,0,0,1,1,1,1,1],"o"]
-  ];
-  const cal=document.getElementById("cal");
-  let h='<div></div>'+mois.map(m=>`<div class="m">${m}</div>`).join("");
-  for(const [nom,dispo,cls] of lignes){
-    h+=`<div class="p">${nom}</div>`+dispo.map(d=>`<div class="c ${d?"on "+cls:""}"></div>`).join("");
-  }
-  cal.innerHTML=h;
+  // Liste déroulante
+  (function(){
+    const choix=document.getElementById("choix");
+    const btn=choix.querySelector(".choix-btn");
+    const liste=choix.querySelector(".choix-liste");
+    const options=[...liste.querySelectorAll("li")];
+    const valeur=document.getElementById("choix-valeur");
+    const cache=choix.querySelector("input[type=hidden]");
+    let actif=0;
+
+    function ouvrir(){
+      choix.classList.add("ouvert");btn.setAttribute("aria-expanded","true");
+      actif=options.findIndex(o=>o.getAttribute("aria-selected")==="true");
+      marquer();liste.focus();
+    }
+    function fermer(rendreFocus){
+      choix.classList.remove("ouvert");btn.setAttribute("aria-expanded","false");
+      if(rendreFocus)btn.focus();
+    }
+    function marquer(){options.forEach((o,i)=>o.classList.toggle("actif",i===actif))}
+    function choisir(i){
+      options.forEach((o,j)=>o.setAttribute("aria-selected",j===i?"true":"false"));
+      valeur.textContent=options[i].dataset.valeur;cache.value=options[i].dataset.valeur;
+      fermer(true);
+    }
+    btn.addEventListener("click",()=>choix.classList.contains("ouvert")?fermer(false):ouvrir());
+    btn.addEventListener("keydown",e=>{if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();ouvrir()}});
+    options.forEach((o,i)=>{
+      o.addEventListener("click",()=>choisir(i));
+      o.addEventListener("mousemove",()=>{actif=i;marquer()});
+    });
+    liste.addEventListener("keydown",e=>{
+      if(e.key==="ArrowDown"){e.preventDefault();actif=Math.min(actif+1,options.length-1);marquer()}
+      else if(e.key==="ArrowUp"){e.preventDefault();actif=Math.max(actif-1,0);marquer()}
+      else if(e.key==="Enter"||e.key===" "){e.preventDefault();choisir(actif)}
+      else if(e.key==="Escape"||e.key==="Tab"){fermer(e.key==="Escape")}
+    });
+    document.addEventListener("click",e=>{if(!choix.contains(e.target))fermer(false)});
+  })();
+
+  // Formulaire (maquette : rien n'est envoyé)
+  document.getElementById("formulaire").addEventListener("submit",e=>{
+    e.preventDefault();e.target.classList.add("envoye");
+  });
 </script>
 </body>
 </html>
