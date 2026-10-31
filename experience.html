@@ -54,18 +54,18 @@
 <section class="project-showcase">
 
     <div class="project-about">
-        <h1>About</h1>
+        <h1 data-i18n="detail.about">About</h1>
         <div id="experience-description"></div>
     </div>
 
     <div id="experience-skills-section" class="detail-section">
-        <h2 class="detail-section-title">Skills Used</h2>
+        <h2 class="detail-section-title" data-i18n="detail.skillsUsed">Skills Used</h2>
         <div class="skills-grid" id="experience-skills-grid"></div>
     </div>
 
     <!-- Dev Screenshots (only shown if devScreenshots is set in data.js) -->
     <div id="dev-screenshots-section" class="detail-section" style="display:none;">
-        <h2 class="detail-section-title">Screenshots</h2>
+        <h2 class="detail-section-title" data-i18n="detail.screenshots">Screenshots</h2>
         <div class="dev-screenshots-grid" id="dev-screenshots-grid"></div>
     </div>
 
@@ -84,6 +84,7 @@
     <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
+<script src="i18n.js"></script>
 <script src="skills.js"></script>
 <script src="data.js"></script>
 <script src="header.js"></script>
@@ -96,27 +97,27 @@
     if (!e) window.location.replace('404.html');
 
     if (e) {
-        document.title = e.title + " | Gabriel's Portfolio";
+        document.title = tr(e.title) + ' | ' + t('page.portfolio');
 
         // Update meta tags dynamically
         const pageUrl = 'https://gabtrex.github.io/experience.html?experience=' + key;
         const heroImg = 'https://gabtrex.github.io/' + e.heroImg;
-        const desc    = e.cardSubtitle || e.subtitle || '';
+        const desc    = tr(e.cardSubtitle || e.subtitle) || '';
         document.querySelector('meta[name="description"]').setAttribute('content', desc);
-        document.querySelector('meta[property="og:title"]').setAttribute('content', e.title + ' — ' + e.subtitle + ' | Gabtrex');
+        document.querySelector('meta[property="og:title"]').setAttribute('content', tr(e.title) + ' — ' + tr(e.subtitle) + ' | Gabtrex');
         document.querySelector('meta[property="og:description"]').setAttribute('content', desc);
         document.querySelector('meta[property="og:url"]').setAttribute('content', pageUrl);
         document.querySelector('meta[property="og:image"]').setAttribute('content', heroImg);
-        document.querySelector('meta[name="twitter:title"]').setAttribute('content', e.title + ' — ' + e.subtitle + ' | Gabtrex');
+        document.querySelector('meta[name="twitter:title"]').setAttribute('content', tr(e.title) + ' — ' + tr(e.subtitle) + ' | Gabtrex');
         document.querySelector('meta[name="twitter:description"]').setAttribute('content', desc);
         document.querySelector('meta[name="twitter:image"]').setAttribute('content', heroImg);
 
-        document.getElementById('experience-title').innerText    = e.title;
-        document.getElementById('experience-subtitle').innerText = e.subtitle;
-        document.getElementById('experience-description').innerHTML = e.description;
+        document.getElementById('experience-title').innerText    = tr(e.title);
+        document.getElementById('experience-subtitle').innerText = tr(e.subtitle);
+        document.getElementById('experience-description').innerHTML = tr(e.description);
 
         const dateEl = document.getElementById('experience-date-hero');
-        dateEl.innerText     = e.date || '';
+        dateEl.innerText     = trDate(e.date) || '';
         dateEl.style.display = e.date ? 'block' : 'none';
 
         const heroBg = document.getElementById('heroBg');
@@ -127,7 +128,7 @@
 
         const websiteLink  = document.getElementById('website-link');
         websiteLink.href   = e.websiteLink || '#';
-        websiteLink.innerText = e.isGame ? 'Play Game' : 'Visit Website';
+        websiteLink.innerText = e.isGame ? t('detail.playGame') : t('detail.visitWebsite');
 
         // --- Skills grid --- \\
         const grid = document.getElementById('experience-skills-grid');
@@ -137,8 +138,8 @@
                 if (!skill) return;
                 grid.innerHTML += `
                     <div class="skill-item">
-                        <div class="skill-icon"><img src="${skill.img}" alt="${skill.label}"></div>
-                        <span>${skill.label}</span>
+                        <div class="skill-icon"><img src="${skill.img}" alt="${tr(skill.label)}"></div>
+                        <span>${tr(skill.label)}</span>
                     </div>
                 `;
             });

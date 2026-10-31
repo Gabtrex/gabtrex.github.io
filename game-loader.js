@@ -115,7 +115,7 @@
 
         playBtn.innerHTML =
             '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">' +
-            '<polygon points="5 3 19 12 5 21 5 3"/></svg><span>Play in Browser</span>';
+            '<polygon points="5 3 19 12 5 21 5 3"/></svg><span>' + t('detail.playBrowser') + '</span>';
 
         playBtn.addEventListener('mouseenter', function () {
             playBtn.style.background  = 'rgba(255,255,255,0.22)';
@@ -167,7 +167,7 @@
         playBtn.addEventListener('click', function () {
             playOverlay.style.display = 'none';
             loadingEl.style.display   = 'flex';
-            loadingText.innerText     = 'Loading game…';
+            loadingText.innerText     = t('game.loading');
 
             iframe.src = gameUrl;
 
@@ -198,10 +198,8 @@
             iframe.addEventListener('error', function () {
                 loadingEl.style.display = 'none';
                 errorEl.style.display   = 'flex';
-                errorTextEl.innerText   =
-                    'Failed to load game. Make sure the games/' +
-                    gamePath.split('/').filter(Boolean).pop() +
-                    '/ folder exists in your repo.';
+                errorTextEl.innerText   = t('game.error');
+                console.warn('Failed to load game. Make sure the ' + gamePath + '/ folder exists in the repo.');
             });
         });
     };

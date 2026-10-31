@@ -21,6 +21,6 @@ const allSkills = {
     windows:      { label: "Windows",              img: "images/Skills/windows.png" },
     docker:       { label: "Docker",               img: "images/Skills/Docker.png" },
     gamejam:      { label: "Game Jam",             img: "images/Skills/GJ.png" },
-    community:    { label: "Community Management", img: "images/Skills/CM.png" },
-    eventorg:     { label: "Event Organisation",   img: "images/Skills/Event Organisator.png" }
+    community:    { label: { en: "Community Management", fr: "Gestion de communauté", pt: "Gestão de comunidade" }, img: "images/Skills/CM.png" },
+    eventorg:     { label: { en: "Event Organisation", fr: "Organisation d'événements", pt: "Organização de eventos" }, img: "images/Skills/Event Organisator.png" }
 };

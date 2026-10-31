@@ -100,6 +100,46 @@ nav a.nav-active { color: #fff; }
 
 nav a.nav-active::after { width: 100%; }
 
+header nav { margin-left: auto; }   /* keeps the links next to the language switch, on the right */
+
+/* ===== LANGUAGE SWITCH ===== */
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  margin-left: 2rem;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.lang-switch button {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch button:hover { color: #fff; }
+
+.lang-switch button.lang-active {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+/* In the mobile drawer, under the links */
+.nav-drawer-panel .lang-switch {
+  align-self: flex-start;
+  margin: 2rem 0 0;
+}
+
 /* ===== SECTIONS ===== */
 section {
   padding: 6rem 4rem 2rem 4rem;
@@ -455,6 +495,7 @@ footer {
 
 @media (max-width: 768px) {
   header nav { display: none; }
+  header .lang-switch { display: none; }   /* shown in the drawer instead */
   .nav-hamburger { display: flex; }
   .nav-drawer { display: block; }
 }
@@ -474,7 +515,8 @@ footer {
   margin-bottom: 3rem;
 }
 
-.screenshots img {
+.screenshots img,
+.screenshots video {
   width: 32%;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -607,7 +649,8 @@ footer {
     align-items: flex-start;
     padding: 0 2rem 2rem;
   }
-  .screenshots img { width: 100%; }
+  .screenshots img,
+  .screenshots video { width: 100%; }
 }
 
 /* ===== PROJECT DESCRIPTION ===== */

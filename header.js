@@ -8,7 +8,7 @@
     var isIndex = document.getElementById('projects-grid') !== null; // only index.html has the projects grid
 
     var sections = ['about', 'skills', 'projects', 'experience', 'connect'];
-    var labels   = ['About', 'Skills', 'Projects', 'Experience', 'Connect'];
+    var labels   = sections.map(function(s) { return t('nav.' + s); }); // translated labels (i18n.js)
 
     // --- Desktop nav links --- \\
     var desktopNavHTML = '';
@@ -38,6 +38,17 @@
         nameTag = '<a href="index.html" class="name-button">';
     }
 
+    // --- Language switcher (EN / FR / PT) --- \\
+    var langSwitchHTML =
+        '<div class="lang-switch" role="group" aria-label="' + t('nav.language') + '">' +
+        LANGS.map(function(l) {
+            var active = l === currentLang;                 // highlight the language being shown
+            return '<button type="button" data-lang="' + l + '"' +
+                   (active ? ' class="lang-active"' : '') +
+                   ' aria-pressed="' + active + '">' + l.toUpperCase() + '</button>';
+        }).join('') +
+        '</div>';
+
     // --- Inject header --- \\
     var header = document.querySelector('header');
     if (!header) return;
@@ -50,7 +61,8 @@
         '</div>' +
         '</a>' +
         '<nav>' + desktopNavHTML + '</nav>' +
-        '<button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">' +
+        langSwitchHTML +
+        '<button class="nav-hamburger" aria-label="' + t('nav.openMenu') + '" aria-expanded="false">' +
         '<span></span><span></span><span></span>' +
         '</button>';
 
@@ -60,8 +72,15 @@
     drawer.setAttribute('aria-hidden', 'true');
     drawer.innerHTML =
         '<div class="nav-drawer-backdrop"></div>' +
-        '<nav class="nav-drawer-panel">' + drawerNavHTML + '</nav>';
+        '<nav class="nav-drawer-panel">' + drawerNavHTML + langSwitchHTML + '</nav>';
     document.body.appendChild(drawer);
+
+    // --- Language buttons (header on desktop, drawer on mobile) --- \\
+    document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            if (btn.dataset.lang !== currentLang) setLang(btn.dataset.lang);
+        });
+    });
 
     // --- Toggle logic --- \\
     var hamburger = header.querySelector('.nav-hamburger');
