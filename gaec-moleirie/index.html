@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAEC de la Moleirie | Viande et céréales du Cantal</title>
+<meta name="description" content="GAEC de la Moleirie, Lamoleirie (Cantal) : viande de bœuf, veau, tripes en bocaux, sarrasin et petit épeautre. Toute l'année, conditionnement à la demande.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --herbe:#3f5a2b; --herbe-fonce:#2a3d1c; --pierre:#3b3530; --creme:#f7f2e8; --sable:#ece3d0;
+    --sarrasin:#b5562b; --or:#d9a441; --texte:#2b2723; --doux:#6b6258; --blanc:#fffdf8; --trait:#e3d8c3;
+    --rayon:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--texte);background:var(--creme);line-height:1.6;font-size:17px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;color:var(--pierre)}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  .bandeau{background:var(--pierre);color:#f3e9d6;font-size:13px;text-align:center;padding:8px 16px}
+  .bandeau b{color:var(--or)}
+
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(247,242,232,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--trait)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:19px;text-decoration:none;color:var(--herbe-fonce)}
+  .logo svg{width:34px;height:34px;flex:none}
+  .nav ul{display:flex;gap:26px;list-style:none;font-size:15px;font-weight:500}
+  .nav ul a{text-decoration:none;color:var(--doux)}
+  .nav ul a:hover{color:var(--herbe)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--herbe);color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:999px;font-size:15px;transition:background .2s,transform .2s;border:none;cursor:pointer;font-family:inherit}
+  .btn:hover{background:var(--herbe-fonce);transform:translateY(-1px)}
+  .btn.clair{background:transparent;color:var(--herbe-fonce);border:1.5px solid var(--herbe)}
+  .btn.clair:hover{background:var(--herbe);color:#fff}
+  .nav .btn{padding:9px 18px;white-space:nowrap}
+
+  .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#dfe8cf 0%,#eef0dc 55%,var(--creme) 100%)}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:48px}
+  .tag{display:inline-block;background:var(--blanc);border:1px solid #d9cfb8;color:var(--herbe);font-weight:600;font-size:13px;padding:6px 12px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:clamp(36px,5.2vw,60px);margin-bottom:16px}
+  .hero h1 em{font-style:normal;color:var(--herbe)}
+  .hero p.lead{font-size:19px;color:var(--doux);max-width:520px;margin-bottom:28px}
+  .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-art{width:100%;height:auto;display:block;border-radius:28px;overflow:hidden}
+
+  .media{position:relative;overflow:hidden}
+  .media > img.vraie{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .hero .media{border-radius:28px;aspect-ratio:4/3}
+  .hero .media svg{width:100%;height:100%;display:block}
+  .ferme .media{border-radius:26px;aspect-ratio:520/380}
+  .ferme .media svg{width:100%;height:100%;display:block}
+  .gages{background:var(--blanc);border-bottom:1px solid var(--trait)}
+  .gages .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .gage{display:flex;gap:12px;align-items:center;padding:22px 16px}
+  .gage+.gage{border-left:1px solid var(--trait)}
+  .gage svg{flex:none;width:34px;height:34px}
+  .gage b{display:block;font-size:15px;color:var(--pierre)}
+  .gage span{font-size:13px;color:var(--doux);line-height:1.4;display:block}
+
+  section{padding:80px 0}
+  .titre-sec{max-width:640px;margin-bottom:36px}
+  .titre-sec .sur{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sarrasin);margin-bottom:10px}
+  .titre-sec h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:12px}
+  .titre-sec p{color:var(--doux)}
+
+  .produits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .carte{background:var(--blanc);border:1px solid #e6dcc8;border-radius:var(--rayon);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .carte:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(59,53,48,.45)}
+  .carte .photo{position:relative;aspect-ratio:3/2;display:grid;place-items:center;overflow:hidden}
+  .carte .photo > svg{width:44px;height:44px}
+  .carte .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .carte .corps{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .carte h3{font-size:21px}
+  .carte p{font-size:15px;color:var(--doux)}
+  .carte .meta{margin-top:auto;padding-top:6px;font-size:13px;font-weight:600;color:var(--herbe)}
+
+  .ferme{background:var(--sable)}
+  .ferme .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .ferme svg{border-radius:26px;overflow:hidden}
+  .ferme p{color:var(--doux);margin-bottom:14px}
+  .a-ecrire{border-left:3px solid var(--or);padding:8px 14px;background:rgba(255,255,255,.55);border-radius:0 10px 10px 0;font-size:15px;font-style:italic}
+
+  .clients{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .client{border-radius:var(--rayon);padding:32px;color:#fff}
+  .client.part{background:var(--herbe)}
+  .client.pro{background:var(--pierre)}
+  .client h3{color:#fff;font-size:26px;margin-bottom:12px}
+  .client p{opacity:.92}
+  .client ul{list-style:none;display:grid;gap:10px;margin:18px 0 24px}
+  .client li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;opacity:.95}
+  .client li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--or) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' stroke='%233b3530' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/12px no-repeat}
+  .client .btn{background:#fff;color:var(--pierre)}
+  .client .btn:hover{background:var(--or)}
+
+  .etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:e}
+  .etape{background:var(--blanc);border-radius:var(--rayon);padding:26px;border:1px solid #e6dcc8}
+  .etape::before{counter-increment:e;content:counter(e);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--sable);color:var(--sarrasin);font-family:Fraunces,serif;font-weight:700;font-size:20px;margin-bottom:14px}
+  .etape h3{font-size:19px;margin-bottom:6px}
+  .etape p{font-size:15px;color:var(--doux)}
+
+  .contact{background:var(--herbe-fonce);color:#eef2e4}
+  .contact .wrap{max-width:760px;text-align:center}
+  .contact h2{color:#fff;font-size:clamp(30px,3.6vw,42px);margin-bottom:14px}
+  .contact p{opacity:.85}
+  .btn.mail{margin-top:28px;background:var(--or);color:var(--pierre);font-size:17px;padding:16px 28px;max-width:100%}
+  .btn.mail:hover{background:#e7b65a}
+  .btn.mail svg{flex:none;width:22px;height:22px;stroke:currentColor}
+  .btn.mail span{overflow-wrap:anywhere}
+  .infos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;text-align:left}
+  .info{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:14px 16px}
+  .info svg{flex:none;width:22px;height:22px;stroke:var(--or)}
+  a.info{text-decoration:none;color:inherit;transition:background .2s}
+  a.info:hover{background:rgba(255,255,255,.13)}
+
+  footer{background:#1f2d15;color:#b9c3a8;font-size:13.5px;padding:26px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap}
+  footer a{color:#d6dcc8}
+
+  @media (max-width:960px){
+    .produits{grid-template-columns:1fr 1fr}
+    .gages .wrap{grid-template-columns:1fr 1fr}
+    .gage:nth-child(3){border-left:none}
+    .gage:nth-child(n+3){border-top:1px solid var(--trait)}
+  }
+  @media (max-width:860px){
+    .nav ul{display:none}
+    .ferme .wrap,.clients,.infos{grid-template-columns:1fr}
+    .etapes{grid-template-columns:1fr}
+    section{padding:60px 0}
+    .hero .wrap{grid-template-columns:1fr;padding-top:40px;gap:24px}
+  }
+  @media (max-width:480px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    .logo{font-size:17px}
+    .nav .btn{padding:8px 14px;font-size:14px}
+    .hero p.lead{font-size:17px}
+    .hero .actions .btn{flex:1;justify-content:center;white-space:nowrap;padding:13px 14px}
+    .produits{grid-template-columns:1fr}
+    .gages .wrap{grid-template-columns:1fr}
+    .gage+.gage{border-left:none;border-top:1px solid var(--trait)}
+    .client{padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="bandeau"><b>Maquette</b> proposée par Gabriel. Les photos sont des exemples libres de droits : on les remplace par celles de votre ferme.</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#3f5a2b"/><path d="M6 27c5-6 9-9 14-9s9 3 14 9" stroke="#d9a441" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M11 16c0-3 2-5 4-5M29 16c0-3-2-5-4-5" stroke="#f7f2e8" stroke-width="2.2" fill="none" stroke-linecap="round"/><ellipse cx="20" cy="18" rx="7" ry="6" fill="#f7f2e8"/></svg>
+      GAEC de la Moleirie
+    </a>
+    <ul>
+      <li><a href="#produits">Nos produits</a></li>
+      <li><a href="#ferme">La ferme</a></li>
+      <li><a href="#pros">Cantines et restaurants</a></li>
+      <li><a href="#commander">Commander</a></li>
+    </ul>
+    <a class="btn" href="#contact">Nous contacter</a>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <span class="tag">Lamoleirie · Cantal</span>
+      <h1>Viande et céréales de <em>notre ferme</em> du Cantal</h1>
+      <p class="lead">Bœuf, veau, tripes en bocaux, sarrasin et petit épeautre. Disponibles toute l'année, conditionnés selon vos besoins.</p>
+      <div class="actions">
+        <a class="btn" href="#produits">Voir nos produits</a>
+        <a class="btn clair" href="#contact">Passer commande</a>
+      </div>
+    </div>
+    <div class="media"><img class="vraie" src="https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=1200" srcset="https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=700 700w, https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=1200 1200w, https://images.unsplash.com/photo-1663270687905-192c8666382e?auto=format&fit=crop&q=80&w=1800 1800w" sizes="(max-width:860px) 100vw, 540px" alt="Vaches dans les prés du Cantal" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <svg class="hero-art" viewBox="0 0 560 420" role="img" aria-label="Paysage du Cantal avec des vaches dans les prés">
+      <defs>
+        <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe0e8"/><stop offset="1" stop-color="#eef0dc"/></linearGradient>
+      </defs>
+      <rect width="560" height="420" rx="28" fill="url(#ciel)"/>
+      <circle cx="440" cy="90" r="38" fill="#f3d58a" opacity=".9"/>
+      <path d="M0 230 L90 150 L150 190 L240 110 L330 185 L400 140 L560 230 V420 H0Z" fill="#7d8f74"/>
+      <path d="M210 135 L240 110 L268 133 L252 128 L240 136 L228 128Z" fill="#f4f1ea"/>
+      <path d="M0 270 C120 220 220 250 300 235 C390 218 470 240 560 225 V420 H0Z" fill="#5f7a40"/>
+      <path d="M0 320 C140 285 260 315 380 295 C460 282 520 290 560 285 V420 H0Z" fill="#4a6531"/>
+      <g transform="translate(150 300)">
+        <rect x="0" y="0" width="86" height="44" rx="20" fill="#a2552c"/>
+        <rect x="8" y="38" width="9" height="26" rx="3" fill="#7c3f1f"/><rect x="62" y="38" width="9" height="26" rx="3" fill="#7c3f1f"/>
+        <ellipse cx="96" cy="14" rx="20" ry="16" fill="#a2552c"/>
+        <path d="M86 2 C80 -10 70 -10 68 -4 M106 2 C112 -10 122 -10 124 -4" stroke="#efe4cc" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="104" cy="20" rx="9" ry="7" fill="#d79a78"/>
+        <circle cx="96" cy="9" r="2.4" fill="#2b2723"/>
+      </g>
+      <g transform="translate(360 330) scale(.75)">
+        <rect x="0" y="0" width="86" height="44" rx="20" fill="#8d4524"/>
+        <rect x="8" y="38" width="9" height="26" rx="3" fill="#6a3418"/><rect x="62" y="38" width="9" height="26" rx="3" fill="#6a3418"/>
+        <ellipse cx="-10" cy="14" rx="20" ry="16" fill="#8d4524"/>
+        <path d="M-20 2 C-26 -10 -36 -10 -38 -4 M0 2 C6 -10 16 -10 18 -4" stroke="#efe4cc" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="-18" cy="20" rx="9" ry="7" fill="#d79a78"/>
+      </g>
+      <g stroke="#d9a441" stroke-width="3" stroke-linecap="round">
+        <path d="M60 380 v-34 M70 384 v-40 M80 380 v-30 M480 390 v-36 M492 392 v-42 M504 388 v-30"/>
+      </g>
+      <g fill="#d9a441"><ellipse cx="70" cy="342" rx="4" ry="8"/><ellipse cx="60" cy="344" rx="4" ry="7"/><ellipse cx="492" cy="348" rx="4" ry="8"/><ellipse cx="480" cy="352" rx="4" ry="7"/></g>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<div class="gages">
+  <div class="wrap">
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><path d="M17 4c6 4 9 9 9 14a9 9 0 0 1-18 0c0-5 3-10 9-14z"/><path d="M17 12v17M17 19l-4-3M17 23l4-3"/></svg>
+      <div><b>Certifiée HVE</b><span>Haute Valeur Environnementale</span></div>
+    </div>
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><rect x="5" y="7" width="24" height="20" rx="4"/><path d="M11 17l4 4 8-8"/></svg>
+      <div><b>Agrément sanitaire CE</b><span>Pour fournir cantines et commerces</span></div>
+    </div>
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><rect x="5" y="7" width="24" height="21" rx="4"/><path d="M5 13h24M11 4v6M23 4v6"/></svg>
+      <div><b>Toute l'année</b><span>Pas besoin d'attendre une saison</span></div>
+    </div>
+    <div class="gage">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#3f5a2b" stroke-width="2" stroke-linecap="round"><path d="M6 12l11-6 11 6v11l-11 6-11-6z"/><path d="M6 12l11 6 11-6M17 18v11"/></svg>
+      <div><b>À la demande</b><span>Quantités et conditionnement</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="produits">
+  <div class="wrap">
+    <div class="titre-sec">
+      <div class="sur">Nos produits</div>
+      <h2>Ce que nous vendons</h2>
+      <p>Tout est disponible toute l'année. Dites-nous ce qu'il vous faut, on prépare la commande à la quantité voulue.</p>
+    </div>
+    <div class="produits">
+      <article class="carte">
+        <div class="photo" style="background:#f3e1d6"><svg viewBox="0 0 24 24" fill="none" stroke="#a2552c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12.5" cy="8.5" r="2.5"/><path d="M12.5 2a6.5 6.5 0 0 0-6.22 4.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3A6.5 6.5 0 0 0 12.5 2Z"/><path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1 .31 2 6.49 6.49 0 0 1-2.6 5.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5"/></svg><img src="https://images.unsplash.com/photo-1666013942642-b7b54ecafd7d?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1666013942642-b7b54ecafd7d?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1666013942642-b7b54ecafd7d?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Pièce de bœuf crue sur une planche" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
+        <div class="corps">
+          <h3>Bœuf</h3>
+          <p>Viande fraîche et égrené de bœuf (viande hachée). La viande fraîche se garde 15 jours.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
+      </article>
+      <article class="carte">
+        <div class="photo" style="background:#efe3d4"><svg viewBox="0 0 32 32" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 9H5.5c1 2.4 3 3.6 5.4 3.4M21.5 9h5c-1 2.4-3 3.6-5.4 3.4"/><path d="M10.5 8h11l1 9c0 5-3 9-6.5 9s-6.5-4-6.5-9z"/><ellipse cx="16" cy="21.5" rx="3.6" ry="2.6"/><circle cx="13" cy="14.5" r=".9" fill="#b5562b"/><circle cx="19" cy="14.5" r=".9" fill="#b5562b"/></svg><img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Vache brune dans un pré" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
+        <div class="corps">
+          <h3>Veau</h3>
+          <p>Viande de veau de la ferme, découpée selon votre commande.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
+      </article>
+      <article class="carte">
+        <div class="photo" style="background:#ebe4d6"><svg viewBox="0 0 32 32" fill="none" stroke="#3b3530" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="16" height="16" rx="4"/><rect x="10" y="5" width="12" height="6" rx="1.5"/><path d="M12 17.5h8M12 21h5"/></svg><img src="https://images.unsplash.com/photo-1640348784724-93f7b14d8047?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1640348784724-93f7b14d8047?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1640348784724-93f7b14d8047?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Bocaux de conserves sur une étagère en bois" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
+        <div class="corps">
+          <h3>Tripes en bocaux</h3>
+          <p>Les tripes de la ferme, en bocaux.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
+      </article>
+      <article class="carte">
+        <div class="photo" style="background:#f4e8d2"><svg viewBox="0 0 24 24" fill="none" stroke="#b98a2a" stroke-width="1.4" stroke-linecap="round"><path d="M12 21V8"/><path d="M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-4-2-4-5 2 1 4 2 4 5zM12 13c2-1 4-2 4-5-2 1-4 2-4 5zM12 18c-2-1-4-2-4-5 2 1 4 2 4 5zM12 18c2-1 4-2 4-5-2 1-4 2-4 5z"/></svg><img src="https://images.unsplash.com/photo-1761654887771-ef948944643e?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400" srcset="https://images.unsplash.com/photo-1761654887771-ef948944643e?auto=format&fit=crop&crop=entropy&q=80&w=600&h=400 600w, https://images.unsplash.com/photo-1761654887771-ef948944643e?auto=format&fit=crop&crop=entropy&q=80&w=900&h=600 900w" sizes="(max-width:480px) 100vw, (max-width:960px) 50vw, 270px" alt="Champ de sarrasin en fleurs" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>
+        <div class="corps">
+          <h3>Sarrasin et petit épeautre</h3>
+          <p>En grain, cuits et surgelés : il n'y a plus qu'à réchauffer. Se gardent un an.</p>
+          <span class="meta">Toute l'année</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ferme" id="ferme">
+  <div class="wrap">
+    <div class="media"><img class="vraie" src="https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=1200" srcset="https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=700 700w, https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=1200 1200w, https://images.unsplash.com/photo-1650012393239-c7a05a74bff9?auto=format&fit=crop&q=80&w=1800 1800w" sizes="(max-width:860px) 100vw, 530px" alt="Prés et volcans du Cantal" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    <svg viewBox="0 0 520 380" role="img" aria-label="Illustration de la ferme" style="width:100%;height:auto">
+      <rect width="520" height="380" rx="26" fill="#dfe8cf"/>
+      <path d="M0 250 C120 220 260 245 520 225 V380 H0Z" fill="#5f7a40"/>
+      <g transform="translate(150 120)">
+        <path d="M0 70 L110 10 L220 70 V170 H0Z" fill="#f4efe4"/>
+        <path d="M-12 74 L110 4 L232 74" stroke="#3b3530" stroke-width="16" fill="none" stroke-linejoin="round"/>
+        <rect x="85" y="95" width="50" height="75" rx="4" fill="#a2552c"/>
+        <path d="M85 95 L135 170 M135 95 L85 170" stroke="#7c3f1f" stroke-width="4"/>
+        <rect x="24" y="96" width="34" height="30" rx="3" fill="#cfe0e8" stroke="#3b3530" stroke-width="4"/>
+        <rect x="162" y="96" width="34" height="30" rx="3" fill="#cfe0e8" stroke="#3b3530" stroke-width="4"/>
+      </g>
+      <g fill="#4a6531"><circle cx="70" cy="200" r="34"/><circle cx="96" cy="176" r="28"/><rect x="74" y="200" width="10" height="44" fill="#5a4330"/></g>
+      <g fill="#4a6531"><circle cx="440" cy="196" r="30"/><rect x="436" y="200" width="9" height="40" fill="#5a4330"/></g>
+    </svg>
+    </div>
+    <div>
+      <div class="titre-sec" style="margin-bottom:16px">
+        <div class="sur">La ferme</div>
+        <h2>Une ferme du Cantal</h2>
+      </div>
+      <p>Le GAEC de la Moleirie vend en direct sa viande de bœuf et de veau, ses tripes, son sarrasin et son petit épeautre. L'exploitation est certifiée Haute Valeur Environnementale.</p>
+      <p class="a-ecrire">À écrire avec vous : l'histoire de la ferme, qui y travaille, vos bêtes, vos terres. Avec deux ou trois photos de chez vous, c'est la partie que les clients lisent le plus.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pros">
+  <div class="wrap">
+    <div class="titre-sec">
+      <div class="sur">Pour qui</div>
+      <h2>Particuliers et professionnels</h2>
+    </div>
+    <div class="clients">
+      <div class="client part">
+        <h3>Vous êtes un particulier</h3>
+        <p>Appelez-nous ou écrivez-nous : on vous dit ce qui est disponible et on prépare votre commande.</p>
+        <ul>
+          <li>Bœuf, veau et tripes de la ferme</li>
+          <li>Sarrasin et petit épeautre déjà cuits</li>
+          <li>Quantités à la demande</li>
+        </ul>
+        <a class="btn" href="#contact">Nous écrire</a>
+      </div>
+      <div class="client pro">
+        <h3>Cantines, EHPAD et restaurants</h3>
+        <p>Nous figurons dans l'annuaire ConsoCantal des fournisseurs de produits locaux de la Chambre d'agriculture.</p>
+        <ul>
+          <li>Agrément CE et certification HVE</li>
+          <li>Conditionnement selon vos besoins</li>
+          <li>Livraison : le minimum de commande dépend du lieu</li>
+        </ul>
+        <a class="btn" href="#contact">Demander un tarif</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="commander" style="padding-top:0">
+  <div class="wrap">
+    <div class="titre-sec">
+      <div class="sur">Commander</div>
+      <h2>Comment commander</h2>
+    </div>
+    <div class="etapes">
+      <div class="etape"><h3>Vous nous contactez</h3><p>Par téléphone ou par mail. Dites-nous quels produits et quelle quantité.</p></div>
+      <div class="etape"><h3>On vous répond</h3><p>On confirme ce qui est disponible, le prix et le conditionnement.</p></div>
+      <div class="etape"><h3>On convient de la livraison</h3><p>La date et le lieu de livraison se fixent ensemble.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Une question, une commande ?</h2>
+    <p>Écrivez-nous ou appelez-nous, on vous répond vite.</p>
+    <a class="btn mail" href="mailto:domerguejc181@gmail.com?subject=Commande%20GAEC%20de%20la%20Moleirie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>domerguejc181@gmail.com</span></a>
+    <div class="infos">
+      <a class="info" href="tel:+33670293463"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>06 70 29 34 63</span></a>
+      <div class="info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Lamoleirie, Cantal</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>GAEC de la Moleirie · Lamoleirie, Cantal</span>
+    <span>Maquette : Gabriel Fernandes Neves</span>
+  </div>
+</footer>
+
+</body>
+</html>
