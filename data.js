@@ -7,12 +7,14 @@
 //    isGame          — true  → button says "Play Game"
 //                      false → button says "Visit Website"
 //    date            — used for display AND for sorting (most recent first)
-//                      format: "Mon YYYY" or "Mon YYYY - Mon YYYY" or "Mon YYYY · Label"
+//                      format: "Mon YYYY" or "Mon YYYY – Mon YYYY" or "Mon YYYY · Label"
 //                      sorting uses the START date; "Present" end means it sorts
 //                      above finished projects, with the most recent start winning.
 //    devScreenshots  — optional array of image paths shown in the
 //                      "Development Screenshots" section on the detail page.
 //                      Each image is clickable and opens in a full-screen lightbox.
+//    heroSize /      — optional background size for the hero / index card
+//    cardImgSize       ("cover" by default, e.g. "135%" to zoom in)
 //
 //  To add a new PROJECT or EXPERIENCE, copy the template block
 //  at the bottom of each section and fill it in. Nothing else
@@ -24,8 +26,8 @@
 const projects = {
 
     bloodbound: {
-        title: "Bloodbound Knights",
-        date: "Jun 2023 - Present",
+        title: "BloodBound Knights",
+        date: "Jun 2023 – Present",
         isGame: true,
         cardSubtitle: "A full solo-developed game released on Steam.",
         subtitle: "BloodBound Knights is a fast-paced roguelike shoot 'em up where you battle through procedurally generated levels, unleash powerful spells, and upgrade your gear. Choose your class, master unique abilities, level up, customize your playstyle, and become unstoppable.",
@@ -57,7 +59,7 @@ const projects = {
 
     aimbuddy: {
         title: "Aim Buddy",
-        date: "Dec 2025 - Jan 2026",
+        date: "Dec 2025 – Jan 2026",
         isGame: true,
         cardSubtitle: "A compact 2D aim trainer designed for second-screen play.",
         subtitle: "A compact 2D aim-trainer mini game inspired by osu!, designed to be played while you're dead in an FPS.",
@@ -90,7 +92,7 @@ const projects = {
 
     portfolio: {
         title: "Portfolio",
-        date: "Mar 2026 - Present",
+        date: "Mar 2026 – Present",
         isGame: false,
         cardSubtitle: "The website you're currently on.",
         subtitle: "The website you're currently on.",
@@ -115,7 +117,7 @@ const projects = {
             "images/Project Files/Portfolio/Dev/1.png",
             "images/Project Files/Portfolio/Dev/2.png",
         ],
-        skills: ["html", "css", "javascript", "git", "photoshop"],
+        skills: ["html", "css", "javascript", "git", "photoshop"]
     },
 
     veilshifter: {
@@ -123,12 +125,12 @@ const projects = {
         date: "Jan 2026 · Global Game Jam",
         isGame: true,
         cardSubtitle: "A 48h jam game built in a two-developer team.",
-        subtitle: "Participated in my second Global Game Jam with the theme masks as part of a two-developer team, creating a game within 48 hours.",
+        subtitle: "Participated in the Global Game Jam 2026, my second game jam, with the theme 'Mask', as part of a two-developer team, creating a game within 48 hours.",
         description: `
-            <p>A fast paced first person game in which players switch and combine masks to create unique weapons and abilities combos, mastering dynamic traversal mechanics and combat to clear levels and defeat enemies in the shortest time possible.</p>
+            <p>A fast-paced first-person game in which players switch and combine masks to create unique weapon and ability combos, mastering dynamic traversal mechanics and combat to clear levels and defeat enemies in the shortest time possible.</p>
             <p>Designed and built all map levels, focusing on layout, pacing, and player flow to support engaging gameplay. Implemented the full mask system, including selection, switching, and usability mechanics, ensuring each mask felt responsive, intuitive, and seamlessly integrated into both traversal and combat.</p>
-            <p>AI was used in this project to generate the mask models, for the UI and the game Logo.</p>
-            <p>Global Game Jam 2026, 48h | Theme : Mask</p>
+            <p>AI was used in this project to generate the mask models, the UI and the game logo.</p>
+            <p>Global Game Jam 2026, 48h | Theme: Mask</p>
         `,
         playLink: "https://gabtrex.itch.io/veil-shifter",
         gamePath: "games/Veil Shifter",
@@ -155,11 +157,11 @@ const projects = {
         title: "Meurtre à Monaco",
         date: "Nov 2025 · Internal Game Jam",
         isGame: true,
-        cardSubtitle: "A Cluedo-style mystery built solo in 48 hours.",
-        subtitle: "Participated in my first Game Jam with the theme 'on the track', working in a five-person team as the sole developer to create a game within 48 hours.",
+        cardSubtitle: "A Cluedo-style mystery built in 48 hours as the team's sole developer.",
+        subtitle: "Participated in my first game jam with the theme 'On the Track', working in a five-person team as the sole developer to create a game within 48 hours.",
         description: `
             <p>Between mystery and the smell of gasoline, welcome to Monaco. You are a driver and must stay focused on the road, but at the last minute, Yukio, one of the drivers, was found dead by the organizer... A tragedy blending high-speed thrills with intense puzzles, discover a Cluedo-style mystery set around the race! So get on the track and solve the Murder in Monaco!</p>
-            <p>Global Game Jam 2026, 48h | Theme : On the Track</p>
+            <p>Internal Game Jam, Nov 2025, 48h | Theme: On the Track</p>
         `,
         playLink: "https://gabtrex.itch.io/meurtre-monaco",
         gamePath: "games/Meurtre à Monaco",
@@ -183,10 +185,10 @@ const projects = {
 
     server: {
         title: "Family Server",
-        date: "Jun 2025 - Present",
+        date: "Jun 2025 – Present",
         isGame: false,
         cardSubtitle: "A personal server hosting our files.",
-        subtitle: "A personal server hosting our files, photos, and media, built using NextCloud.",
+        subtitle: "A personal server hosting our files, photos, and media, built using Nextcloud.",
         description: `
             <p>I created a personal <strong>Nextcloud</strong> server to build a private cloud storage system that is still actively used today by my family and me.</p>
 
@@ -194,7 +196,7 @@ const projects = {
 
             <p>Through this project, I gained practical experience with problem solving, system setup, remote access, storage management, and creating tools designed for everyday use.</p>
 
-            <p>The downloadable resumes available on this portfolio are also hosted directly on this server : <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Download Resume</a></p>
+            <p>The downloadable resumes available on this portfolio are also hosted directly on this server: <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Download Resume</a></p>
         `,
         playLink: "https://gabtrex.ddns.net/login?redirect_url=/apps/dashboard/",
         heroImg: "images/Project Files/Server/Hero/1.png",
@@ -232,22 +234,18 @@ const projects = {
         cardImg: "images/Project Files/Childcare Assistant/Project Image/card.png",
         cardImgPosition: "center",
         screenshots: [
-            "images/Project Files/Childcare Assistant/1.png",
-            "images/Project Files/Childcare Assistant/2.png",
-            "images/Project Files/Childcare Assistant/3.png"
+            "images/Project Files/Childcare Assistant/Screenshots/1.png",
+            "images/Project Files/Childcare Assistant/Screenshots/2.png",
+            "images/Project Files/Childcare Assistant/Screenshots/3.png"
         ],
         devScreenshots: [
             "images/Project Files/Childcare Assistant/Dev/1.png",
             "images/Project Files/Childcare Assistant/Dev/2.png"
         ],
-        skills: [
-            "html",
-            "css",
-            "javascript",
-        ]
+        skills: ["html", "css", "javascript"]
     },
 
-    // ── ADD NEW PROJECTS BELOW ──────────────────────────────
+    // --- ADD NEW PROJECTS BELOW --- \\
     //
     // example: {
     //     title: "My New Game",
@@ -261,9 +259,11 @@ const projects = {
     //     allowFullscreen: true,                 // allows full screen to the playable embed, can omit if not wanted
     //     heroImg: "images/Project Files/Example/Hero/hero.png",
     //     heroPosition: "center 20%",
+    //     heroSize: "cover",                     // e.g. "150%" to zoom in, omit for default (cover)
     //     cardImg: "images/Project Files/Example/Project Image/card.png",
     //     cardImgPosition: "center",
-    //     screenshots: ["images/Project Files/Example/1.png", "images/Project Files/Example/2.png", "images/Project Files/Example/3.png"],
+    //     cardImgSize: "100%",                   // e.g. "135%" to zoom in, omit for default (cover)
+    //     screenshots: ["images/Project Files/Example/Screenshots/1.png", "images/Project Files/Example/Screenshots/2.png", "images/Project Files/Example/Screenshots/3.png"],
     //     devScreenshots: [                      // optional — omit to hide the section entirely
     //         "images/Project Files/Example/Dev/1.png",
     //         "images/Project Files/Example/Dev/2.png",
@@ -288,7 +288,7 @@ const experiences = {
         websiteLink: "https://playmanity.net",
         heroImg: "images/Experience Files/Playmanity/Hero/Pm.png",
         heroPosition: "center 0%",
-        cardImg: "images/Experience Files/Playmanity/Experience Image/Pm.png",
+        cardImg: "images/Experience Files/Playmanity/Card/Pm.png",
         cardImgPosition: "left center",
         skills: ["community", "eventorg", "photoshop", "premiere"]
     },
@@ -296,13 +296,13 @@ const experiences = {
     idlevalleygames: {
         title: "Junior Programmer",
         isGame: true,
-        date: "Mar 2026 - Sep 2026",
+        date: "Mar 2026 – Sep 2026",
         cardSubtitle: "Improved game feel, gameplay systems, and controller usability.",
         subtitle: "Idle Valley Games",
         description: `
             <p>Worked on <strong>Goblin Mode</strong> as a Junior Programmer, focusing on gameplay systems, game feel, controller usability, and bug fixing. Contributed to both player-facing features and underlying gameplay logic to improve responsiveness, feedback, onboarding, and overall stability.</p>
 
-            <p><strong>Game Feel & Player Feedback :</strong></p>
+            <p><strong>Game Feel & Player Feedback:</strong></p>
             <ul>
                 <li>Implemented a vignette effect to provide additional visual feedback while crouching</li>
                 <li>Improved stamina feedback to make the player's current stamina state clearer</li>
@@ -310,7 +310,7 @@ const experiences = {
                 <li>Added conditional highlighting so unavailable objects are no longer highlighted, such as objects that are too heavy to pick up with the slingshot</li>
             </ul>
 
-            <p><strong>Gameplay Systems & Logic :</strong></p>
+            <p><strong>Gameplay Systems & Logic:</strong></p>
             <ul>
                 <li>Reworked interaction and biting systems to improve responsiveness and usability, particularly on controller</li>
                 <li>Expanded detection zones and implemented prioritization logic to favor important interactable objects</li>
@@ -320,18 +320,18 @@ const experiences = {
                 <li>Added tutorial-specific logic preventing the player from taking lethal damage during onboarding</li>
             </ul>
 
-            <p><strong>Slingshot & Item System :</strong></p>
+            <p><strong>Slingshot & Item System:</strong></p>
             <ul>
-                <li>Developed a pickable and equipable slingshot allowing players to pick up and launch objects from the environment</li>
+                <li>Developed a pickable and equippable slingshot allowing players to pick up and launch objects from the environment</li>
                 <li>Implemented visual feedback displaying the selected object directly on the slingshot</li>
                 <li>Made projectile positioning fully customizable for different item types</li>
                 <li>Implemented configurable pickup validation through the <code>Slingshot_Bullet</code> system</li>
-                <li>Added special behaviors for items such as bombs and dynamites when launched</li>
+                <li>Added special behaviors for items such as bombs and dynamite when launched</li>
                 <li>Implemented limb-based ragdoll reactions when enemies are hit by slingshot projectiles</li>
                 <li>Added dissolve animations when equipping and unequipping the slingshot</li>
             </ul>
 
-            <p><strong>Bug Fixing & Stability :</strong></p>
+            <p><strong>Bug Fixing & Stability:</strong></p>
             <ul>
                 <li>Fixed crouch jumping and stamina depletion issues, including stamina not properly reaching zero</li>
                 <li>Fixed an autorun bug causing unintended stamina consumption while attempting to walk and recover stamina</li>
@@ -339,7 +339,7 @@ const experiences = {
                 <li>Fixed interaction and biting exploits allowing players to interact with or bite through walls</li>
             </ul>
 
-            <p><strong>Research & Game Design :</strong></p>
+            <p><strong>Research & Game Design:</strong></p>
             <ul>
                 <li>Conducted research across multiple sources to evaluate potential game modes and their expected player appeal and success</li>
             </ul>
@@ -366,14 +366,14 @@ const experiences = {
         subtitle: "Hochland",
         description: `<p>Developed and maintained an internal software solution used to manage and monitor the factory's day-to-day operations. The application covers the production workflow from <strong>milk reception</strong> and <strong>cheese production</strong> to <strong>storage</strong>, <strong>packaging</strong>, and the <strong>tracking of materials</strong> entering and leaving the factory.</p>
         <p>The software brings these different processes together into a centralized system, making it possible to manage production data, follow the movement of materials, and support the different operational needs of the factory.</p>
-        <p><strong>Technical Development :</strong></p>
+        <p><strong>Technical Development:</strong></p>
         <ul>
             <li>Developed the user interface using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong></li>
             <li>Implemented <strong>C#</strong> components for API communication and data exchange with backend services</li>
             <li>Maintained and improved existing features according to the factory's operational requirements</li>
             <li>Worked on a software solution used as part of real-world production and material management processes</li>
         </ul>
-        <p>This was possible thanks to the many workers in the factory who told me what tools would facilitate their lives, and make production more efficient. I was able to implement these tools in the software, and see them used in real life, which was a very rewarding experience !</p>
+        <p>This was possible thanks to the many workers in the factory who told me what tools would facilitate their lives, and make production more efficient. I was able to implement these tools in the software, and see them used in real life, which was a very rewarding experience!</p>
         `,
         websiteLink: "https://www.hochland-group.com/en",
         heroImg: "images/Experience Files/hochland/Hero/Hero.jpg",
@@ -382,10 +382,10 @@ const experiences = {
         cardImg: "images/Experience Files/hochland/Card/Card.jpg",
         cardImgPosition: "center",
         cardImgSize: "103%",
-        skills: ["csharp","git","docker", "html", "css", "javascript"]
+        skills: ["csharp", "git", "docker", "html", "css", "javascript"]
     },
 
-    // ── ADD NEW EXPERIENCES BELOW ───────────────────────────
+    // --- ADD NEW EXPERIENCES BELOW --- \\
     //
     // example: {
     //     title: "Job Title",
@@ -398,7 +398,7 @@ const experiences = {
     //     heroImg: "images/Experience Files/Company/Hero/hero.png",
     //     heroPosition: "center 20%",
     //     heroSize: "cover",                     // e.g. "150%" to zoom in, omit for default (cover)
-    //     cardImg: "images/Experience Files/Company/Experience Image/card.png",
+    //     cardImg: "images/Experience Files/Company/Card/card.png",
     //     cardImgPosition: "center",             // e.g. "left center", "center", "right center"
     //     cardImgSize: "100%",                   // e.g. "135%" to zoom in, omit for default (cover)
     //     devScreenshots: [                      // optional — omit to hide the section entirely

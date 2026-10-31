@@ -28,7 +28,7 @@
         var gameHeight  = 0;
         var fixedCanvas = false;
 
-        // ── ICONS ─────────────────────────────────────────────────
+        // --- ICONS --- \\
         var expandIcon =
             '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"' +
             ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
@@ -41,7 +41,7 @@
             '<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/>' +
             '<line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>';
 
-        // ── UNITY LAYOUT ──────────────────────────────────────────
+        // --- UNITY LAYOUT --- \\
         // Scales the iframe to fit inside the wrapper WITHOUT touching
         // the wrapper's own size or aspect-ratio — CSS owns that.
         function applyGameScale() {
@@ -59,7 +59,7 @@
             iframe.style.transformOrigin = 'center center';
         }
 
-        // ── GODOT LAYOUT ──────────────────────────────────────────
+        // --- GODOT LAYOUT --- \\
         function applyFluidLayout() {
             fixedCanvas = false;
             iframe.style.position        = '';
@@ -71,7 +71,7 @@
             iframe.style.transformOrigin = '';
         }
 
-        // ── CANVAS SIZE POLL (Unity only) ─────────────────────────
+        // --- CANVAS SIZE POLL (Unity only) --- \\
         function pollCanvasSize(canvas) {
             var attempts = 0;
             var interval = setInterval(function () {
@@ -92,7 +92,7 @@
             }, 200);
         }
 
-        // ── PLAY OVERLAY ──────────────────────────────────────────
+        // --- PLAY OVERLAY --- \\
         var playOverlay = document.createElement('div');
         playOverlay.style.cssText = [
             'position:absolute', 'inset:0', 'display:flex',
@@ -130,7 +130,7 @@
         wrapper.insertBefore(playOverlay, wrapper.firstChild);
         loadingEl.style.display = 'none';
 
-        // ── FULLSCREEN ────────────────────────────────────────────
+        // --- FULLSCREEN --- \\
         if (config.allowFullscreen && fullscreenBtn) {
             fullscreenBtn.style.display = 'flex';
             fullscreenBtn.innerHTML = expandIcon;
@@ -160,10 +160,10 @@
             fullscreenBtn.style.display = 'none';
         }
 
-        // ── RESIZE ────────────────────────────────────────────────
+        // --- RESIZE --- \\
         window.addEventListener('resize', applyGameScale);
 
-        // ── PLAY CLICK ────────────────────────────────────────────
+        // --- PLAY CLICK --- \\
         playBtn.addEventListener('click', function () {
             playOverlay.style.display = 'none';
             loadingEl.style.display   = 'flex';

@@ -1,4 +1,4 @@
-// ── Custom cursor ────────────────────────────────────────
+// --- Custom cursor --- \\
 (function() {
     // Skip on touch devices (phones / tablets)
     if (!window.matchMedia('(pointer: fine)').matches) return;

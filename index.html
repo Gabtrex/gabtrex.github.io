@@ -11,15 +11,15 @@
     <title>Gabriel Fernandes Neves — Game Developer</title>
 
     <!-- SEO -->
-    <meta name="description" content="Portfolio of Gabriel Fernandes Neves (Gabtrex) — solo game developer with 3+ years of experience building games in Unreal Engine 5, Unity, and Godot. Creator of Bloodbound Knights on Steam.">
+    <meta name="description" content="Portfolio of Gabriel Fernandes Neves (Gabtrex) — solo game developer with 4+ years of experience building games in Unreal Engine 5, Unity, and Godot. Creator of BloodBound Knights on Steam.">
     <meta name="author" content="Gabriel Fernandes Neves">
-    <meta name="keywords" content="game developer, Unreal Engine, Unity, Godot, indie game, Bloodbound Knights, portfolio, Gabtrex">
+    <meta name="keywords" content="game developer, Unreal Engine, Unity, Godot, indie game, BloodBound Knights, portfolio, Gabtrex">
 
     <!-- Open Graph (Discord, LinkedIn, Facebook, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gabtrex.github.io/">
     <meta property="og:title" content="Gabriel Fernandes Neves — Game Developer">
-    <meta property="og:description" content="Solo game developer with 3+ years of experience. Creator of Bloodbound Knights on Steam. Built with Unreal Engine 5, Unity, Godot and more.">
+    <meta property="og:description" content="Solo game developer with 4+ years of experience. Creator of BloodBound Knights on Steam. Built with Unreal Engine 5, Unity, Godot and more.">
     <meta property="og:image" content="https://gabtrex.github.io/images/MainPageHero/SEOHero.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -30,7 +30,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://gabtrex.github.io/">
     <meta name="twitter:title" content="Gabriel Fernandes Neves — Game Developer">
-    <meta name="twitter:description" content="Solo game developer with 3+ years of experience. Creator of Bloodbound Knights on Steam.">
+    <meta name="twitter:description" content="Solo game developer with 4+ years of experience. Creator of BloodBound Knights on Steam.">
     <meta name="twitter:image" content="https://gabtrex.github.io/images/MainPageHero/SEOHero.png">
 
     <!-- Canonical -->
@@ -69,9 +69,9 @@
 <!-- ABOUT SECTION -->
 <section id="about">
     <h2 class="scroll-reveal">About Me</h2>
-    <p class="scroll-reveal">I'm Gabriel, a <strong>19 year old game developer</strong> who has been creating games since the age of <strong>10</strong>. I started with <strong>Scratch</strong> and progressively moved to engines such as <strong>Unreal Engine 5</strong> and <strong>Unity</strong>, building experience across multiple technologies and languages.</p>
-    <p class="scroll-reveal">In <strong>2025</strong>, I independently developed and released <strong>Bloodbound Knights on Steam</strong>, handling the <strong>full production pipeline</strong> and gaining strong experience with <strong>Unreal Engine 5</strong> and <strong>Blueprint</strong>. Prior to that, I published a <strong>mobile game on Google Play</strong> and worked on smaller projects using <strong>C#</strong>, <strong>Roblox Lua</strong>, and <strong>Godot</strong>.</p>
-    <p class="scroll-reveal">I'm currently a second year student at <strong>ISCOD</strong>, where I continue to strengthen my developping skills and explore new technologies. My passion lies in <strong>game development</strong>, and I'm always eager to take on new challenges and create engaging experiences for players.</p>
+    <p class="scroll-reveal">I'm Gabriel, a <strong>19-year-old game developer</strong> who has been creating games since the age of <strong>10</strong>. I started with <strong>Scratch</strong> and progressively moved to engines such as <strong>Unreal Engine 5</strong> and <strong>Unity</strong>, building experience across multiple technologies and languages.</p>
+    <p class="scroll-reveal">In <strong>2025</strong>, I independently developed and released <strong>BloodBound Knights on Steam</strong>, handling the <strong>full production pipeline</strong> and gaining strong experience with <strong>Unreal Engine 5</strong> and <strong>Blueprint</strong>. Prior to that, I published a <strong>mobile game on Google Play</strong> and worked on smaller projects using <strong>C#</strong>, <strong>Roblox Lua</strong>, and <strong>Godot</strong>.</p>
+    <p class="scroll-reveal">I'm currently a second-year student at <strong>ISCOD</strong>, where I continue to strengthen my development skills and explore new technologies. My passion lies in <strong>game development</strong>, and I'm always eager to take on new challenges and create engaging experiences for players.</p>
     <h4><a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Resume</a></h4>
 </section>
 
@@ -158,7 +158,7 @@
 <script src="cursor.js"></script>
 <script>
 
-    // ── Skills grid ──────────────────────────────────────────
+    // --- Skills grid --- \\
     var skillsGrid = document.getElementById('skills-grid');
 
     // Clear / Select None button (hidden until a skill is active)
@@ -185,7 +185,7 @@
         skillsGrid.appendChild(div);
     });
 
-    // ── Build a card element ─────────────────────────────────
+    // --- Build a card element --- \\
     function buildCard(key, data, type) {
         var skillTags = (data.skills || [])
             .map(function(s) {
@@ -218,39 +218,47 @@
         return a;
     }
 
-    // ── Render projects ──────────────────────────────────────
+    // --- Render projects --- \\
     var projectsGrid = document.getElementById('projects-grid');
     sortedEntries(projects).forEach(function(entry) {
         projectsGrid.appendChild(buildCard(entry[0], entry[1], 'project'));
     });
 
-    // ── Render experiences ───────────────────────────────────
+    // --- Render experiences --- \\
     var experienceGrid = document.getElementById('experience-grid');
     sortedEntries(experiences).forEach(function(entry) {
         experienceGrid.appendChild(buildCard(entry[0], entry[1], 'experience'));
     });
 
-    // ── Hero background zoom-out ─────────────────────────────
+    // --- Hero background zoom-out --- \\
     window.addEventListener('load', function() {
         document.getElementById('mainHeroBg').classList.add('loaded');
     });
 
-    // ── Scroll reveal ────────────────────────────────────────
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.05 });
+    // --- Scroll reveal --- \\
+    // Items are only staggered against the other items appearing in the same batch,
+    // so scrolling fast never stacks up long delays.
+    var REVEAL_STAGGER   = 0.04;                    // seconds between items revealed together
+    var REVEAL_MAX_DELAY = 0.24;                    // cap, so a big batch (skills grid) never lags
 
-    document.querySelectorAll('.scroll-reveal').forEach(function(el, i) {
-        el.style.transitionDelay = (i * 0.04) + 's';
-        observer.observe(el);
+    var revealObserver = new IntersectionObserver(function(entries) {
+        var batchIndex = 0;                         // position inside this batch of new items
+        entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            el.style.transitionDelay = Math.min(batchIndex * REVEAL_STAGGER, REVEAL_MAX_DELAY) + 's';
+            el.classList.add('visible');
+            el.addEventListener('transitionend', function() { el.style.transitionDelay = ''; }, { once: true });
+            revealObserver.unobserve(el);
+            batchIndex++;
+        });
+    }, { threshold: 0, rootMargin: '0px 0px 10% 0px' }); // start revealing just before items enter the screen
+
+    document.querySelectorAll('.scroll-reveal').forEach(function(el) {
+        revealObserver.observe(el);
     });
 
-    // ── Skill filter (multi-select) ──────────────────────────
+    // --- Skill filter (multi-select) --- \\
     var activeSkills = new Set();
 
     function applyFilter() {
@@ -326,7 +334,7 @@
         clearBtnEl.addEventListener('click', clearFilter);
     }
 
-    // ── Email menu ────────────────────────────────────────────
+    // --- Email menu --- \\
     var emailBtn     = document.getElementById('emailBtn');
     var emailMenu    = document.getElementById('emailMenu');
     var emailOpen    = document.getElementById('emailOpen');
@@ -351,14 +359,14 @@
         });
     });
 
-    // ── Close email menu on outside click ────────────────────
+    // --- Close email menu on outside click --- \\
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.social-email')) {
             emailMenu.classList.remove('show');
         }
     });
 
-    // ── Smooth scroll ────────────────────────────────────────
+    // --- Smooth scroll --- \\
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -367,7 +375,7 @@
         });
     });
 
-    // ── Session scroll restore ───────────────────────────────
+    // --- Session scroll restore --- \\
     window.addEventListener('load', function() {
         var scrollTo = sessionStorage.getItem('scrollTo');
         if (scrollTo) {

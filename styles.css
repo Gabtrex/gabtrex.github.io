@@ -188,13 +188,6 @@ h2 {
   z-index: 0;
 }
 
-/* ── Static hardcoded card backgrounds (legacy, kept for safety) ── */
-.project-card.bloodbound::after  { background-image: url('images/BBK/Project Image/BBK.png'); }
-.project-card.aimtrainer::after  { background-image: url('images/AB/Project Image/AB.png'); }
-.project-card.veilshifter::after { background-image: url('images/VeilShifter/Project Image/VS.png'); background-position: left center; }
-.project-card.mam::after         { background-image: url('images/MAM/Project Image/MAM.png'); background-size: 135%; background-repeat: no-repeat; }
-.project-card.playmanity::after  { background-image: url('images/Playmanity/Experience Image/Pm.png'); background-position: left center; }
-
 /* ── Dynamic card backgrounds (set via CSS custom properties from JS) ── */
 .project-card.dynamic-card::after {
   background-image:    var(--card-bg);
@@ -273,8 +266,6 @@ h2 {
   gap: 0.5rem;
 }
 
-
-
 /* ===== SKILLS SECTION ===== */
 .skills-grid {
   display: grid;
@@ -347,8 +338,9 @@ footer {
 
 @media (max-width: 600px) {
   .projects-grid { grid-template-columns: 1fr; }
-  header  { padding: 1rem 2rem; }
-  section { padding: 4rem 2rem 1.5rem 2rem; }
+  header     { padding: 1rem 2rem; }
+  section    { padding: 4rem 2rem 1.5rem 2rem; }
+  .main-name { font-size: 1.35rem; }
 }
 
 /* ===== HAMBURGER BUTTON ===== */
@@ -495,6 +487,17 @@ footer {
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* Skills / screenshots / game blocks below the About box */
+.detail-section      { margin-top: 3rem; }
+.detail-section-game { margin-top: 4rem; }
+
+.detail-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
 /* ===== HERO (detail pages) ===== */
 .hero {
   position: relative;
@@ -598,6 +601,15 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 600px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 2rem 2rem;
+  }
+  .screenshots img { width: 100%; }
+}
+
 /* ===== PROJECT DESCRIPTION ===== */
 #project-description h3,
 #experience-description h3 {
@@ -643,6 +655,10 @@ footer {
 .scroll-reveal:not(.visible) .project-card {
   box-shadow: none !important;
   transition: box-shadow 0.7s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ===== MAIN PAGE HERO ===== */
@@ -974,67 +990,67 @@ footer {
 .social-email { position: relative; }
 
 .email-menu {
-    position: absolute;
-    bottom: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-    background: rgba(20, 20, 20, 0.92);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
-    padding: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    min-width: 130px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 100;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(20, 20, 20, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 130px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
 }
 
 .email-menu.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
 .email-menu a,
 .email-menu button {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    padding: 7px 14px;
-    text-align: center;
-    cursor: none;
-    transition: background 0.2s ease, color 0.2s ease;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 7px 14px;
+  text-align: center;
+  cursor: none;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .email-menu a:hover,
 .email-menu button:hover {
-    background: rgba(255, 255, 255, 0.14);
-    color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
 }
 
 .email-copy-confirm {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.68rem;
-    color: rgba(255, 255, 255, 0.4);
-    text-align: center;
-    padding: 2px 0;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-    display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  padding: 2px 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  display: block;
 }
 
 .email-copy-confirm.show { opacity: 1; }
@@ -1111,55 +1127,88 @@ footer {
   width: 8px;
   height: 8px;
 }
-/* ── Play in Browser embed ─────────────────────────────── */
+
+/* ===== PLAY IN BROWSER EMBED ===== */
 .game-embed-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9; /* keep this if your game is 16:9 */
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: #000;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* keep this if your game is 16:9 */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .game-embed-wrapper iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: none;
-    display: block;
-    transform: translate(-50%, -50%);
-    transform-origin: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: none;
+  display: block;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  opacity: 0;                         /* faded in by game-loader.js once the game is ready */
+  transition: opacity 0.4s ease;
+}
+
+.game-loading,
+.game-error {
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  font-family: 'Inter', sans-serif;
+  z-index: 2;
+}
+
+.game-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.game-loading-spinner { animation: spin 1s linear infinite; }
+
+.game-error {
+  display: none;
+  color: rgba(255, 100, 100, 0.8);
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .game-fullscreen-btn {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 6px;
-    color: rgba(255, 255, 255, 0.8);
-    cursor: none;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-    backdrop-filter: blur(6px);
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(6px);
 }
 
 .game-fullscreen-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    transform: scale(1.08);
-}
-
-.project-hours-hero {
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: scale(1.08);
 }
 
 /* ===== LIGHTBOX ===== */

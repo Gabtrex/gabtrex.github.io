@@ -1,18 +1,16 @@
-// ── Shared header ────────────────────────────────────────
+// --- Shared header --- \\
 // On index.html: name button scrolls to top, nav links
 //   smooth-scroll to their section.
 // On detail pages: name button goes to index.html, nav links
 //   go to index.html and store the target section in
 //   sessionStorage so index.html plays the scroll animation.
 (function() {
-    var path = window.location.pathname;
-    var isIndex = (path === '/' || path === '' || path.endsWith('/index.html') || path.endsWith('/'))
-                  && !window.location.search;
+    var isIndex = document.getElementById('projects-grid') !== null; // only index.html has the projects grid
 
     var sections = ['about', 'skills', 'projects', 'experience', 'connect'];
     var labels   = ['About', 'Skills', 'Projects', 'Experience', 'Connect'];
 
-    // ── Desktop nav links ────────────────────────────────────
+    // --- Desktop nav links --- \\
     var desktopNavHTML = '';
     sections.forEach(function(s, i) {
         if (isIndex) {
@@ -22,7 +20,7 @@
         }
     });
 
-    // ── Mobile drawer links ──────────────────────────────────
+    // --- Mobile drawer links --- \\
     var drawerNavHTML = '';
     sections.forEach(function(s, i) {
         if (isIndex) {
@@ -32,7 +30,7 @@
         }
     });
 
-    // ── Name button ──────────────────────────────────────────
+    // --- Name button --- \\
     var nameTag;
     if (isIndex) {
         nameTag = '<a href="#" class="name-button" onclick="window.scrollTo({ top: 0, behavior: \'smooth\' }); return false;">';
@@ -40,7 +38,7 @@
         nameTag = '<a href="index.html" class="name-button">';
     }
 
-    // ── Inject header ────────────────────────────────────────
+    // --- Inject header --- \\
     var header = document.querySelector('header');
     if (!header) return;
 
@@ -56,7 +54,7 @@
         '<span></span><span></span><span></span>' +
         '</button>';
 
-    // ── Inject drawer (outside header, into body) ────────────
+    // --- Inject drawer (outside header, into body) --- \\
     var drawer = document.createElement('div');
     drawer.className = 'nav-drawer';
     drawer.setAttribute('aria-hidden', 'true');
@@ -65,7 +63,7 @@
         '<nav class="nav-drawer-panel">' + drawerNavHTML + '</nav>';
     document.body.appendChild(drawer);
 
-    // ── Toggle logic ─────────────────────────────────────────
+    // --- Toggle logic --- \\
     var hamburger = header.querySelector('.nav-hamburger');
     var backdrop  = drawer.querySelector('.nav-drawer-backdrop');
 
@@ -99,7 +97,7 @@
         link.addEventListener('click', closeDrawer);
     });
 
-    // ── Active nav highlight (index only) ────────────────────
+    // --- Active nav highlight (index only) --- \\
     if (isIndex) {
         var navLinks = header.querySelectorAll('nav a');
 
