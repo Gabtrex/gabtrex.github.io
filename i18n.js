@@ -72,7 +72,7 @@ var UI = {
     'connect.title':       { en: 'Connect', fr: 'Contact', pt: 'Contacto' },
     'email.open':          { en: 'Open Mail', fr: 'Ouvrir la messagerie', pt: 'Abrir o e-mail' },
     'email.copy':          { en: 'Copy Address', fr: "Copier l'adresse", pt: 'Copiar endereço' },
-    'copied':              { en: 'Copied!', fr: 'Copié !', pt: 'Copiado!' },
+    'copied':              { en: 'Copied !', fr: 'Copié !', pt: 'Copiado!' },
 
     // Project / experience pages
     'detail.about':        { en: 'About', fr: 'À propos', pt: 'Sobre' },
@@ -91,7 +91,7 @@ var UI = {
 
     // 404
     '404.title':           { en: 'Page not found', fr: 'Page introuvable', pt: 'Página não encontrada' },
-    '404.msg':             { en: "This page doesn't exist or may have been moved. Head back and explore my work instead!",
+    '404.msg':             { en: "This page doesn't exist or may have been moved. Head back and explore my work instead !",
                              fr: "Cette page n'existe pas ou a peut-être été déplacée. Revenez plutôt découvrir mes projets !",
                              pt: 'Esta página não existe ou pode ter sido movida. Volte e explore antes o meu trabalho!' },
     '404.back':            { en: 'Back to Portfolio', fr: 'Retour au portfolio', pt: 'Voltar ao portfólio' }

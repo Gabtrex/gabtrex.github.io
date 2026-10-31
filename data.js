@@ -269,7 +269,7 @@ const projects = {
         },
         description: {
             en: `
-            <p>Between mystery and the smell of gasoline, welcome to Monaco. You are a driver and must stay focused on the road, but at the last minute, Yukio, one of the drivers, was found dead by the organizer... A tragedy blending high-speed thrills with intense puzzles, discover a Cluedo-style mystery set around the race! So get on the track and solve the Murder in Monaco!</p>
+            <p>Between mystery and the smell of gasoline, welcome to Monaco. You are a driver and must stay focused on the road, but at the last minute, Yukio, one of the drivers, was found dead by the organizer... A tragedy blending high-speed thrills with intense puzzles, discover a Cluedo-style mystery set around the race ! So get on the track and solve the Murder in Monaco !</p>
             <p>Internal Game Jam, Nov 2025, 48h | Theme : On the Track</p>
             `,
             fr: `
@@ -661,7 +661,7 @@ const experiences = {
                 <li>Maintained and improved existing features according to the factory's operational requirements</li>
                 <li>Worked on a software solution used as part of real-world production and material management processes</li>
             </ul>
-            <p>This was possible thanks to the many workers in the factory who told me what tools would facilitate their lives, and make production more efficient. I was able to implement these tools in the software, and see them used in real life, which was a very rewarding experience!</p>
+            <p>This was possible thanks to the many workers in the factory who told me what tools would facilitate their lives, and make production more efficient. I was able to implement these tools in the software, and see them used in real life, which was a very rewarding experience !</p>
             `,
             fr: `
             <p>Développement et maintenance d'une solution logicielle interne utilisée pour gérer et suivre les opérations quotidiennes de l'usine. L'application couvre tout le flux de production, de la <strong>réception du lait</strong> et la <strong>fabrication du fromage</strong> jusqu'au <strong>stockage</strong>, au <strong>conditionnement</strong> et au <strong>suivi des matières</strong> qui entrent et sortent de l'usine.</p>
