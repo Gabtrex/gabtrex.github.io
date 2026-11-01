@@ -42,6 +42,7 @@ var UI = {
                              pt: 'Programador independente com mais de 4 anos de experiência a criar jogos em Unreal Engine, Unity e não só.' },
     'hero.viewProjects':   { en: 'View Projects', fr: 'Voir les projets', pt: 'Ver projetos' },
     'hero.aboutMe':        { en: 'About Me', fr: 'À propos de moi', pt: 'Sobre mim' },
+    'hero.resume':         { en: 'Resume', fr: 'CV', pt: 'CV' },
     'hero.scroll':         { en: 'Scroll', fr: 'Défiler', pt: 'Deslizar' },
 
     // Index — about
@@ -61,7 +62,7 @@ var UI = {
         fr: "Je suis actuellement étudiant en deuxième année à l'<strong>ISCOD</strong>, où je continue à renforcer mes compétences en développement et à explorer de nouvelles technologies. Ma passion, c'est le <strong>développement de jeux vidéo</strong>, et je suis toujours prêt à relever de nouveaux défis pour créer des expériences captivantes pour les joueurs.",
         pt: "Atualmente sou estudante do segundo ano na <strong>ISCOD</strong>, onde continuo a reforçar as minhas competências de desenvolvimento e a explorar novas tecnologias. A minha paixão é o <strong>desenvolvimento de videojogos</strong> e estou sempre pronto para enfrentar novos desafios e criar experiências envolventes para os jogadores."
     },
-    'about.resume':        { en: 'Resume', fr: 'CV', pt: 'CV' },
+    'about.resume':        { en: 'View my resume', fr: 'Voir mon CV', pt: 'Ver o meu CV' },
 
     // Index — sections
     'skills.title':        { en: 'Skills', fr: 'Compétences', pt: 'Competências' },

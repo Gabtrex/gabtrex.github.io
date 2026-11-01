@@ -323,7 +323,7 @@ const projects = {
 
             <p>Through this project, I gained practical experience with problem solving, system setup, remote access, storage management, and creating tools designed for everyday use.</p>
 
-            <p>The downloadable resumes available on this portfolio are also hosted directly on this server : <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Download Resume</a></p>
+            <p>Older versions of my resume are archived on this server: <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Resume archive</a></p>
             `,
             fr: `
             <p>J'ai créé un serveur <strong>Nextcloud</strong> personnel pour mettre en place un stockage cloud privé, toujours utilisé activement aujourd'hui par ma famille et moi.</p>
@@ -332,7 +332,7 @@ const projects = {
 
             <p>Grâce à ce projet, j'ai acquis une expérience concrète en résolution de problèmes, configuration système, accès à distance, gestion du stockage et création d'outils pensés pour un usage quotidien.</p>
 
-            <p>Les CV téléchargeables sur ce portfolio sont d'ailleurs hébergés directement sur ce serveur : <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Télécharger le CV</a></p>
+            <p>Les anciennes versions de mon CV sont d'ailleurs archivées sur ce serveur : <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Archive des CV</a></p>
             `,
             pt: `
             <p>Criei um servidor <strong>Nextcloud</strong> pessoal para montar um sistema de armazenamento na nuvem privado, que ainda hoje é usado ativamente pela minha família e por mim.</p>
@@ -341,7 +341,7 @@ const projects = {
 
             <p>Com este projeto, ganhei experiência prática em resolução de problemas, configuração de sistemas, acesso remoto, gestão de armazenamento e criação de ferramentas pensadas para o dia a dia.</p>
 
-            <p>Os CVs disponíveis para descarregar neste portfólio também estão alojados diretamente neste servidor: <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Descarregar CV</a></p>
+            <p>As versões anteriores do meu CV também estão arquivadas neste servidor: <a href="https://gabtrex.ddns.net/s/bPfYbPtpX4PjDE2" target="_blank">Arquivo de CVs</a></p>
             `
         },
         playLink: "https://gabtrex.ddns.net/login?redirect_url=/apps/dashboard/",
